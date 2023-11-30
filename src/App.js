@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/shop/:id" element={<Shop />} />
         <Route path="/product/:id" element={<Product />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={user.isAuthenticated ? <Profile /> : <Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/thankyou" element={<ThankYouPage />} />

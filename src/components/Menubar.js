@@ -6,9 +6,6 @@ import { mobile } from "../responsive";
 import { cartItems } from "../data";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthData } from "../auth/AuthWrapper";
-import DropdownMenu from "./ShopMenu";
-import ShopMenu from "./ShopMenu";
-import ProfileMenu from "./ProfileMenu";
 
 const Container = styled.div`
   height: 120px;
@@ -109,7 +106,7 @@ const DrawerContainer = styled.div`
   top: 0;
   left: ${(props) => (props.open ? '0' : '-300px')};
   transition: left 0.3s ease-in-out;
-  z-index: 1;
+  z-index: 100;
   padding-top: 60px; /* Adjust the top padding as needed */
 `;
 
@@ -166,6 +163,41 @@ color: black;
   }
 `;
 
+const DropdownContainer = styled.div`
+  position: relative;
+  display: inline-block;
+`;
+
+const DropdownText = styled.div`
+`;
+
+const DropdownContent = styled.div`
+  display: none;
+  position: absolute;
+  top: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  z-index: 1;
+  width: 100px;
+
+  ${DropdownContainer}:hover & {
+    display: block;
+  }
+`;
+
+const DropdownItem = styled.a`
+  display: block;
+  padding: 10px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #f0f0f0;
+  }
+`;
+
 
 const Menubar = (props) => {
   let [cartCount, setCartCount] = useState(0)
@@ -202,7 +234,11 @@ const Menubar = (props) => {
 
   const handleMenuItemClick = (item) => {
     // Handle menu item click logic (e.g., navigate to a different page)
-    console.log(`Clicked on ${item}`);
+
+    if (item == "logout") {
+      logout()
+      navigate("/")
+    }
   };
 
 
@@ -222,29 +258,22 @@ const Menubar = (props) => {
             <Logo onClick={e => navigateToStaticPage("/")}>LAMA.</Logo>
           </Center>
           <Right>
-            {user.isAuthenticated ?
-              <>
-                <MenuItem onClick={e => navigateToStaticPage("/profile")}>PROFILE</MenuItem>
-                <MenuItem >ORDERS</MenuItem>
-                <MenuItem onClick={logout} >LOGOUT</MenuItem>
-
-                <MenuItem onClick={e => navigateToStaticPage("/cart")}>
-                  <Badge badgeContent={cartCount} color="primary">
-                    <ShoppingCartOutlined />
-                  </Badge>
-                </MenuItem>
-              </> :
-              <>
-
-                {/* <MenuItem onClick={e => navigateToStaticPage("/register")}>REGISTER</MenuItem> */}
-                <MenuItem><ProfileMenu /></MenuItem>
-                {/* <MenuItem onClick={e => navigateToStaticPage("/login?redirect=" + currentPathName)}>SIGN IN</MenuItem> */}
-                <MenuItem onClick={e => navigateToStaticPage("/cart")}>
-                  <Badge badgeContent={cartCount} color="primary">
-                    <ShoppingCartOutlined />
-                  </Badge>
-                </MenuItem>
-              </>}
+            <MenuItem> <DropdownContainer>
+              <DropdownText>PROFILE</DropdownText>
+              {user.isAuthenticated ? <DropdownContent>
+                <DropdownItem onClick={e => navigateToStaticPage("/profile")}>My Account</DropdownItem>
+                <DropdownItem>Orders</DropdownItem>
+                <DropdownItem onClick={logout}>Logout</DropdownItem>
+              </DropdownContent> : <DropdownContent>
+                <DropdownItem onClick={e => navigateToStaticPage("/register")}>Register</DropdownItem>
+                <DropdownItem onClick={e => navigateToStaticPage("/login")}>Login</DropdownItem>
+              </DropdownContent>}
+            </DropdownContainer></MenuItem>
+            <MenuItem onClick={e => navigateToStaticPage("/cart")}>
+              <Badge badgeContent={cartCount} color="primary">
+                <ShoppingCartOutlined />
+              </Badge>
+            </MenuItem>
 
           </Right>
         </Wrapper>
@@ -272,8 +301,14 @@ const Menubar = (props) => {
                   <DrawerMenuItem onClick={() => handleMenuItemClick('Contact')}>Contact</DrawerMenuItem>
                   <br />
                   <hr />
-                  <DrawerMenuItem onClick={() => handleMenuItemClick('Login')}>Login</DrawerMenuItem>
-                  <DrawerMenuItem onClick={() => handleMenuItemClick('Profile')}>Profile</DrawerMenuItem>
+                  {user.isAuthenticated ? <>
+                    <DrawerMenuItem onClick={e => navigateToStaticPage("/profile")}>My Account</DrawerMenuItem>
+                    <DrawerMenuItem>Orders</DrawerMenuItem>
+                    <DrawerMenuItem onClick={logout}>Logout</DrawerMenuItem>
+                  </> : <>
+                    <DrawerMenuItem onClick={e => navigateToStaticPage("/register")}>Register</DrawerMenuItem>
+                    <DrawerMenuItem onClick={e => navigateToStaticPage("/login")}>Login</DrawerMenuItem>
+                  </>}
                 </DrawerMenu>
 
               </DrawerContent>
