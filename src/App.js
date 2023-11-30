@@ -1,15 +1,15 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
-import ProductList from './Pages/ProductList';
 import Product from './Pages/Product';
 import Notfound from './Pages/Notfound';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Cart from './Pages/Cart';
 import { Profile } from './Profile';
-import AuthWrapper, { AuthData } from './auth/AuthWrapper';
+import { AuthData } from './auth/AuthWrapper';
 import Checkout from './Pages/Checkout';
 import ThankYouPage from './Pages/Thankyou';
+import Shop from './Pages/Shop';
 
 function App() {
   const { user } = AuthData();
@@ -17,7 +17,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/shop/:category" element={<ProductList />} />
+        <Route path="/shop/:id" element={<Shop />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

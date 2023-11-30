@@ -7,7 +7,7 @@ import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 import Menubar from '../components/Menubar'
 import Categories from '../components/Categories'
-import { categories } from '../data'
+import { categories, popularProducts } from '../data'
 
 const Home = () => {
 
@@ -17,6 +17,12 @@ const Home = () => {
      */
     const popularCategories = categories
 
+    /**
+     * Fetch popular products
+     */
+
+    const products = popularProducts
+
     return (
         <div>
             <Announcement />
@@ -24,7 +30,7 @@ const Home = () => {
             <Menubar />
             <Slider />
             <Categories categories={popularCategories} />
-            <Products />
+            <Products products={products} />
             <Newsletter />
             <Footer />
         </div>
