@@ -7,27 +7,12 @@ import { cartItems } from "../data";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthData } from "../auth/AuthWrapper";
 
-const Container = styled.div`
-  height: 120px;
-  padding: 0px;
-  display: flex;
-  flex-direction: column;
-  ${mobile({ display: "none", flexDirection: "column", height: "70px" })}
-`;
 
 const MobileContainer = styled.div`
   height: 50px;
   padding: 20px;
   display: none;
   ${mobile({ display: "flex", flexDirection: "column", height: "70px" })}
-`;
-
-const Wrapper = styled.div`
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  ${mobile({ display: "none", padding: "10px 0px" })}
 `;
 
 const MobileWrapper = styled.div`
@@ -42,22 +27,6 @@ const Left = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-`;
-
-const Language = styled.span`
-  font-size: 14px;
-  cursor: pointer;
-  ${mobile({ display: "none" })}
-`;
-
-const SearchContainer = styled.div`
-  border: 0.5px solid lightgray;
-  display: flex;
-  align-items: center;
-  margin-left: 25px;
-  padding: 5px;
-  ${mobile({ display: "none" })}
-
 `;
 
 const MobileSearchContainer = styled.div`
@@ -142,62 +111,6 @@ const DrawerMenuItem = styled.li`
   }
 `;
 
-const MenuBarContainer = styled.div`
-background-color: #fff;
-padding: 0px;
-display: flex;
-justify-content: flex-start;
-align-items: center;
-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-`;
-
-const MenubarItem = styled.div`
-color: black;
-  padding: 20px;
-  height: 100%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  &:hover {
-    background-color: #337f80;
-    color: #ffffff;
-  }
-`;
-
-const DropdownContainer = styled.div`
-  position: relative;
-  display: inline-block;
-`;
-
-const DropdownText = styled.div`
-`;
-
-const DropdownContent = styled.div`
-  display: none;
-  position: absolute;
-  top: 100%;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  z-index: 1;
-  width: 100px;
-
-  ${DropdownContainer}:hover & {
-    display: block;
-  }
-`;
-
-const DropdownItem = styled.a`
-  display: block;
-  padding: 10px;
-  color: #333;
-  text-decoration: none;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
-`;
-
 
 const NavbarMobile = (props) => {
   let [cartCount, setCartCount] = useState(0)
@@ -224,22 +137,10 @@ const NavbarMobile = (props) => {
     setCartCount(cartItems.length)
   }
 
-  const navigateToStaticPage = (page) => {
-    navigate(page)
-  }
-
   const toggleDrawer = () => {
     setDrawerOpen(!drawerOpen);
   };
 
-  const handleMenuItemClick = (item) => {
-    // Handle menu item click logic (e.g., navigate to a different page)
-
-    if (item == "logout") {
-      logout()
-      navigate("/")
-    }
-  };
 
   const menuItems = [
     {
@@ -264,7 +165,6 @@ const NavbarMobile = (props) => {
 
   return (
     <>
-
       <MobileContainer>
 
         <MobileWrapper>
@@ -273,17 +173,15 @@ const NavbarMobile = (props) => {
               <DrawerContent>
                 <DrawerCloseButton onClick={toggleDrawer}>Close</DrawerCloseButton>
                 <DrawerMenu>
-                  {menuItems.map((menuItem)=>(
-                    <DrawerMenuItem onClick={e=> navigate( menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>
-                  ))}
+                  {menuItems.map((menuItem)=>(<DrawerMenuItem onClick={e=> navigate( menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>))}
 
                   {user.isAuthenticated ? <>
-                    <DrawerMenuItem onClick={e => navigateToStaticPage("/profile")}>My Account</DrawerMenuItem>
+                    <DrawerMenuItem onClick={e => navigate("/profile")}>My Account</DrawerMenuItem>
                     <DrawerMenuItem>Orders</DrawerMenuItem>
                     <DrawerMenuItem onClick={logout}>Logout</DrawerMenuItem>
                   </> : <>
-                    <DrawerMenuItem onClick={e => navigateToStaticPage("/register")}>Register</DrawerMenuItem>
-                    <DrawerMenuItem onClick={e => navigateToStaticPage("/login")}>Login</DrawerMenuItem>
+                    <DrawerMenuItem onClick={e => navigate("/register")}>Register</DrawerMenuItem>
+                    <DrawerMenuItem onClick={e => navigate("/login?redirect=" + currentPathName)}>Login</DrawerMenuItem>
                   </>} 
                 </DrawerMenu>
 
@@ -293,15 +191,14 @@ const NavbarMobile = (props) => {
 
           </Left>
           <Center>
-            <Logo onClick={e => navigateToStaticPage("/")}>LAMA.</Logo>
+            <Logo onClick={e => navigate("/")}>LAMA.</Logo>
           </Center>
           <Right>
-            <MenuItem onClick={e => navigateToStaticPage("/cart")}>
+            <MenuItem onClick={e => navigate("/cart")}>
               <Badge badgeContent={cartCount} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
             </MenuItem>
-
           </Right>
 
         </MobileWrapper>
@@ -310,7 +207,6 @@ const NavbarMobile = (props) => {
           <Search style={{ color: "gray", fontSize: 16 }} />
         </MobileSearchContainer>
       </MobileContainer>
-
     </>
   );
 };

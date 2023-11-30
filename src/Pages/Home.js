@@ -27,7 +27,7 @@ const Home = () => {
     return (
         <div>
             <Announcement />
-            <Navbar  />
+            <NavbarMobile  />
             {/* <Menubar /> */}
             <Slider />
             <Categories categories={popularCategories} />
