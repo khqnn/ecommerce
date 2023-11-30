@@ -2,7 +2,7 @@ import React from 'react'
 import Announcement from './Announcement'
 import styled from 'styled-components'
 import Navbar from './Navbar'
-import { mobile } from '../responsive'
+import { mobile } from '../../responsive'
 import NavbarMobile from './NavbarMobile'
 
 const Container = styled.div`

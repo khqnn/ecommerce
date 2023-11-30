@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import Navbar from "../components/Navbar";
-import Announcement from "../components/Announcement";
+import Navbar from "../components/Header/Navbar";
+import Announcement from "../components/Header/Announcement";
 import Products from "../components/Products";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
@@ -9,6 +9,7 @@ import { useParams } from 'react-router';
 import { categories, popularProducts } from "../data";
 import Menubar from "../components/Menubar";
 import { useState } from "react";
+import Header from "../components/Header";
 
 const Container = styled.div``;
 
@@ -74,9 +75,8 @@ const Shop = () => {
 
   return (
     <>
-      <Announcement />
-      {/* <Navbar /> */}
-      <Menubar />
+    
+      <Header/>
 
       <Container>
 

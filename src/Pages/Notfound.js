@@ -1,6 +1,4 @@
-import Announcement from "../components/Announcement";
 import Footer from "../components/Footer"
-import Navbar from "../components/Navbar"
 import Newsletter from "../components/Newsletter"
 import styled from "styled-components";
 
@@ -24,9 +22,6 @@ margin-bottom: 100px;
 const Notfound = () => {
     return (
         <Container>
-
-            <Navbar />
-            <Announcement/>
             <Wrapper>
                 <NotFound>Not found</NotFound>
 

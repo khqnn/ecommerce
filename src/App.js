@@ -5,7 +5,7 @@ import Notfound from './Pages/Notfound';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 import Cart from './Pages/Cart';
-import { Profile } from './Profile';
+import { Profile } from '../src/Pages/Profile';
 import { AuthData } from './auth/AuthWrapper';
 import Checkout from './Pages/Checkout';
 import ThankYouPage from './Pages/Thankyou';

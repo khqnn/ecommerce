@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from '../components/Navbar';
-import Announcement from '../components/Announcement';
 import Footer from '../components/Footer';
 
 const ThankYouContainer = styled.div`
@@ -41,8 +39,6 @@ const BackToHomeLink = styled.a`
 const ThankYouPage = () => {
     return (
         <>
-            <Navbar />
-            <Announcement />
             <ThankYouContainer>
                 <ThankYouHeading>Thank You!</ThankYouHeading>
                 <ThankYouMessage>Your order has been successfully placed.</ThankYouMessage>
