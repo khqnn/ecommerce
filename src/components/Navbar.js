@@ -154,25 +154,7 @@ const Navbar = (props) => {
     setCartCount(cartItems.length)
   }
 
-
-  const menuItems = [
-    {
-      "title": "Home",
-      "path": "/",
-    },
-    {
-      "title": "Categories",
-      "path": "/categories",
-    },
-    {
-      "title": "About",
-      "path": "/about",
-    },
-    {
-      "title": "Contact",
-      "path": "/contact",
-    },
-  ]
+  const menuItems = props.menuItems? props.menuItems : []
 
 
   return (

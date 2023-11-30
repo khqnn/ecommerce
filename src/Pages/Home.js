@@ -9,6 +9,7 @@ import Categories from '../components/Categories'
 import { categories, popularProducts } from '../data'
 import NavbarMobile from '../components/NavbarMobile'
 import Navbar from '../components/Navbar'
+import Header from '../components/Header'
 
 const Home = () => {
 
@@ -26,8 +27,9 @@ const Home = () => {
 
     return (
         <div>
-            <Announcement />
-            <NavbarMobile  />
+            <Header/>
+            {/* <Announcement />
+            <NavbarMobile  /> */}
             {/* <Menubar /> */}
             <Slider />
             <Categories categories={popularCategories} />
