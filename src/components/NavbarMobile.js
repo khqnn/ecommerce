@@ -199,7 +199,7 @@ const DropdownItem = styled.a`
 `;
 
 
-const Navbar = (props) => {
+const NavbarMobile = (props) => {
   let [cartCount, setCartCount] = useState(0)
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -261,53 +261,58 @@ const Navbar = (props) => {
   ]
 
 
+
   return (
     <>
 
-      <Container>
-        <Wrapper>
+      <MobileContainer>
+
+        <MobileWrapper>
           <Left>
-            <Language>EN</Language>
-            <SearchContainer>
-              <Input placeholder="Search" />
-              <Search style={{ color: "gray", fontSize: 16 }} />
-            </SearchContainer>
+            <DrawerContainer open={drawerOpen}>
+              <DrawerContent>
+                <DrawerCloseButton onClick={toggleDrawer}>Close</DrawerCloseButton>
+                <DrawerMenu>
+                  {menuItems.map((menuItem)=>(
+                    <DrawerMenuItem onClick={e=> navigate( menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>
+                  ))}
+
+                  {user.isAuthenticated ? <>
+                    <DrawerMenuItem onClick={e => navigateToStaticPage("/profile")}>My Account</DrawerMenuItem>
+                    <DrawerMenuItem>Orders</DrawerMenuItem>
+                    <DrawerMenuItem onClick={logout}>Logout</DrawerMenuItem>
+                  </> : <>
+                    <DrawerMenuItem onClick={e => navigateToStaticPage("/register")}>Register</DrawerMenuItem>
+                    <DrawerMenuItem onClick={e => navigateToStaticPage("/login")}>Login</DrawerMenuItem>
+                  </>} 
+                </DrawerMenu>
+
+              </DrawerContent>
+            </DrawerContainer>
+            <DrawerToggleBtn onClick={toggleDrawer}>MENU</DrawerToggleBtn>
+
           </Left>
           <Center>
             <Logo onClick={e => navigateToStaticPage("/")}>LAMA.</Logo>
           </Center>
           <Right>
-            <MenuItem> <DropdownContainer>
-              <DropdownText>PROFILE</DropdownText>
-              {user.isAuthenticated ? <DropdownContent>
-                <DropdownItem onClick={e => navigate("/profile")}>My Account</DropdownItem>
-                <DropdownItem>Orders</DropdownItem>
-                <DropdownItem onClick={logout}>Logout</DropdownItem>
-              </DropdownContent> : <DropdownContent>
-                <DropdownItem onClick={e => navigate("/register")}>Register</DropdownItem>
-                <DropdownItem onClick={e => navigate("/login")}>Login</DropdownItem>
-              </DropdownContent>}
-            </DropdownContainer></MenuItem>
-            <MenuItem onClick={e => navigate("/cart")}>
+            <MenuItem onClick={e => navigateToStaticPage("/cart")}>
               <Badge badgeContent={cartCount} color="primary">
                 <ShoppingCartOutlined />
               </Badge>
             </MenuItem>
 
           </Right>
-        </Wrapper>
-        <div>
-          <MenuBarContainer>
-            {menuItems.map((menuItem) => (
-              <MenubarItem onClick={e => navigate(menuItem['path'])}>{menuItem['title']}</MenubarItem>
-            ))}
-          </MenuBarContainer>
-        </div>
-      </Container>
 
+        </MobileWrapper>
+        <MobileSearchContainer>
+          <Input placeholder="Search" />
+          <Search style={{ color: "gray", fontSize: 16 }} />
+        </MobileSearchContainer>
+      </MobileContainer>
 
     </>
   );
 };
 
-export default Navbar;
+export default NavbarMobile;
