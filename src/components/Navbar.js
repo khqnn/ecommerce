@@ -1,0 +1,145 @@
+import { Badge } from "@material-ui/core";
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import React, { useState } from "react";
+import styled from "styled-components";
+import { mobile } from "../responsive";
+import { cartItems } from "../data";
+import { useLocation, useNavigate } from "react-router-dom";
+import { AuthData } from "../auth/AuthWrapper";
+import DropdownMenu from "./ShopMenu";
+import ShopMenu from "./ShopMenu";
+
+const Container = styled.div`
+  height: 60px;
+  ${mobile({ height: "50px" })}
+`;
+
+const Wrapper = styled.div`
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ${mobile({ padding: "10px 0px" })}
+`;
+
+const Left = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+`;
+
+const Language = styled.span`
+  font-size: 14px;
+  cursor: pointer;
+  ${mobile({ display: "none" })}
+`;
+
+const SearchContainer = styled.div`
+  border: 0.5px solid lightgray;
+  display: flex;
+  align-items: center;
+  margin-left: 25px;
+  padding: 5px;
+`;
+
+const Input = styled.input`
+  border: none;
+  ${mobile({ width: "50px" })}
+`;
+
+const Center = styled.div`
+  flex: 1;
+  text-align: center;
+`;
+
+const Logo = styled.h1`
+  font-weight: bold;
+  ${mobile({ fontSize: "24px" })}
+`;
+const Right = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  ${mobile({ flex: 2, justifyContent: "center" })}
+`;
+
+const MenuItem = styled.div`
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 25px;
+  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
+`;
+
+const Navbar = (props) => {
+  let [cartCount, setCartCount] = useState(0)
+
+  const { user, logout } = AuthData()
+
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const currentPath = location.pathname
+  const currentPathName = currentPath.substring(1, currentPath.length)
+
+
+  if (props.setCartCount) {
+    cartCount = props.cartCount
+    setCartCount = props.setCartCount
+  }
+
+  if (cartCount == 0 && setCartCount) {
+    // load cart from local storage or cookies
+    setCartCount(cartItems.length)
+  }
+
+  const navigateToStaticPage = (page) => {
+    navigate(page)
+  }
+
+
+  return (
+    <Container>
+      <Wrapper>
+        <Left>
+          <Language>EN</Language>
+          <SearchContainer>
+            <Input placeholder="Search" />
+            <Search style={{ color: "gray", fontSize: 16 }} />
+          </SearchContainer>
+        </Left>
+        <Center>
+          <Logo onClick={e => navigateToStaticPage("/")}>LAMA.</Logo>
+        </Center>
+        <Right>
+          {user.isAuthenticated ?
+            <>
+              <MenuItem onClick={e => navigateToStaticPage("/profile")}>PROFILE</MenuItem>
+              <MenuItem >ORDERS</MenuItem>
+              <MenuItem onClick={logout} >LOGOUT</MenuItem>
+
+              <MenuItem onClick={e => navigateToStaticPage("/cart")}>
+                <Badge badgeContent={cartCount} color="primary">
+                  <ShoppingCartOutlined />
+                </Badge>
+              </MenuItem>
+            </> :
+            <>
+              <MenuItem><ShopMenu /></MenuItem>
+
+              {/* <MenuItem onClick={e => navigateToStaticPage("/register")}>REGISTER</MenuItem> */}
+              <MenuItem onClick={e => navigateToStaticPage("/login?redirect=" + currentPathName)}>SIGN IN</MenuItem>
+              <MenuItem onClick={e => navigateToStaticPage("/cart")}>
+                <Badge badgeContent={cartCount} color="primary">
+                  <ShoppingCartOutlined />
+                </Badge>
+              </MenuItem>
+            </>}
+
+        </Right>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Navbar;

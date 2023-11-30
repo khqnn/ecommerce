@@ -1,0 +1,25 @@
+import styled from "styled-components";
+import { mobile } from "../responsive";
+import PopularCategoryItem from "./PopularCategoryItem";
+
+const Container = styled.div`
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  ${mobile({ padding: "0px", flexDirection:"column" })}
+
+`;
+
+const PopularCategories = ({categories}) => {
+
+
+  return (
+    <Container>
+      {categories.map((item) => (
+        <PopularCategoryItem item={item} key={item.id} />
+      ))}
+    </Container>
+  );
+};
+
+export default PopularCategories;
