@@ -6,21 +6,27 @@ import Products from '../components/Products'
 import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 import Menubar from '../components/Menubar'
-import PopularCategories from '../components/PopularCategories'
-import PopularCategoriesRendered from '../components/PopularCategoriesRendered'
+import Categories from '../components/Categories'
+import { categories } from '../data'
 
 const Home = () => {
 
+
+    /**
+     * Fetch popular categories
+     */
+    const popularCategories = categories
+
     return (
         <div>
-            <Announcement/>
+            <Announcement />
             {/* <Navbar  /> */}
-            <Menubar/>
-            <Slider/>
-            <PopularCategoriesRendered/>
-            <Products/>
-            <Newsletter/>
-            <Footer/>
+            <Menubar />
+            <Slider />
+            <Categories categories={popularCategories} />
+            <Products />
+            <Newsletter />
+            <Footer />
         </div>
     )
 }

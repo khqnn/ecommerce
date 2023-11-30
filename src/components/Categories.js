@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import PopularCategoryItem from "./PopularCategoryItem";
+import CategoryItem from "./CategoryItem";
 
 const Container = styled.div`
   display: flex;
@@ -10,16 +10,16 @@ const Container = styled.div`
 
 `;
 
-const PopularCategories = ({categories}) => {
+const Categories = ({categories}) => {
 
 
   return (
     <Container>
       {categories.map((item) => (
-        <PopularCategoryItem item={item} key={item.id} />
+        <CategoryItem item={item} key={item.id} />
       ))}
     </Container>
   );
 };
 
-export default PopularCategories;
+export default Categories;

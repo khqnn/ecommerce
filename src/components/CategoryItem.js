@@ -45,7 +45,7 @@ const Button = styled.button`
 
 
 
-const PopularCategoryItem = ({ item }) => {
+const CategoryItem = ({ item }) => {
 
     /**
      * Parse category item and display
@@ -66,4 +66,4 @@ const PopularCategoryItem = ({ item }) => {
   );
 };
 
-export default PopularCategoryItem;
+export default CategoryItem;
