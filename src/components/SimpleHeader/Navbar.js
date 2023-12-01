@@ -80,7 +80,7 @@ const MenuBarContainer = styled.div`
 `;
 
 const MenubarItem = styled.div`
-color: black;
+  color: black;
   padding: 20px;
   height: 100%;
   cursor: pointer;
@@ -91,13 +91,29 @@ color: black;
   }
 `;
 
+
+const DropdownText = styled.div`
+`;
+
 const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;
 `;
 
-const DropdownText = styled.div`
-`;
+
+const DropdownMenuItemContainer = styled.div`
+  position: relative;
+  display: inline-block;
+  color: black;
+  padding: 20px;
+  height: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: #337f80;
+    color: #ffffff;
+  }
+`
 
 const DropdownContent = styled.div`
   display: none;
@@ -107,10 +123,16 @@ const DropdownContent = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   z-index: 1;
-  width: 100px;
 
   ${DropdownContainer}:hover & {
     display: block;
+  }
+
+  ${DropdownMenuItemContainer}:hover & {
+    display: block;
+    width: 200px;
+    margin-left: -20px;
+
   }
 `;
 
@@ -125,6 +147,8 @@ const DropdownItem = styled.a`
     background-color: #f0f0f0;
   }
 `;
+
+
 
 
 const Navbar = (props) => {
@@ -150,7 +174,7 @@ const Navbar = (props) => {
   }
 
   const menuItems = props.menuItems ? props.menuItems : []
-  const logo = props.logo ? <ImageLogo src={props.logo} onClick={e=> navigate("/")} /> : <TextLogo onClick={e=> navigate("/")}> "LOGO."</TextLogo>
+  const logo = props.logo ? <ImageLogo src={props.logo} onClick={e => navigate("/")} /> : <TextLogo onClick={e => navigate("/")}> "LOGO."</TextLogo>
 
 
 
@@ -195,7 +219,18 @@ const Navbar = (props) => {
         </Wrapper>
         <div>
           <MenuBarContainer>
-            {menuItems.map((menuItem) => (<MenubarItem onClick={e => navigate(menuItem['path'])}>{menuItem['title']}</MenubarItem>))}
+            {menuItems.map((menuItem) => (<div>
+              {(menuItem['categories'] && menuItem['categories'].length > 0) ? (
+                <DropdownMenuItemContainer>
+                  <DropdownText>{menuItem['title']}</DropdownText>
+                  <DropdownContent>
+                    {menuItem['categories'].map((category) => (<DropdownItem onClick={e=> navigate(category['path'])}>{category['title']}</DropdownItem>))}
+                  </DropdownContent>
+                </DropdownMenuItemContainer>
+              ) : (
+                <MenubarItem onClick={e=> navigate(menuItem['path'])}>{menuItem['title']}</MenubarItem>
+              )}
+            </div>))}
           </MenuBarContainer>
         </div>
       </Container>
