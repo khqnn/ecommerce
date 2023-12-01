@@ -69,20 +69,21 @@ const MenuItem = styled.div`
 `;
 
 const DrawerContainer = styled.div`
-  width: 250px;
+  width: 260px;
   height: 100%;
   background-color: #fff;
   color: white;
   position: fixed;
+  overflow: auto;
   top: 0;
   left: ${(props) => (props.open ? '0' : '-300px')};
   transition: left 0.3s ease-in-out;
   z-index: 100;
-  padding-top: 60px; /* Adjust the top padding as needed */
 `;
 
 const DrawerContent = styled.div`
   padding: 0px;
+  padding-top: 50px;
 `;
 
 const DrawerCloseButton = styled.div`
@@ -105,8 +106,24 @@ const DrawerMenu = styled.ul`
 
 const DrawerMenuItem = styled.li`
   color: black;
-  padding-left: 20px;
-  padding-top: 20px;
+  padding: 20px;
+  cursor: pointer;
+  &:hover {
+    background-color: #337f80;
+    color: #ffffff;
+  }
+`;
+
+const DrawerMenuItemStatic = styled.li`
+  color: black;
+  padding: 20px;
+  cursor: pointer;
+`;
+
+const DrawerMenuItemChild = styled.li`
+  color: black;
+  padding: 20px;
+  padding-left: 30px;
   cursor: pointer;
   &:hover {
     background-color: #337f80;
@@ -145,7 +162,7 @@ const NavbarMobile = (props) => {
   };
 
 
-  const logo = props.logo ? <ImageLogo src={props.logo} onClick={e=> navigate("/")} /> : <TextLogo onClick={e=> navigate("/")}>LOGO.</TextLogo>
+  const logo = props.logo ? <ImageLogo src={props.logo} onClick={e => navigate("/")} /> : <TextLogo onClick={e => navigate("/")}>LOGO.</TextLogo>
   const menuItems = props.menuItems ? props.menuItems : []
 
   return (
@@ -158,7 +175,20 @@ const NavbarMobile = (props) => {
               <DrawerContent>
                 <DrawerCloseButton onClick={toggleDrawer}>Close</DrawerCloseButton>
                 <DrawerMenu>
-                  {menuItems.map((menuItem) => (<DrawerMenuItem onClick={e => navigate(menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>))}
+                  {menuItems.map((menuItem) => (
+                    <>
+                      {(menuItem['categories'] && menuItem['categories'].length > 0) ? (
+                        <>
+                          <DrawerMenuItemStatic> {menuItem['title']}</DrawerMenuItemStatic>
+                          {menuItem['categories'].map((category)=>(
+                            <DrawerMenuItemChild onClick={e => navigate(category['path'])}>{category['title']}</DrawerMenuItemChild>
+                          ))}
+                        </>
+                      ) : (
+                        <DrawerMenuItem onClick={e => navigate(menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>
+                      )}
+                    </>
+                  ))}
 
                   {user.isAuthenticated ? <>
                     <DrawerMenuItem onClick={e => navigate("/profile")}>My Account</DrawerMenuItem>
@@ -167,6 +197,7 @@ const NavbarMobile = (props) => {
                   </> : <>
                     <DrawerMenuItem onClick={e => navigate("/register")}>Register</DrawerMenuItem>
                     <DrawerMenuItem onClick={e => navigate("/login?redirect=" + currentPathName)}>Login</DrawerMenuItem>
+
                   </>}
                 </DrawerMenu>
 
