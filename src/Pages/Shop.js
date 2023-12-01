@@ -1,13 +1,10 @@
 import styled from "styled-components";
-import Navbar from "../components/Header/Navbar";
-import Announcement from "../components/Header/Announcement";
 import Products from "../components/Products";
 import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { mobile } from "../responsive";
 import { useParams } from 'react-router';
 import { categories, popularProducts } from "../data";
-import Menubar from "../components/Menubar";
 import { useState } from "react";
 import Header from "../components/Header";
 
@@ -51,7 +48,7 @@ const Shop = () => {
    * Query category details using category slug
    */
 
-  const categoryDetails = categories.find(cat => cat.slug == id)
+  const categoryDetails = categories.find(cat => cat.slug === id)
   const categoryName = categoryDetails.title
   const productFilters = categoryDetails.filters
 
@@ -84,7 +81,7 @@ const Shop = () => {
         <FilterContainer>
           <Filter>
             <FilterText>Filter Products:</FilterText>
-            {productFilters != undefined && productFilters.length > 0 && productFilters.map((productFilter) => (
+            {productFilters !== undefined && productFilters.length > 0 && productFilters.map((productFilter) => (
               <Select  onChange={e=> handleChangeFilter(e)}>
                 <Option disabled selected>
                   {productFilter.name}

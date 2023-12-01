@@ -9,18 +9,18 @@ import { AuthData } from "../../auth/AuthWrapper";
 
 
 const MobileContainer = styled.div`
-  height: 50px;
+  height: fit-content;
   padding: 20px;
-  display: none;
-  ${mobile({ display: "flex", flexDirection: "column", height: "70px" })}
+  display: flex;
+  flex-direction: column;
+
 `;
 
 const MobileWrapper = styled.div`
-padding: 10px 20px;
-display: none;
-align-items: center;
-justify-content: space-between;
-${mobile({ display: "flex", padding: "10px 0px" })}
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 const Left = styled.div`
@@ -31,15 +31,14 @@ const Left = styled.div`
 
 const MobileSearchContainer = styled.div`
   border: 0.5px solid lightgray;
-  display: none;
+  display: flex;
   align-items: center;
   padding: 5px;
-  ${mobile({ display: "flex" })}
 `;
 
 const Input = styled.input`
   border: none;
-  ${mobile({ width: "50px" })}
+  width: 100%;
 `;
 
 const Center = styled.div`
@@ -47,10 +46,15 @@ const Center = styled.div`
   text-align: center;
 `;
 
-const Logo = styled.h1`
+const TextLogo = styled.h1`
   font-weight: bold;
-  ${mobile({ fontSize: "24px" })}
+  font-size: 24px;
 `;
+
+const ImageLogo = styled.img`
+  height: 50px;
+`
+
 const Right = styled.div`
   flex: 1;
   display: flex;
@@ -60,14 +64,13 @@ const Right = styled.div`
 `;
 
 const MenuItem = styled.div`
-  font-size: 14px;
+  font-size: 12px;
   cursor: pointer;
-  margin-left: 25px;
-  ${mobile({ fontSize: "12px", marginLeft: "10px" })}
+  margin-left: 10px;
 `;
 
 const DrawerContainer = styled.div`
-  width: 300px;
+  width: 250px;
   height: 100%;
   background-color: #fff;
   color: white;
@@ -103,7 +106,8 @@ const DrawerMenu = styled.ul`
 
 const DrawerMenuItem = styled.li`
   color: black;
-  padding: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
   cursor: pointer;
   &:hover {
     background-color: #337f80;
@@ -132,7 +136,7 @@ const NavbarMobile = (props) => {
     setCartCount = props.setCartCount
   }
 
-  if (cartCount == 0 && setCartCount) {
+  if (cartCount === 0 && setCartCount) {
     // load cart from local storage or cookies
     setCartCount(cartItems.length)
   }
@@ -142,7 +146,8 @@ const NavbarMobile = (props) => {
   };
 
 
-  const menuItems = props.menuItems? props.menuItems : []
+  const logo = props.logo ? <ImageLogo src={props.logo} /> : <TextLogo>LOGO.</TextLogo>
+  const menuItems = props.menuItems ? props.menuItems : []
 
   return (
     <>
@@ -154,7 +159,7 @@ const NavbarMobile = (props) => {
               <DrawerContent>
                 <DrawerCloseButton onClick={toggleDrawer}>Close</DrawerCloseButton>
                 <DrawerMenu>
-                  {menuItems.map((menuItem)=>(<DrawerMenuItem onClick={e=> navigate( menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>))}
+                  {menuItems.map((menuItem) => (<DrawerMenuItem onClick={e => navigate(menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>))}
 
                   {user.isAuthenticated ? <>
                     <DrawerMenuItem onClick={e => navigate("/profile")}>My Account</DrawerMenuItem>
@@ -163,7 +168,7 @@ const NavbarMobile = (props) => {
                   </> : <>
                     <DrawerMenuItem onClick={e => navigate("/register")}>Register</DrawerMenuItem>
                     <DrawerMenuItem onClick={e => navigate("/login?redirect=" + currentPathName)}>Login</DrawerMenuItem>
-                  </>} 
+                  </>}
                 </DrawerMenu>
 
               </DrawerContent>
@@ -171,9 +176,7 @@ const NavbarMobile = (props) => {
             <DrawerToggleBtn onClick={toggleDrawer}>MENU</DrawerToggleBtn>
 
           </Left>
-          <Center>
-            <Logo onClick={e => navigate("/")}>LAMA.</Logo>
-          </Center>
+          <Center> {logo} </Center>
           <Right>
             <MenuItem onClick={e => navigate("/cart")}>
               <Badge badgeContent={cartCount} color="primary">

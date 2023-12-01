@@ -23,36 +23,23 @@ display: none;
 ${mobile({ display: "flex", flexDirection: "column" })}
 `
 
-const Header = () => {
 
-    const menuItems = [
-        {
-            "title": "Home",
-            "path": "/",
-        },
-        {
-            "title": "Categories",
-            "path": "/categories",
-        },
-        {
-            "title": "About",
-            "path": "/about",
-        },
-        {
-            "title": "Contact",
-            "path": "/contact",
-        },
-    ]
 
+const SimpleHeader = (props) => {
+
+    const logo = props.logo
+    const menuItems = props.menuItems
+    const announcementText = props.announcementText
+      
     return (
         <Container>
-            <Announcement />
+            <Announcement text={announcementText} />
             <NavbarContainer>
                 <FullNavbarContainer>
-                    <Navbar menuItems={menuItems} />
+                    <Navbar menuItems={menuItems} logo={logo} />
                 </FullNavbarContainer>
                 <MobileNavbarContainer>
-                    <NavbarMobile menuItems={menuItems} />
+                    <NavbarMobile menuItems={menuItems} logo={logo} />
                 </MobileNavbarContainer>
             </NavbarContainer>
 
@@ -60,4 +47,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default SimpleHeader

@@ -11,8 +11,8 @@ const Container = styled.div`
   font-weight: 500;
 `;
 
-const Announcement = () => {
-  return <Container>Super Deal! Free Shipping on Orders Over $50</Container>;
+const Announcement = ({text}) => {
+  return <Container>{text}</Container>;
 };
 
 export default Announcement;
