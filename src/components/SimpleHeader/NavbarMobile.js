@@ -2,7 +2,6 @@ import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { mobile } from "../../responsive";
 import { cartItems } from "../../data";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthData } from "../../auth/AuthWrapper";
@@ -146,7 +145,7 @@ const NavbarMobile = (props) => {
   };
 
 
-  const logo = props.logo ? <ImageLogo src={props.logo} /> : <TextLogo>LOGO.</TextLogo>
+  const logo = props.logo ? <ImageLogo src={props.logo} onClick={e=> navigate("/")} /> : <TextLogo onClick={e=> navigate("/")}>LOGO.</TextLogo>
   const menuItems = props.menuItems ? props.menuItems : []
 
   return (

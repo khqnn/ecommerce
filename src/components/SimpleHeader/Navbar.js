@@ -144,13 +144,13 @@ const Navbar = (props) => {
     setCartCount = props.setCartCount
   }
 
-  if (cartCount == 0 && setCartCount) {
+  if (cartCount === 0 && setCartCount) {
     // load cart from local storage or cookies
     setCartCount(cartItems.length)
   }
 
   const menuItems = props.menuItems ? props.menuItems : []
-  const logo = props.logo ? <ImageLogo src={props.logo} /> : <TextLogo> "LOGO."</TextLogo>
+  const logo = props.logo ? <ImageLogo src={props.logo} onClick={e=> navigate("/")} /> : <TextLogo onClick={e=> navigate("/")}> "LOGO."</TextLogo>
 
 
 
