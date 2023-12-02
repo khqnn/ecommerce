@@ -42,7 +42,7 @@ const SimpleHeader = (props) => {
                     <Navbar menuItems={menuItems} logo={logo} themeColor={themeColor} />
                 </FullNavbarContainer>
                 <MobileNavbarContainer>
-                    <NavbarMobile menuItems={menuItems} logo={logo} />
+                    <NavbarMobile menuItems={menuItems} logo={logo} themeColor={themeColor} />
                 </MobileNavbarContainer>
             </NavbarContainer>
 

@@ -11,14 +11,14 @@ const Header = () => {
             "menu_items": [{ "title": "Home", "path": "/" }, { "title": "Men", "path": null, "categories": [{ "title": "Top Wear", "path": "/shop/men-top-wear" }, { "title": "Accessories", "path": "/shop/men-accessories" }, { "title": "Jackets", "path": "/shop/jackets" }] }, { "title": "Women", "path": null, "categories": [{ "title": "Top Wear", "path": "/shop/women-top-wears" }, { "title": "Accessories", "path": "/shop/women-accessories" }, { "title": "Under Garments", "path": "/shop/women-under-garments" }] }, { "title": "Childer", "path": "/shop/childern" }, { "title": "Glasses", "path": "/shop/glasses" }, { "title": "Scarfs", "path": "/shop/scarfs" }],
             "announcement_background": "red",
             "theme_color": {
-                "color_primary": "#ececec",
-                "color_secondary": "#874726",
-                "color_accent": "#819db6",
-                "text_color_primary": "#8e8e8e",
+                "color_primary": "white",
+                "color_secondary": "red",
+                "color_accent": "teal",
+                "text_color_primary": "black",
                 "text_color_secondary": "white",
-                "text_color_accent": "#f6ffff",
-                "hover_background": "teal",
-                "hover_text": "white"
+                "text_color_accent": "white",
+                "hover_background_color": "gray",
+                "hover_text_color": "white"
             }
         },
         {
@@ -30,19 +30,17 @@ const Header = () => {
                 "color_primary": "#fff",
                 "color_secondary": "#fcfcfc",
                 "color_accent": "teal",
-
                 "text_color_primary": "black",
                 "text_color_secondary": "black",
                 "text_color_accent": "white",
-
-                "hover_background": "teal",
-                "hover_text": "white"
+                "hover_background_color": "teal",
+                "hover_text_color": "white"
             }
 
         }
     ]
 
-    const businessInfo = businesses[0]
+    const businessInfo = businesses[1]
 
     return (
         <SimpleHeader

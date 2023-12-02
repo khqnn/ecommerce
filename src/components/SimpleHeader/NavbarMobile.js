@@ -13,6 +13,8 @@ const MobileContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  background-color: ${props=>props.backgroundColor};
+  color: ${props=>props.textColor};
 `;
 
 const MobileWrapper = styled.div`
@@ -20,6 +22,7 @@ const MobileWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 `;
 
 const Left = styled.div`
@@ -34,6 +37,7 @@ const MobileSearchContainer = styled.div`
   align-items: center;
   padding: 5px;
   height: 25px;
+  background-color: white;
 `;
 
 const Input = styled.input`
@@ -73,8 +77,8 @@ const MenuItem = styled.div`
 const DrawerContainer = styled.div`
   width: 260px;
   height: 100%;
-  background-color: #fff;
-  color: white;
+  background-color: ${props=>props.backgroundColor};
+  color: ${props=>props.textColor};
   position: fixed;
   overflow: auto;
   top: 0;
@@ -89,7 +93,6 @@ const DrawerContent = styled.div`
 `;
 
 const DrawerCloseButton = styled.div`
-  color: black;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -107,7 +110,6 @@ const DrawerMenu = styled.ul`
 `;
 
 const DrawerMenuItem = styled.li`
-  color: black;
   padding: 20px;
   cursor: pointer;
   &:hover {
@@ -117,13 +119,11 @@ const DrawerMenuItem = styled.li`
 `;
 
 const DrawerMenuItemStatic = styled.li`
-  color: black;
   padding: 20px;
   cursor: pointer;
 `;
 
 const DrawerMenuItemChild = styled.li`
-  color: black;
   padding: 20px;
   padding-left: 30px;
   cursor: pointer;
@@ -132,6 +132,13 @@ const DrawerMenuItemChild = styled.li`
     color: #ffffff;
   }
 `;
+
+const StyledBadge = styled(Badge)({
+  "& .MuiBadge-badge": {
+    color: props=>props.textColor,
+    backgroundColor: props=>props.backgroundColor,
+  }
+})
 
 
 const NavbarMobile = (props) => {
@@ -167,13 +174,24 @@ const NavbarMobile = (props) => {
   const logo = props.logo ? <ImageLogo src={props.logo} onClick={e => navigate("/")} /> : <TextLogo onClick={e => navigate("/")}>LOGO.</TextLogo>
   const menuItems = props.menuItems ? props.menuItems : []
 
+  const {
+    color_primary,
+    color_secondary,
+    color_accent,
+    text_color_primary,
+    text_color_secondary,
+    text_color_accent,
+    hover_background_color,
+    hover_text_color
+  } = props.themeColor
+
   return (
     <>
-      <MobileContainer>
+      <MobileContainer  backgroundColor={color_primary} textColor={text_color_primary} open={drawerOpen}>
 
         <MobileWrapper>
           <Left>
-            <DrawerContainer open={drawerOpen}>
+            <DrawerContainer  backgroundColor={color_secondary} textColor={text_color_secondary} open={drawerOpen}>
               <DrawerContent>
                 <DrawerCloseButton onClick={toggleDrawer}>Close</DrawerCloseButton>
                 <DrawerMenu>
@@ -211,9 +229,9 @@ const NavbarMobile = (props) => {
           <Center> {logo} </Center>
           <Right>
             <MenuItem onClick={e => navigate("/cart")}>
-              <Badge badgeContent={cartCount} color="primary">
+              <StyledBadge backgroundColor={color_accent} textColor={text_color_accent} badgeContent={cartCount} color="primary">
                 <ShoppingCartOutlined />
-              </Badge>
+              </StyledBadge>
             </MenuItem>
           </Right>
 
