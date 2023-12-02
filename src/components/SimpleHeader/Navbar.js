@@ -36,11 +36,13 @@ const SearchContainer = styled.div`
   align-items: center;
   margin-left: 25px;
   padding: 5px;
+  height: 30px;
 `;
 
 
 const Input = styled.input`
   width: 100%;
+  height: 100%;
   border: none;
 `;
 
@@ -187,7 +189,7 @@ const Navbar = (props) => {
           <Center>
             <SearchContainer>
               <Input placeholder="Search" />
-              <Search style={{ color: "gray", fontSize: 16 }} />
+              <Search style={{ color: "gray", fontSize: 16, width: 30 }} />
             </SearchContainer>
           </Center>
           <Right>

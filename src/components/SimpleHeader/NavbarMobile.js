@@ -33,11 +33,13 @@ const MobileSearchContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 5px;
+  height: 25px;
 `;
 
 const Input = styled.input`
   border: none;
   width: 100%;
+  height: 100%;
 `;
 
 const Center = styled.div`
@@ -218,7 +220,7 @@ const NavbarMobile = (props) => {
         </MobileWrapper>
         <MobileSearchContainer>
           <Input placeholder="Search" />
-          <Search style={{ color: "gray", fontSize: 16 }} />
+          <Search style={{ color: "gray", fontSize: 16, width: 25 }} />
         </MobileSearchContainer>
       </MobileContainer>
     </>
