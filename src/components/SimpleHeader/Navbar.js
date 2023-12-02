@@ -2,7 +2,6 @@ import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { mobile } from "../../responsive";
 import { cartItems } from "../../data";
 import { useLocation, useNavigate } from "react-router-dom";
 import { AuthData } from "../../auth/AuthWrapper";
@@ -12,7 +11,6 @@ const Container = styled.div`
   padding: 0px;
   display: flex;
   flex-direction: column;
-  ${mobile({ display: "none", flexDirection: "column", height: "70px" })}
 `;
 
 const Wrapper = styled.div`
@@ -20,7 +18,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  ${mobile({ display: "none", padding: "10px 0px" })}
+  background-color: ${(props) => (props.backgroundColor)}
 `;
 
 const Left = styled.div`
@@ -37,6 +35,7 @@ const SearchContainer = styled.div`
   margin-left: 25px;
   padding: 5px;
   height: 30px;
+  background-color: white;
 `;
 
 
@@ -73,22 +72,27 @@ const MenuItem = styled.div`
 `;
 
 const MenuBarContainer = styled.div`
-  background-color: #fff;
+  background-color: ${props => props.backgroundColor};
+  color: ${props => props.textColor};
+
+`;
+
+const MenuBarWrapper = styled.div`
   padding: 0px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.4);
+  
 `;
 
 const MenubarItem = styled.div`
-  color: black;
   padding: 20px;
   height: 100%;
   cursor: pointer;
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: #337f80;
+    background-color: ${props => props.hoverBackground};
     color: #ffffff;
   }
 `;
@@ -106,14 +110,15 @@ const DropdownContainer = styled.div`
 const DropdownMenuItemContainer = styled.div`
   position: relative;
   display: inline-block;
-  color: black;
+  color: ${props => props.textColor};
+  background-color: ${props => props.backgroundColor};
   padding: 20px;
   height: 100%;
   cursor: pointer;
   transition: background-color 0.3s ease;
   &:hover {
-    background-color: #337f80;
-    color: #ffffff;
+    background-color: ${props => props.hoverBackground};
+    color: ${props => props.hoverTextColor};
   }
 `
 
@@ -121,7 +126,9 @@ const DropdownContent = styled.div`
   display: none;
   position: absolute;
   top: 100%;
-  background-color: #fff;
+  background-color: ${props => props.backgroundColor};
+  color: ${props => props.textColor};
+
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   z-index: 1;
@@ -146,11 +153,17 @@ const DropdownItem = styled.a`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: #f0f0f0;
+    background-color: ${props => props.hoverBackground};
+    color: ${props => props.hoverTextColor}
   }
 `;
 
-
+const StyledBadge = styled(Badge)({
+  "& .MuiBadge-badge": {
+    color: props=>props.textColor,
+    backgroundColor: props=>props.backgroundColor,
+  }
+})
 
 
 const Navbar = (props) => {
@@ -177,6 +190,49 @@ const Navbar = (props) => {
 
   const menuItems = props.menuItems ? props.menuItems : []
   const logo = props.logo ? <ImageLogo src={props.logo} onClick={e => navigate("/")} /> : <TextLogo onClick={e => navigate("/")}> "LOGO."</TextLogo>
+  const themeColor = props.themeColor
+  let colorPrimary = "white"
+  let colorSecondary = "teal"
+  let colorAccent = "#3f51b5"
+
+  let textColorPrimary = "black"
+  let textColorSecondary = "white"
+  let textColorAccent = "white"
+
+  let hoverBackgroundColor = "teal"
+  let hoverTextColor = "white"
+
+  if (themeColor && themeColor.color_primary) {
+    colorPrimary = themeColor.color_primary
+  }
+  if (themeColor && themeColor.color_secondary) {
+    colorSecondary = themeColor.color_secondary
+  }
+  if (themeColor && themeColor.color_accent) {
+    colorAccent = themeColor.color_accent
+  }
+
+  if (themeColor && themeColor.text_color_primary) {
+    textColorPrimary = themeColor.text_color_primary
+  }
+  if (themeColor && themeColor.text_color_secondary) {
+    textColorSecondary = themeColor.text_color_secondary
+  }
+  if (themeColor && themeColor.text_color_accent) {
+    textColorAccent = themeColor.text_color_accent
+  }
+
+  if (themeColor && themeColor.hover_background) {
+    hoverBackgroundColor = themeColor.hover_background
+  }
+  if (themeColor && themeColor.hover_text) {
+    hoverTextColor = themeColor.hover_text
+  }
+
+  const navbarBackgroundColor = "white"
+  const navbarTextColor = "black"
+  const menubarBackgroundColor = "red"
+  const menubarTextColor = "white"
 
 
 
@@ -184,7 +240,7 @@ const Navbar = (props) => {
     <>
 
       <Container>
-        <Wrapper>
+        <Wrapper backgroundColor={navbarBackgroundColor}>
           <Left> {logo} </Left>
           <Center>
             <SearchContainer>
@@ -197,44 +253,44 @@ const Navbar = (props) => {
               <DropdownContainer>
                 <DropdownText>PROFILE</DropdownText>
                 {user.isAuthenticated ? (
-                  <DropdownContent>
-                    <DropdownItem onClick={() => navigate("/profile")}>My Account</DropdownItem>
-                    <DropdownItem>Orders</DropdownItem>
-                    <DropdownItem onClick={logout}>Logout</DropdownItem>
+                  <DropdownContent textColor={navbarTextColor} backgroundColor={navbarBackgroundColor}>
+                    <DropdownItem hoverTextColor={hoverTextColor} hoverBackground={hoverBackgroundColor} onClick={() => navigate("/profile")}>My Account</DropdownItem>
+                    <DropdownItem hoverTextColor={hoverTextColor} hoverBackground={hoverBackgroundColor}>Orders</DropdownItem>
+                    <DropdownItem hoverTextColor={hoverTextColor} hoverBackground={hoverBackgroundColor} onClick={logout}>Logout</DropdownItem>
                   </DropdownContent>
                 ) : (
-                  <DropdownContent>
-                    <DropdownItem onClick={() => navigate("/register")}>Register</DropdownItem>
-                    <DropdownItem onClick={() => navigate("/login?redirect" + currentPathName)}>Login</DropdownItem>
+                  <DropdownContent backgroundColor={navbarBackgroundColor}>
+                    <DropdownItem hoverTextColor={hoverTextColor} hoverBackground={hoverBackgroundColor} onClick={() => navigate("/register")}>Register</DropdownItem>
+                    <DropdownItem hoverTextColor={hoverTextColor} hoverBackground={hoverBackgroundColor} onClick={() => navigate("/login?redirect" + currentPathName)}>Login</DropdownItem>
                   </DropdownContent>
                 )}
               </DropdownContainer>
             </MenuItem>
 
             <MenuItem onClick={() => navigate("/cart")}>
-              <Badge badgeContent={cartCount} color="primary">
+              <StyledBadge backgroundColor={hoverBackgroundColor} textColor={hoverTextColor} badgeContent={cartCount} color="primary" >
                 <ShoppingCartOutlined />
-              </Badge>
+              </StyledBadge>
             </MenuItem>
 
           </Right>
         </Wrapper>
-        <div>
-          <MenuBarContainer>
+        <MenuBarContainer textColor={menubarTextColor} backgroundColor={menubarBackgroundColor}>
+          <MenuBarWrapper>
             {menuItems.map((menuItem) => (<div>
               {(menuItem['categories'] && menuItem['categories'].length > 0) ? (
-                <DropdownMenuItemContainer>
+                <DropdownMenuItemContainer  hoverTextColor={hoverTextColor} hoverBackground={hoverBackgroundColor}>
                   <DropdownText>{menuItem['title']}</DropdownText>
-                  <DropdownContent>
-                    {menuItem['categories'].map((category) => (<DropdownItem onClick={e=> navigate(category['path'])}>{category['title']}</DropdownItem>))}
+                  <DropdownContent backgroundColor={navbarBackgroundColor}>
+                    {menuItem['categories'].map((category) => (<DropdownItem hoverTextColor={hoverTextColor} hoverBackground={hoverBackgroundColor} onClick={e => navigate(category['path'])}>{category['title']}</DropdownItem>))}
                   </DropdownContent>
                 </DropdownMenuItemContainer>
               ) : (
-                <MenubarItem onClick={e=> navigate(menuItem['path'])}>{menuItem['title']}</MenubarItem>
+                <MenubarItem hoverTextColor={hoverTextColor} hoverBackground={hoverBackgroundColor} onClick={e => navigate(menuItem['path'])}>{menuItem['title']}</MenubarItem>
               )}
             </div>))}
-          </MenuBarContainer>
-        </div>
+          </MenuBarWrapper>
+        </MenuBarContainer>
       </Container>
 
 

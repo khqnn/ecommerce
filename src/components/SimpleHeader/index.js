@@ -30,13 +30,16 @@ const SimpleHeader = (props) => {
     const logo = props.logo
     const menuItems = props.menuItems
     const announcementText = props.announcementText
+    const announcementBackground = props.announcementBackground
+    const themeColor = props.themeColor
+
       
     return (
         <Container>
-            <Announcement text={announcementText} />
+            <Announcement text={announcementText} color={announcementBackground} />
             <NavbarContainer>
                 <FullNavbarContainer>
-                    <Navbar menuItems={menuItems} logo={logo} />
+                    <Navbar menuItems={menuItems} logo={logo} themeColor={themeColor} />
                 </FullNavbarContainer>
                 <MobileNavbarContainer>
                     <NavbarMobile menuItems={menuItems} logo={logo} />

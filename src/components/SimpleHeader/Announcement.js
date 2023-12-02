@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   height: 20px;
-  background-color: teal;
+  background-color: ${(props)=> (props.color? props.color: 'teal')};
   color: white;
   display: flex;
   align-items: center;
@@ -11,8 +11,8 @@ const Container = styled.div`
   font-weight: 500;
 `;
 
-const Announcement = ({text}) => {
-  return <Container>{text}</Container>;
+const Announcement = ({text, color}) => {
+  return <Container color={color} >{text}</Container>;
 };
 
 export default Announcement;
