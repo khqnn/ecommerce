@@ -5,20 +5,19 @@ import 'react-multi-carousel/lib/styles.css';
 import { businesses, popularProducts } from '../data';
 import { ProductFactory } from './Products/Factory';
 import styled from 'styled-components';
+import Heading from './Heading';
 
 const SliderContainer = styled.div`
-margin: 20px;
+margin: 3px;
 `
 
 const HeadingContainer = styled.div`
 margin-top: 40px;
-margin-bottom: 20px;
+margin-bottom: 10px;
 text-align: center;
 `
 
-const Heading = styled.h1`
-width: 100%;
-`
+
 
 const CarouselContainer = styled.div`
 `
@@ -52,7 +51,7 @@ const ProductSlider = ({heading, products}) => {
     return (
         <SliderContainer>
             <HeadingContainer>
-                <Heading>{heading}</Heading>
+                <Heading text={heading} />
             </HeadingContainer>
             <CarouselContainer>
                 <Carousel removeArrowOnDeviceType={["superLargeDesktop", "desktop"]} infinite={true} responsive={responsive}>

@@ -27,6 +27,20 @@ export const businesses = [
     "slider": {
       "items": [
         {
+          "id": 3,
+          "img": "https://i.ibb.co/cXFnLLV/3.png",
+          "title": "LOUNGEWEAR LOVE",
+          "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+          "bg": "fbf0f4",
+          "btn": {
+            "text": "SHOP NOW",
+            "path": "/shop/shirts",
+            "background": "white",
+            "color": "black"
+          }
+
+        },
+        {
           "id": 1,
           "img": "https://stat4.bollywoodhungama.in/wp-content/uploads/2017/10/Anushka-Sharma-launches-her-own-signature-apparel-line-NUSH-11.jpg",
           "title": "SUMMER SALE",
@@ -53,20 +67,7 @@ export const businesses = [
             "color": "black"
           }
         },
-        {
-          "id": 3,
-          "img": "https://i.ibb.co/cXFnLLV/3.png",
-          "title": "LOUNGEWEAR LOVE",
-          "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-          "bg": "fbf0f4",
-          "btn": {
-            "text": "SHOP NOW",
-            "path": "/shop/shirts",
-            "background": "white",
-            "color": "black"
-          }
 
-        },
       ]
     }
   },

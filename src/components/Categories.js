@@ -2,11 +2,12 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import { CategoryFactory } from "./Categories/Factory";
 import { businesses } from "../data";
+import Heading from "./Heading";
 
 const Container = styled.div`
 display: flex;
 flex-direction: column;
-align-items: center;
+text-align: center;
 `;
 
 const Wrapper = styled.div`
@@ -18,7 +19,6 @@ justify-content: space-between;
 ${mobile({ padding: "0px", flexDirection: "column" })}
 `
 
-const Heading = styled.h1``
 
 const Categories = ({ categories }) => {
 
@@ -27,7 +27,7 @@ const Categories = ({ categories }) => {
 
   return (
     <Container>
-      <Heading>POPULAR CATEGORIES</Heading>
+      <Heading text={"POPULAR CATEGORIES"} />
       <Wrapper>
         {categories.map((item) => (
           categoryFactory.init(item)
