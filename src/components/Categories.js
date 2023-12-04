@@ -14,20 +14,19 @@ const Wrapper = styled.div`
 display: flex;
 flex: 1;
 width: 100%;
-padding: 20px;
 justify-content: space-between;
 ${mobile({ padding: "0px", flexDirection: "column" })}
 `
 
 
-const Categories = ({ categories }) => {
+const Categories = ({categories, heading = null }) => {
 
   const businessInfo = businesses[1]
   const categoryFactory = new CategoryFactory(businessInfo.category_card.id)
 
   return (
     <Container>
-      <Heading text={"POPULAR CATEGORIES"} />
+      <Heading text={heading} />
       <Wrapper>
         {categories.map((item) => (
           categoryFactory.init(item)

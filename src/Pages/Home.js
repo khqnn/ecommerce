@@ -3,35 +3,40 @@ import Products from '../components/Products'
 import Newsletter from '../components/Newsletter'
 import Footer from '../components/Footer'
 import Categories from '../components/Categories'
-import { categories, popularProducts } from '../data'
 import Header from '../components/Header'
 import ProductSlider from '../components/ProductSlider'
+import { getBusinessId, getBusinessName, getDiscountedProducts, getLatestProducts, getPopularCategories, getPopularProducts } from '../api/utils'
+import { BusinessData } from '../theme/BusinessWrapper'
+import styled from 'styled-components'
+
+
+const HomePageWrapper = styled.div`
+
+`
 
 const Home = () => {
+    const businessData = BusinessData()
+    const businessId = businessData.id
 
-
-    /**
-     * Fetch popular categories
-     */
-    const popularCategories = categories
-
-    /**
-     * Fetch popular products
-     */
-
-    const products = popularProducts
+    const popularProducts = getPopularProducts(businessId)
+    const discountedProducts = getDiscountedProducts(businessId)
+    const latestProducts = getLatestProducts(businessId)
+    const popularCategories = getPopularCategories(businessId)
 
     return (
         <div>
             <Header />
+            <HomePageWrapper>
+                <Categories categories={popularCategories} />
+                <Products products={popularProducts} heading={"POPULAR PRODUCTS"} />
+            </HomePageWrapper>
+
             <Slider />
-            <Categories categories={popularCategories} />
-            {/* <CategorySlider categories={popularCategories} /> */}
+            <HomePageWrapper>
 
-            {/* <Products products={products} /> */}
-
-            <ProductSlider heading={"POPULAR PRODUCTS"} products={products} />
-            <ProductSlider heading={"DISCOUNTED PRODUCTS"} products={products} />
+                <ProductSlider heading={"LATEST PRODUCTS"} products={latestProducts} />
+                <ProductSlider heading={"DISCOUNTED PRODUCTS"} products={discountedProducts} />
+            </HomePageWrapper>
             <Newsletter />
 
             <Footer />
