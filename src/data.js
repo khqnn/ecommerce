@@ -31,7 +31,7 @@ export const businesses = [
           "img": "https://stat4.bollywoodhungama.in/wp-content/uploads/2017/10/Anushka-Sharma-launches-her-own-signature-apparel-line-NUSH-11.jpg",
           "title": "SUMMER SALE",
           "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-          "bg": "f5fafd",
+          "bg": "#fff",
           "btn": {
             "text": "SHOP NOW",
             "path": "/shop/shirts",
@@ -44,8 +44,14 @@ export const businesses = [
           "img": "https://i.ibb.co/DG69bQ4/2.png",
           "title": "AUTUMN COLLECTION",
           "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-          "bg": "fcf1ed",
-          "btn": null
+          "bg": "gray",
+          "text_color": "white",
+          "btn": {
+            "text": "SHOP NOW",
+            "path": "/shop/shirts",
+            "background": "white",
+            "color": "black"
+          }
         },
         {
           "id": 3,
@@ -53,7 +59,12 @@ export const businesses = [
           "title": "LOUNGEWEAR LOVE",
           "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
           "bg": "fbf0f4",
-          "btn": null
+          "btn": {
+            "text": "SHOP NOW",
+            "path": "/shop/shirts",
+            "background": "white",
+            "color": "black"
+          }
 
         },
       ]

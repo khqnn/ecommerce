@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { businesses } from "../data";
 import { mobile } from "../responsive";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   width: 100%;
@@ -44,7 +45,9 @@ const Slide = styled.div`
   height: 100vh;
   display: flex;
   align-items: center;
-  background-color: #${(props) => props.bg};
+  background-color: ${(props) => props.bg};
+  color: ${props=>props.textColor};
+
 
   ${mobile({ flexDirection: "column" })}
 `;
@@ -77,12 +80,15 @@ const Desc = styled.p`
 const Button = styled.button`
   padding: 10px;
   font-size: 20px;
-  background-color: transparent;
+  background-color: ${props=>props.backgroundColor};
+  color: ${props=>props.textColor};
   cursor: pointer;
 `;
 
 const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+
+  const navigate = useNavigate()
   const handleClick = (direction) => {
     if (direction === "left") {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
@@ -101,14 +107,14 @@ const Slider = () => {
       </Arrow>
       <Wrapper slideIndex={slideIndex}>
         {sliderItems.map((item) => (
-          <Slide bg={item.bg} key={item.id}>
+          <Slide textColor={item.text_color} bg={item.bg} key={item.id}>
             <ImgContainer>
               <Image src={item.img} />
             </ImgContainer>
             <InfoContainer>
               <Title>{item.title}</Title>
               <Desc>{item.desc}</Desc>
-              <Button>SHOW NOW</Button>
+              <Button onClick={e=> navigate(item.btn.path)} backgroundColor={item.btn.background} textColor={item.btn.color}>SHOW NOW</Button>
             </InfoContainer>
           </Slide>
         ))}
