@@ -7,7 +7,6 @@ export class ProductFactory{
     }
 
     init(item){
-        console.log('fency....', this.id);
 
         switch (this.id) {
             case "fency":

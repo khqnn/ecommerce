@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile } from "../responsive";
+import { mobile } from "../../../responsive";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -45,25 +45,27 @@ const Button = styled.button`
 
 
 
-const CategoryItem = ({ item }) => {
+const SimpleCategory = ({ item }) => {
+
+  /**
+   * item: {slug, image, title}
+   */
 
     /**
      * Parse category item and display
      */
 
     const navigate = useNavigate();
-    const handleClick = ()=>{
-        navigate("/shop/"+ item.slug);
-    }
+    
   return (
     <Container>
-      <Image src={item.img} />
+      <Image src={item.image} />
       <Info>
         <Title>{item.title}</Title>
-        <Button onClick={handleClick} >SHOP NOW</Button>
+        <Button onClick={e=> navigate("/shop/" + item.slug)} >SHOP NOW</Button>
       </Info>
     </Container>
   );
 };
 
-export default CategoryItem;
+export default SimpleCategory;

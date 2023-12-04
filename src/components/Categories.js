@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import CategoryItem from "./CategoryItem";
+import { CategoryFactory } from "./Categories/Factory";
+import { businesses } from "../data";
 
 const Container = styled.div`
   display: flex;
@@ -12,11 +13,13 @@ const Container = styled.div`
 
 const Categories = ({categories}) => {
 
+  const businessInfo = businesses[1]
+  const categoryFactory = new CategoryFactory(businessInfo.category_card.id)
 
   return (
     <Container>
       {categories.map((item) => (
-        <CategoryItem item={item} key={item.id} />
+        categoryFactory.init(item)
       ))}
     </Container>
   );
