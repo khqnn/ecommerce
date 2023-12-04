@@ -33,6 +33,10 @@ const SimpleHeader = (props) => {
     const announcementBackground = props.announcementBackground
     const themeColor = props.themeColor
 
+    /**
+     * Validate and set default header values here....
+     */
+
       
     return (
         <Container>
