@@ -1,6 +1,4 @@
-import React from 'react'
 import { businesses } from '../data'
-import SimpleHeader from "./Headers/SimpleHeader"
 import { HeaderFactory } from './Headers/Factory'
 
 const Header = () => {
@@ -12,7 +10,7 @@ const Header = () => {
     const id = businessInfo.header.id
     const settings = businessInfo.header.settings
 
-    return (new HeaderFactory({id, settings, logo, menuItems})).init()
+    return (new HeaderFactory(id)).init(settings, logo, menuItems)
 }
 
 export default Header

@@ -16,6 +16,10 @@ export const businesses = [
         "announcement_background": "teal"
       }
     },
+    "product_card": {
+      "id": "simple",
+      "settings": {}
+    },
     "slider": {
       "items": [
         {
@@ -67,6 +71,10 @@ export const businesses = [
         "announcement_text": "Welcome to new header..",
         "announcement_background": "gray"
       }
+    },
+    "product_card": {
+      "id": "fency",
+      "settings": {}
     },
     "slider": {
       "items": []
@@ -135,7 +143,7 @@ export const categories = [
 export const popularProducts = [
   {
     "id": 1,
-    "img": "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
+    "image": "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
     "name": "Cool Jumpsuit",
     "description": "A stylish and comfortable jumpsuit suitable for any occasion. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 20,
@@ -179,7 +187,7 @@ export const popularProducts = [
   },
   {
     "id": 2,
-    "img": "https://parspng.com/wp-content/uploads/2023/02/shoespng.parspng.com-12.png",
+    "image": "https://parspng.com/wp-content/uploads/2023/02/shoespng.parspng.com-12.png",
     "name": "Denim Jumpsuit",
     "description": "A trendy denim jumpsuit that combines style and comfort. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 25,
@@ -197,7 +205,7 @@ export const popularProducts = [
   },
   {
     "id": 3,
-    "img": "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
+    "image": "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
     "name": "Elegant Dress",
     "description": "A sophisticated and elegant dress for special occasions. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 30,
@@ -205,7 +213,7 @@ export const popularProducts = [
   },
   {
     "id": 4,
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Glasses.png/1200px-Glasses.png",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Glasses.png/1200px-Glasses.png",
     "name": "Stylish Glasses",
     "description": "A pair of stylish glasses to enhance your look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 15,
@@ -213,7 +221,7 @@ export const popularProducts = [
   },
   {
     "id": 5,
-    "img": "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
+    "image": "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
     "name": "Trendy Tote Bag",
     "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 18,
@@ -221,7 +229,7 @@ export const popularProducts = [
   },
   {
     "id": 6,
-    "img": "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
+    "image": "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
     "name": "Vintage Chill Cap",
     "description": "A vintage chill cap for a laid-back and cool look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 22,
@@ -229,7 +237,7 @@ export const popularProducts = [
   },
   {
     "id": 7,
-    "img": "https://pngimg.com/d/sweater_PNG50.png",
+    "image": "https://pngimg.com/d/sweater_PNG50.png",
     "name": "Cozy Sweater",
     "description": "A cozy sweater to keep you warm in style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 28,
@@ -237,7 +245,7 @@ export const popularProducts = [
   },
   {
     "id": 8,
-    "img": "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
+    "image": "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
     "name": "Fashionable Jacket",
     "description": "A fashionable jacket to elevate your style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 35,

@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import Product from "./Product";
+import { ProductFactory } from "./Products/Factory";
+import { businesses } from "../data";
 
 const Container = styled.div`
     padding: 20px;
@@ -9,10 +10,14 @@ const Container = styled.div`
 `;
 
 const Products = ({products}) => {
+
+  const businessInfo = businesses[1]
+  const productFactory = new ProductFactory(businessInfo.product_card.id)
+
   return (
     <Container>
       {products.map((item) => (
-        <Product item={item} key={item.id} />
+        productFactory.init(item)
       ))}
     </Container>
   );
