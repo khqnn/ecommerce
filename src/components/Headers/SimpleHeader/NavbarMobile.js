@@ -2,9 +2,9 @@ import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined } from "@material-ui/icons";
 import React, { useState } from "react";
 import styled from "styled-components";
-import { cartItems } from "../../data";
+import { cartItems } from "../../../data";
 import { useLocation, useNavigate } from "react-router-dom";
-import { AuthData } from "../../auth/AuthWrapper";
+import { AuthData } from "../../../auth/AuthWrapper";
 
 
 const MobileContainer = styled.div`
@@ -113,8 +113,8 @@ const DrawerMenuItem = styled.li`
   padding: 20px;
   cursor: pointer;
   &:hover {
-    background-color: #337f80;
-    color: #ffffff;
+    background-color: ${props=>props.backgroundColor};
+    color: ${props=>props.textColor};
   }
 `;
 
@@ -128,8 +128,8 @@ const DrawerMenuItemChild = styled.li`
   padding-left: 30px;
   cursor: pointer;
   &:hover {
-    background-color: #337f80;
-    color: #ffffff;
+    background-color: ${props=>props.backgroundColor};
+    color: ${props=>props.textColor};
   }
 `;
 
@@ -175,23 +175,23 @@ const NavbarMobile = (props) => {
   const menuItems = props.menuItems ? props.menuItems : []
 
   const {
-    color_primary,
-    color_secondary,
-    color_accent,
-    text_color_primary,
-    text_color_secondary,
-    text_color_accent,
-    hover_background_color,
-    hover_text_color
-  } = props.themeColor
+    background_color_navbar,
+    text_color_navbar,
+    background_color_menubar,
+    text_color_menubar,
+    background_color_hover,
+    text_color_hover,
+    announcement_text,
+    announcement_background
+} = props.settings
 
   return (
     <>
-      <MobileContainer  backgroundColor={color_primary} textColor={text_color_primary} open={drawerOpen}>
+      <MobileContainer  backgroundColor={background_color_navbar} textColor={text_color_navbar} open={drawerOpen}>
 
         <MobileWrapper>
           <Left>
-            <DrawerContainer  backgroundColor={color_secondary} textColor={text_color_secondary} open={drawerOpen}>
+            <DrawerContainer  backgroundColor={background_color_menubar} textColor={text_color_menubar} open={drawerOpen}>
               <DrawerContent>
                 <DrawerCloseButton onClick={toggleDrawer}>Close</DrawerCloseButton>
                 <DrawerMenu>
@@ -201,22 +201,22 @@ const NavbarMobile = (props) => {
                         <>
                           <DrawerMenuItemStatic> {menuItem['title']}</DrawerMenuItemStatic>
                           {menuItem['categories'].map((category)=>(
-                            <DrawerMenuItemChild onClick={e => navigate(category['path'])}>{category['title']}</DrawerMenuItemChild>
+                            <DrawerMenuItemChild textColor={text_color_hover} backgroundColor={background_color_hover} onClick={e => navigate(category['path'])}>{category['title']}</DrawerMenuItemChild>
                           ))}
                         </>
                       ) : (
-                        <DrawerMenuItem onClick={e => navigate(menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>
+                        <DrawerMenuItem textColor={text_color_hover} backgroundColor={background_color_hover} onClick={e => navigate(menuItem['path'])}>{menuItem['title']}</DrawerMenuItem>
                       )}
                     </>
                   ))}
 
                   {user.isAuthenticated ? <>
-                    <DrawerMenuItem onClick={e => navigate("/profile")}>My Account</DrawerMenuItem>
-                    <DrawerMenuItem>Orders</DrawerMenuItem>
-                    <DrawerMenuItem onClick={logout}>Logout</DrawerMenuItem>
+                    <DrawerMenuItem textColor={text_color_hover} backgroundColor={background_color_hover} onClick={e => navigate("/profile")}>My Account</DrawerMenuItem>
+                    <DrawerMenuItem textColor={text_color_hover} backgroundColor={background_color_hover}>Orders</DrawerMenuItem>
+                    <DrawerMenuItem textColor={text_color_hover} backgroundColor={background_color_hover} onClick={logout}>Logout</DrawerMenuItem>
                   </> : <>
-                    <DrawerMenuItem onClick={e => navigate("/register")}>Register</DrawerMenuItem>
-                    <DrawerMenuItem onClick={e => navigate("/login?redirect=" + currentPathName)}>Login</DrawerMenuItem>
+                    <DrawerMenuItem textColor={text_color_hover} backgroundColor={background_color_hover} onClick={e => navigate("/register")}>Register</DrawerMenuItem>
+                    <DrawerMenuItem textColor={text_color_hover} backgroundColor={background_color_hover} onClick={e => navigate("/login?redirect=" + currentPathName)}>Login</DrawerMenuItem>
 
                   </>}
                 </DrawerMenu>
@@ -229,7 +229,7 @@ const NavbarMobile = (props) => {
           <Center> {logo} </Center>
           <Right>
             <MenuItem onClick={e => navigate("/cart")}>
-              <StyledBadge backgroundColor={color_accent} textColor={text_color_accent} badgeContent={cartCount} color="primary">
+              <StyledBadge backgroundColor={background_color_menubar} textColor={text_color_menubar} badgeContent={cartCount} color="primary">
                 <ShoppingCartOutlined />
               </StyledBadge>
             </MenuItem>

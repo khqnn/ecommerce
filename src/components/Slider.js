@@ -1,7 +1,7 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
-import { sliderItems } from "../data";
+import { businesses } from "../data";
 import { mobile } from "../responsive";
 
 const Container = styled.div`
@@ -90,6 +90,9 @@ const Slider = () => {
       setSlideIndex(slideIndex < 2 ? slideIndex + 1 : 0);
     }
   };
+
+  const businessInfo = businesses[0]
+  const sliderItems = businessInfo.slider.items
 
   return (
     <Container>

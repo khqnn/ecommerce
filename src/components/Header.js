@@ -1,21 +1,18 @@
 import React from 'react'
-import SimpleHeader from './SimpleHeader'
 import { businesses } from '../data'
+import SimpleHeader from "./Headers/SimpleHeader"
+import { HeaderFactory } from './Headers/Factory'
 
 const Header = () => {
 
 
-    const businessInfo = businesses[0]
+    const businessInfo = businesses[1]
+    const logo = businessInfo.logo
+    const menuItems = businessInfo.menu_items
+    const id = businessInfo.header.id
+    const settings = businessInfo.header.settings
 
-    return (
-        <SimpleHeader
-            themeColor={businessInfo.theme_color}
-            announcementText={businessInfo.announcement_text}
-            announcementBackground={businessInfo.announcement_background}
-            logo={businessInfo.logo}
-            menuItems={businessInfo.menu_items}
-        />
-    )
+    return (new HeaderFactory({id, settings, logo, menuItems})).init()
 }
 
 export default Header

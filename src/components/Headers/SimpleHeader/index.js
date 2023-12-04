@@ -2,7 +2,7 @@ import React from 'react'
 import Announcement from './Announcement'
 import styled from 'styled-components'
 import Navbar from './Navbar'
-import { mobile } from '../../responsive'
+import { mobile } from '../../../responsive'
 import NavbarMobile from './NavbarMobile'
 
 const Container = styled.div`
@@ -27,26 +27,39 @@ ${mobile({ display: "flex", flexDirection: "column" })}
 
 const SimpleHeader = (props) => {
 
+    /**
+     * settins: {
+        background_color_navbar,
+        text_color_navbar,
+        background_color_menubar,
+        text_color_menubar,
+        background_color_hover,
+        text_color_hover,
+        announcement_text,
+        announcement_background
+     }
+     * logo: string
+     * menuItems: []
+     */
+
     const logo = props.logo
     const menuItems = props.menuItems
-    const announcementText = props.announcementText
-    const announcementBackground = props.announcementBackground
-    const themeColor = props.themeColor
 
     /**
      * Validate and set default header values here....
      */
 
+    const settings = props.settings
       
     return (
         <Container>
-            <Announcement text={announcementText} color={announcementBackground} />
+            <Announcement text={settings.announcement_text} color={settings.announcement_background} />
             <NavbarContainer>
                 <FullNavbarContainer>
-                    <Navbar menuItems={menuItems} logo={logo} themeColor={themeColor} />
+                    <Navbar settings={settings} menuItems={menuItems} logo={logo} />
                 </FullNavbarContainer>
                 <MobileNavbarContainer>
-                    <NavbarMobile menuItems={menuItems} logo={logo} themeColor={themeColor} />
+                    <NavbarMobile settings={settings} menuItems={menuItems} logo={logo} />
                 </MobileNavbarContainer>
             </NavbarContainer>
 
