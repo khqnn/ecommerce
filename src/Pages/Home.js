@@ -5,6 +5,7 @@ import Footer from '../components/Footer'
 import Categories from '../components/Categories'
 import { categories, popularProducts } from '../data'
 import Header from '../components/Header'
+import ProductSlider from '../components/ProductSlider'
 
 const Home = () => {
 
@@ -22,11 +23,17 @@ const Home = () => {
 
     return (
         <div>
-            <Header/>
+            <Header />
             <Slider />
             <Categories categories={popularCategories} />
-            <Products products={products} />
+            {/* <CategorySlider categories={popularCategories} /> */}
+
+            {/* <Products products={products} /> */}
+
+            <ProductSlider heading={"POPULAR PRODUCTS"} products={products} />
+            <ProductSlider heading={"DISCOUNTED PRODUCTS"} products={products} />
             <Newsletter />
+
             <Footer />
         </div>
     )
