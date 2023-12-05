@@ -3,6 +3,7 @@ import { mobile } from '../responsive'
 import Header from '../components/Header'
 import Announcement from '../components/Headers/SimpleHeader/Announcement'
 import { BusinessData } from '../theme/BusinessWrapper'
+import { useNavigate } from 'react-router-dom'
 
 const Container = styled.div`
 width: 100vw;
@@ -260,6 +261,8 @@ ${mobile({ display: 'none' })};
 
 const Checkout = () => {
 
+  const navigate = useNavigate()
+
   const businessData = BusinessData()
   const businessSettings = businessData.settings
   const logo = businessSettings.logo
@@ -275,7 +278,7 @@ const Checkout = () => {
 
         <TopContainer>
           <Top>
-            <TopLeft><img src={logo} /></TopLeft>
+            <TopLeft onClick={e=> navigate("/")}><img src={logo} /></TopLeft>
             <TopCenter><h1>CHECKOUT</h1></TopCenter>
             <TopRight><img src='https://www.vhv.rs/file/max/11/114011_norton-secured-logo-png.png' /></TopRight>
           </Top>
