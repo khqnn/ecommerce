@@ -8,6 +8,7 @@ import { useParams } from 'react-router';
 import { cart, popularProducts } from "../data";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import Header from "../components/Header";
 
 
 
@@ -172,44 +173,48 @@ const Product = () => {
 
 
   return (
-    <Container>
-      {/* <Navbar cartCount={cartCount} setCartCount={setCartCount} />
+    <>
+      <Header />
+      <Container>
+        {/* <Navbar cartCount={cartCount} setCartCount={setCartCount} />
       <Announcement /> */}
-      <Wrapper>
-        <ImgContainer>
-          <Image src={productDetails.img} />
-        </ImgContainer>
-        <InfoContainer>
-          <Title>{productDetails.name}</Title>
-          <Desc>{productDetails.description}</Desc>
-          <Price>$ {price}</Price>
-          {productDetails.variant_option != undefined && variants?.length > 0 && <FilterContainer>
-            <Filter>
-              <FilterTitle>{productDetails.variant_option}</FilterTitle>
-              {productDetails.variant_option == "color" && variants.map((variant) => (
-                <FilterColor color={variant.variant_option} />
-              ))}
-              {productDetails.variant_option != "color" && <FilterSize onChange={e => changeVariant(e)} >
-                {variants.map((variant) => (
-                  <FilterSizeOption>{variant.variant_option}</FilterSizeOption>
+        <Wrapper>
+          <ImgContainer>
+            <Image src={productDetails.img} />
+          </ImgContainer>
+          <InfoContainer>
+            <Title>{productDetails.name}</Title>
+            <Desc>{productDetails.description}</Desc>
+            <Price>$ {price}</Price>
+            {productDetails.variant_option != undefined && variants?.length > 0 && <FilterContainer>
+              <Filter>
+                <FilterTitle>{productDetails.variant_option}</FilterTitle>
+                {productDetails.variant_option == "color" && variants.map((variant) => (
+                  <FilterColor color={variant.variant_option} />
                 ))}
-              </FilterSize>}
-            </Filter>
+                {productDetails.variant_option != "color" && <FilterSize onChange={e => changeVariant(e)} >
+                  {variants.map((variant) => (
+                    <FilterSizeOption>{variant.variant_option}</FilterSizeOption>
+                  ))}
+                </FilterSize>}
+              </Filter>
 
-          </FilterContainer>}
-          <AddContainer>
-            <AmountContainer>
-              <Remove onClick={decrementProductQuantity} />
-              <Amount>{productQuantity}</Amount>
-              <Add onClick={incrementProductQuantity} />
-            </AmountContainer>
-            <Button onClick={handleAddToCart}>ADD TO CART</Button>
-          </AddContainer>
-        </InfoContainer>
-      </Wrapper>
+            </FilterContainer>}
+            <AddContainer>
+              <AmountContainer>
+                <Remove onClick={decrementProductQuantity} />
+                <Amount>{productQuantity}</Amount>
+                <Add onClick={incrementProductQuantity} />
+              </AmountContainer>
+              <Button onClick={handleAddToCart}>ADD TO CART</Button>
+            </AddContainer>
+          </InfoContainer>
+        </Wrapper>
+      </Container>
+
       <Newsletter />
       <Footer />
-    </Container>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import { mobile } from "../responsive";
 import { cart, cartItems } from "../data";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/Header";
 
 const Container = styled.div``;
 
@@ -193,73 +194,77 @@ const Cart = () => {
   }
 
   return (
-    <Container>
-      <Wrapper>
-        <Title>YOUR BAG</Title>
-        <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
-          <TopTexts>
-            <TopText>Shopping Bag({cartObject.total_unique_items})</TopText>
-            <TopText>Your Wishlist (0)</TopText>
-          </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
-        </Top>
-        <Bottom>
-          <Info>
-            {cartObject.line_items != undefined && cartObject.line_items.length > 0 && cartObject.line_items.map((line_item) => (
-              <Product>
-                <ProductDetail>
-                  <Image src={line_item.variant.image} />
-                  <Details>
-                    <ProductName>
-                      <b>Product:</b> {line_item.product.name}
-                    </ProductName>
-                    <ProductId>
-                      <b>ID:</b> {line_item.product.id}
-                    </ProductId>
-                    {/* <ProductColor color="black" /> */}
-                    <ProductSize>
-                      <b>{line_item.product.variant_option}:</b> {line_item.variant.variant_option}
-                    </ProductSize>
-                  </Details>
-                </ProductDetail>
-                <PriceDetail>
-                  <ProductAmountContainer>
-                    <Add onClick={e => updateItemQuantity(line_item, "increment")} />
-                    <ProductAmount>{line_item.quantity}</ProductAmount>
-                    <Remove onClick={e => updateItemQuantity(line_item, "decrement")} />
-                  </ProductAmountContainer>
-                  <ProductPrice>$ {line_item.grand_total}</ProductPrice>
-                </PriceDetail>
-              </Product>
-            ))}
+    <>
+      <Header />
+      <Container>
+        <Wrapper>
+          <Title>YOUR BAG</Title>
+          <Top>
+            <TopButton>CONTINUE SHOPPING</TopButton>
+            <TopTexts>
+              <TopText>Shopping Bag({cartObject.total_unique_items})</TopText>
+              <TopText>Your Wishlist (0)</TopText>
+            </TopTexts>
+            <TopButton type="filled">CHECKOUT NOW</TopButton>
+          </Top>
+          <Bottom>
+            <Info>
+              {cartObject.line_items != undefined && cartObject.line_items.length > 0 && cartObject.line_items.map((line_item) => (
+                <Product>
+                  <ProductDetail>
+                    <Image src={line_item.variant.image} />
+                    <Details>
+                      <ProductName>
+                        <b>Product:</b> {line_item.product.name}
+                      </ProductName>
+                      <ProductId>
+                        <b>ID:</b> {line_item.product.id}
+                      </ProductId>
+                      {/* <ProductColor color="black" /> */}
+                      <ProductSize>
+                        <b>{line_item.product.variant_option}:</b> {line_item.variant.variant_option}
+                      </ProductSize>
+                    </Details>
+                  </ProductDetail>
+                  <PriceDetail>
+                    <ProductAmountContainer>
+                      <Add onClick={e => updateItemQuantity(line_item, "increment")} />
+                      <ProductAmount>{line_item.quantity}</ProductAmount>
+                      <Remove onClick={e => updateItemQuantity(line_item, "decrement")} />
+                    </ProductAmountContainer>
+                    <ProductPrice>$ {line_item.grand_total}</ProductPrice>
+                  </PriceDetail>
+                </Product>
+              ))}
 
-          </Info>
-          <Summary>
-            <SummaryTitle>ORDER SUMMARY</SummaryTitle>
-            <SummaryItem>
-              <SummaryItemText>Subtotal</SummaryItemText>
-              <SummaryItemPrice>$ {cartObject.cart_summary.subtotal}</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Discount</SummaryItemText>
-              <SummaryItemPrice>$ -{cartObject.cart_summary.discount_amount}</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem>
-              <SummaryItemText>Tax</SummaryItemText>
-              <SummaryItemPrice>$ {cartObject.cart_summary.tax_amount}</SummaryItemPrice>
-            </SummaryItem>
-            <SummaryItem type="total">
-              <SummaryItemText>Total</SummaryItemText>
-              <SummaryItemPrice>$ {cartObject.cart_summary.grand_total}</SummaryItemPrice>
-            </SummaryItem>
-            <Button onClick={checkout}>CHECKOUT NOW</Button>
-          </Summary>
-        </Bottom>
-      </Wrapper>
-      <Hr/>
+            </Info>
+            <Summary>
+              <SummaryTitle>ORDER SUMMARY</SummaryTitle>
+              <SummaryItem>
+                <SummaryItemText>Subtotal</SummaryItemText>
+                <SummaryItemPrice>$ {cartObject.cart_summary.subtotal}</SummaryItemPrice>
+              </SummaryItem>
+              <SummaryItem>
+                <SummaryItemText>Discount</SummaryItemText>
+                <SummaryItemPrice>$ -{cartObject.cart_summary.discount_amount}</SummaryItemPrice>
+              </SummaryItem>
+              <SummaryItem>
+                <SummaryItemText>Tax</SummaryItemText>
+                <SummaryItemPrice>$ {cartObject.cart_summary.tax_amount}</SummaryItemPrice>
+              </SummaryItem>
+              <SummaryItem type="total">
+                <SummaryItemText>Total</SummaryItemText>
+                <SummaryItemPrice>$ {cartObject.cart_summary.grand_total}</SummaryItemPrice>
+              </SummaryItem>
+              <Button onClick={checkout}>CHECKOUT NOW</Button>
+            </Summary>
+          </Bottom>
+        </Wrapper>
+      </Container>
+
+      <Hr />
       <Footer />
-    </Container>
+    </>
   );
 };
 
