@@ -115,7 +115,7 @@ flex: 1;
 margin: 5px;
 border: 0.01em solid;
 padding: 20px;
-border-radius: 10px;
+border-radius: 4px;
 height: fit-content;
 background-color: white;
 ${mobile({ width: '80%' })}
@@ -179,16 +179,16 @@ margin-top: 20px;
 const TopInput = styled.input`
 border: 0.01em solid;
 padding-left: 10px;
-border-top-right-radius: 10px;
-border-top-left-radius: 10px;
+border-top-right-radius: 4px;
+border-top-left-radius: 4px;
 // border-bottom: none;
 height: 40px;
 `
 const BottomInput = styled.input`
 border: 0.01em solid;
 padding-left: 10px;
-border-bottom-left-radius: 10px;
-border-bottom-right-radius: 10px;
+border-bottom-left-radius: 4px;
+border-bottom-right-radius: 4px;
 border-top: none;
 height: 40px;
 `
@@ -202,7 +202,7 @@ border-left: ${props => props.borderLeft ? 'none' : '0.01em solid'}
 `
 
 const FullInput = styled.input`
-border-radius: 5px;
+border-radius: 4px;
 height: 40px;
 border: 0.01em solid;
 padding-left: 10px;
