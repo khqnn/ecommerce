@@ -178,8 +178,15 @@ flex-direction: row;
 justify-content: space-between;
 padding: 0 10px 10px 10px;
 `
-const SummaryItemText = styled.div``
-const SummaryItemPrice = styled.div``
+const SummaryItemText = styled.div`
+color: ${props=> props.color};
+font-weight: ${props=> props.total? 'bold': 'normal'};
+font-size: ${props=> props.total? 'xx-large': 'normal'};
+`
+const SummaryItemPrice = styled.div`
+color: ${props=> props.color};
+font-weight: ${props=> props.total? 'bold': 'normal'};
+font-size: ${props=> props.total? 'xx-large': 'normal'};`
 
 const Hr = styled.hr``
 
@@ -495,8 +502,8 @@ const Checkout = () => {
                   </SummaryItem>
                   <Hr />
                   <SummaryItem>
-                    <SummaryItemText>Grand Total</SummaryItemText>
-                    <SummaryItemPrice>$125</SummaryItemPrice>
+                    <SummaryItemText color='green' total>Total</SummaryItemText>
+                    <SummaryItemPrice color='green' total>$125</SummaryItemPrice>
                   </SummaryItem>
 
                 </Summary>
