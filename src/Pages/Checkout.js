@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 import { mobile } from '../responsive'
 import Header from '../components/Header'
@@ -36,7 +37,7 @@ const CheckoutSummaryWrapper = styled.div`
 flex: 4;
 display: flex;
 justify-content: start;
-margin-top: 60px;
+// margin-top: 20px;
 flex-direction: column;
 height: fit-content;
 ${mobile({ order: 1, margin: '6px', justifyContent: 'center' })}
@@ -45,8 +46,6 @@ ${mobile({ order: 1, margin: '6px', justifyContent: 'center' })}
 
 const FormContainer = styled.form`
 flex: 1;
-
-
 `;
 
 
@@ -109,25 +108,35 @@ const SummaryContainer = styled.div`
 flex: 1;
 margin: 5px;
 border: 0.01em solid;
-padding: 20px;
+// padding: 20px;
 border-radius: 4px;
 height: fit-content;
-background-color: white;
 `
 
 const ItemsContaienr = styled.div`
+// padding: 10px;
 `
 
 const Item = styled.div`
 display: flex;
-flex: direction: row;
-margin-bottom: 20px;
+flex-direction: row;
+margin: 0 10px;
+// margin-bottom: 20px;
+// border-bottom: 0.01em dashed;
+`
+
+const ItemImage = styled.img`
+flex: 1;
+height: 60px;
+width: 60px;
 `
 
 const ItemDetail = styled.div`
 flex: 5;
 display: flex;
 flex-direction: column;
+justify-content: center;
+margin-left: 10px;
 `
 
 const ItemTitle = styled.h4`
@@ -138,6 +147,7 @@ const ItemPrice = styled.div`
 flex: 1;
 display: flex;
 justify-content: end;
+align-items: center;
 font-weight: bold;
 `
 const ItemDesc = styled.div`
@@ -153,11 +163,17 @@ justify-content: space-between;
 gap: 10px;
 `;
 
+const SummaryHeading = styled.div`
+text-align: center;
+font-size: x-large;
+margin-bottom: 20px;
+`
+
 const SummaryItem = styled.div`
 display: flex;
 flex-direction: row;
 justify-content: space-between;
-
+padding: 0 10px 10px 10px;
 `
 const SummaryItemText = styled.div``
 const SummaryItemPrice = styled.div``
@@ -208,12 +224,12 @@ const TopContainer = styled.div`
 width: 100%;
 display: flex;
 justify-content: center;
+box-shadow: 0 4px 14px rgba(0,0,0,.08);
 `
 const BottomContainer = styled.div`
 width: 100%;
 display: flex;
 justify-content: center;
-background-color: #ebebeb;
 height: 100%;
 `
 const TopLeft = styled.div`
@@ -246,6 +262,63 @@ const ImageLogo = styled.img`
   height: 100px;
 `
 
+const CenterContainer = styled.div`
+width: 100%;
+display: flex;
+justify-content: center;
+`
+
+const BreadcrumbContainer = styled.div`
+  display: flex;
+  align-items: center;
+  // padding: 10px;
+  width: 60%;
+  margin-top: 60px;
+  // background-color: #f0f0f0;
+  ${mobile({ justifyContent: 'center' })}
+`;
+
+const Crumb = styled.div`
+  margin-right: 5px;
+  color: ${({ active }) => (active ? 'black' : 'gray')};
+  font-weight: ${({ active }) => (active ? 'bold' : 'normal')};
+  cursor: ${({ active }) => (active ? 'default' : 'pointer')};
+`;
+
+const Separator = styled.span`
+  margin: 0 5px;
+  color: gray;
+`;
+
+const CouponContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 4px;
+  // margin-bottom: 20px;
+`;
+
+const CouponInput = styled.input`
+  padding: 8px;
+  font-size: 16px;
+  flex: 3;
+`;
+
+const ApplyButton = styled.button`
+  flex: 1;
+  padding: 8px 16px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+
+  &:hover {
+    background-color: #45a049;
+  }
+`;
+
 const Checkout = () => {
 
   const navigate = useNavigate()
@@ -270,42 +343,20 @@ const Checkout = () => {
             <TopRight><ImageLogo src='https://www.vhv.rs/file/max/11/114011_norton-secured-logo-png.png' /></TopRight>
           </Top>
         </TopContainer>
+        <CenterContainer>
+          <BreadcrumbContainer>
+            <Crumb>Home</Crumb>
+            <Separator>/</Separator>
+            <Crumb active>Checkout</Crumb>
+          </BreadcrumbContainer>
+
+
+        </CenterContainer>
         <BottomContainer>
           <Wrapper>
             <CheckoutDetailWrapper>
 
               <FormContainer >
-                {/* <FormHeading>Shipping Details</FormHeading> */}
-                {/* <div>Checkout</div> */}
-
-                {/* <FormGroup>
-                <Label>Address</Label>
-                <Input type="text" name="address" required />
-              </FormGroup>
-
-              <FlexContainer>
-                <HalfFormGroup>
-                  <Label>City</Label>
-                  <Input type="text" name="city" required />
-                </HalfFormGroup>
-
-                <HalfFormGroup>
-                  <Label>Province</Label>
-                  <Input type="text" name="province" required />
-                </HalfFormGroup>
-              </FlexContainer>
-
-              <FlexContainer>
-                <HalfFormGroup>
-                  <Label>Country</Label>
-                  <Input type="text" name="country" required />
-                </HalfFormGroup>
-
-                <HalfFormGroup>
-                  <Label>Postal Code</Label>
-                  <Input type="text" name="postalCode" required />
-                </HalfFormGroup>
-              </FlexContainer> */}
 
                 <FormHeading>Shipping Details</FormHeading>
 
@@ -328,7 +379,7 @@ const Checkout = () => {
                   <InputGroup>
                     <Label>Personal Info</Label>
                     <InputBox>
-                      <Input placeholder='Phone Number (Optional)'/>
+                      <Input placeholder='Phone Number (Optional)' />
                     </InputBox>
                   </InputGroup>
                 </FormGroup>
@@ -357,44 +408,46 @@ const Checkout = () => {
             <CheckoutSummaryWrapper>
 
               <SummaryContainer>
+                <SummaryHeading>ORDER DETAILS</SummaryHeading>
+
                 <ItemsContaienr>
                   <Item>
+                    <ItemImage src='https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png' />
                     <ItemDetail>
-
                       <ItemTitle>1 x Moker The Agency Theme</ItemTitle>
-                      <ItemDesc>Amazing UI Kit pack perfect for your next Project</ItemDesc>
+                      <ItemDesc></ItemDesc>
                     </ItemDetail>
                     <ItemPrice>$49.99</ItemPrice>
                   </Item>
                   <Item>
+                    <ItemImage src='https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png' />
                     <ItemDetail>
-
                       <ItemTitle>1 x Pure Jam</ItemTitle>
-                      <ItemDesc>Amazing UI Kit pack perfect for your next Project</ItemDesc>
+                      <ItemDesc></ItemDesc>
                     </ItemDetail>
                     <ItemPrice>$49.99</ItemPrice>
                   </Item>
                   <Item>
+                    <ItemImage src='https://parspng.com/wp-content/uploads/2023/02/shoespng.parspng.com-12.png' />
                     <ItemDetail>
-
                       <ItemTitle>1 x Nike Shoe</ItemTitle>
-                      <ItemDesc>Amazing UI Kit pack perfect for your next Project</ItemDesc>
+                      <ItemDesc></ItemDesc>
                     </ItemDetail>
                     <ItemPrice>$49.99</ItemPrice>
                   </Item>
                   <Item>
+                    <ItemImage src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Glasses.png/1200px-Glasses.png' />
                     <ItemDetail>
-
                       <ItemTitle>2 x Grand Shirt</ItemTitle>
-                      <ItemDesc>Amazing UI Kit pack perfect for your next Project</ItemDesc>
+                      <ItemDesc></ItemDesc>
                     </ItemDetail>
                     <ItemPrice>$49.99</ItemPrice>
                   </Item>
                   <Item>
+                    <ItemImage src='https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png' />
                     <ItemDetail>
-
                       <ItemTitle>1 x Moker The Agency Theme</ItemTitle>
-                      <ItemDesc>Amazing UI Kit pack perfect for your next Project</ItemDesc>
+                      <ItemDesc></ItemDesc>
                     </ItemDetail>
                     <ItemPrice>$49.99</ItemPrice>
                   </Item>
@@ -402,28 +455,39 @@ const Checkout = () => {
                 </ItemsContaienr>
                 {/* <Hr /> */}
               </SummaryContainer>
-              <SummaryContainer>
 
+              <SummaryContainer>
+                <SummaryHeading>CHECKOUT SUMMARY</SummaryHeading>
                 <Summary>
                   <SummaryItem>
                     <SummaryItemText>Subtotal</SummaryItemText>
                     <SummaryItemPrice>$120</SummaryItemPrice>
                   </SummaryItem>
                   <SummaryItem>
-                    <SummaryItemText>Discount</SummaryItemText>
+                    <SummaryItemText>Shipping</SummaryItemText>
                     <SummaryItemPrice>$5</SummaryItemPrice>
                   </SummaryItem>
+                  <Hr />
+
                   <SummaryItem>
-                    <SummaryItemText>Tax</SummaryItemText>
-                    <SummaryItemPrice>$12</SummaryItemPrice>
+                    <SummaryItemText>Applicable taxes and fee will be calculated before finalizing checkout</SummaryItemText>
                   </SummaryItem>
+                  <Hr />
                   <SummaryItem>
                     <SummaryItemText>Grand Total</SummaryItemText>
-                    <SummaryItemPrice>$127</SummaryItemPrice>
+                    <SummaryItemPrice>$125</SummaryItemPrice>
                   </SummaryItem>
 
                 </Summary>
               </SummaryContainer>
+
+              <CouponContainer>
+                <CouponInput
+                  type="text"
+                  placeholder="Enter coupon code"
+                />
+                <ApplyButton>Apply</ApplyButton>
+              </CouponContainer>
             </CheckoutSummaryWrapper>
           </Wrapper>
         </BottomContainer>
