@@ -19,8 +19,8 @@ const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
 width: 60%;
-margin-top: 60px;
-${mobile({ flexDirection: 'column', width: '100%' })}
+margin-top: 40px;
+${mobile({ flexDirection: 'column', width: '100%', margin: 0 })}
 `
 
 const CheckoutDetailWrapper = styled.div`
@@ -40,6 +40,8 @@ justify-content: start;
 // margin-top: 20px;
 flex-direction: column;
 height: fit-content;
+margin-top: 70px;
+
 ${mobile({ order: 1, margin: '6px', justifyContent: 'center' })}
 
 `
@@ -94,7 +96,7 @@ const TextArea = styled.textarea`
 
 
 const RadioGroup = styled.div`
-height: 50px;
+height: 20px;
 `
 
 const Button = styled.button`
@@ -102,6 +104,7 @@ const Button = styled.button`
   color: white;
   font-weight: 600;
   width: 100%;
+  height: 60px;
 `;
 
 const SummaryContainer = styled.div`
@@ -275,7 +278,7 @@ const BreadcrumbContainer = styled.div`
   width: 60%;
   margin-top: 60px;
   // background-color: #f0f0f0;
-  ${mobile({ justifyContent: 'center' })}
+  ${mobile({ justifyContent: 'center', margin: 10 })}
 `;
 
 const Crumb = styled.div`
@@ -306,7 +309,7 @@ const CouponInput = styled.input`
 const ApplyButton = styled.button`
   flex: 1;
   padding: 8px 16px;
-  background-color: gray;
+  background-color: black;
   color: white;
   border: none;
   border-radius: 4px;
@@ -392,8 +395,26 @@ const Checkout = () => {
                 <FormHeading>Payment Details</FormHeading>
                 <RadioGroup>
                   <input type="radio" name="cashOnDelivery" value="true" checked />
-                  <label> Payment on Delivery</label>
+                  <label> Payment online</label>
                 </RadioGroup>
+
+
+                <FormGroup>
+
+                  <InputGroup>
+                    <Label>Payment Info</Label>
+
+                    <InputBox>
+                      <Input borderBottom placeholder='xxxx-xxxx-xxxx-xxxx' />
+
+                      <RowInput>
+                        <Input flex placeholder='Expiry' />
+                        <Input borderLeft flex placeholder='CVV' />
+                      </RowInput>
+                    </InputBox>
+                  </InputGroup>
+
+                </FormGroup>
 
 
                 <FormGroup>
