@@ -102,6 +102,10 @@ export const businesses = [
     },
     "slider": {
       "items": []
+    },
+    "shop_page": {
+      "id": "simple",
+      "settings": {}
     }
 
   }
