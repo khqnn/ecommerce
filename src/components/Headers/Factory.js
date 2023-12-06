@@ -1,4 +1,5 @@
 import SimpleHeader from "./SimpleHeader"
+import StandardHeader from "./StandardHeader"
 
 
 export class HeaderFactory {
@@ -8,13 +9,10 @@ export class HeaderFactory {
 
     init(settings, logo, menuItems) {
         switch (this.id) {
-            case "SomeHeader":
-
-                break;
-
-            default:
-                return <SimpleHeader settings={settings} logo={logo} menuItems={menuItems} />
+            case "standard":
+                return <StandardHeader settings={settings} logo={logo} menuItems={menuItems} />
         }
+        return <SimpleHeader settings={settings} logo={logo} menuItems={menuItems} />
     }
 }
 

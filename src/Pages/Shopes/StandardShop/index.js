@@ -49,7 +49,7 @@ height: 100%;
 const Search = styled.input`
 width: 100%;
 height: 100%;
-font-size: xxx-large;
+font-size: x-large;
 font-weight: bold;
 border: none;
 `
@@ -73,7 +73,7 @@ flex: 4;
 `
 
 const SortFiltersContainer = styled.div`
-padding: 20px 40px;
+padding: 10px 40px;
 background-color: white;
 border-bottom: 0.01em solid gray;
 `

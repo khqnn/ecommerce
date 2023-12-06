@@ -10,12 +10,12 @@ export const businesses = [
       "settings": {
         "background_color_navbar": "white",
         "text_color_navbar": "black",
-        "background_color_menubar": "teal",
+        "background_color_menubar": "gray",
         "text_color_menubar": "white",
-        "background_color_hover": "gray",
+        "background_color_hover": "teal",
         "text_color_hover": "white",
         "announcement_text": "Welcome to new header..",
-        "announcement_background": "teal"
+        "announcement_background": "gray"
       }
     },
     "product_card": {
@@ -80,7 +80,7 @@ export const businesses = [
     "announcement_text": "Shipping charges will be free on orders amount $50 Plus!",
     "menu_items": [{ "title": "Home", "path": "/" }, { "title": "Laptop", "path": null, "categories": [{ "title": "Screen", "path": "/shop/laptop-screens" }, { "title": "Accessories", "path": "/shop/laptop-accessories" }, { "title": "Battery", "path": "/shop/laptop-batteries" }, { "title": "Cover", "path": "/shop/laptop-covers" }] }, { "title": "Mobile", "path": null, "categories": [{ "title": "Battery", "path": "/shop/mobile-batteries" }, { "title": "Accessories", "path": "/shop/mobile-accessories" }, { "title": "Cover", "path": "/shop/mobile-covers" }] }, { "title": "Watches", "path": "/shop/watched" }],
     "header": {
-      "id": "simple",
+      "id": "standard",
       "settings": {
         "background_color_navbar": "white",
         "text_color_navbar": "black",
