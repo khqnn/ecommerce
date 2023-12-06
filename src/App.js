@@ -17,6 +17,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:id" element={<Shop />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="/login" element={user.isAuthenticated ? <Profile /> : <Login />} />

@@ -116,6 +116,7 @@ export const categories = [
     id: 1,
     image: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
     title: "SHIRT STYLE",
+    banner: "https://png.pngtree.com/png-clipart/20211101/original/pngtree-summer-e-commerce-promotion-shoes-banner-png-image_6909677.png",
     slug: "shirts",
     filters: [
       {

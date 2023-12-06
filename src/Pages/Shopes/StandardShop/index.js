@@ -6,6 +6,7 @@ import { getPopularCategories, getPopularProducts } from "../../../api/utils"
 import Footer from "../../../components/Footer"
 import { useState } from "react"
 import { mobile } from "../../../responsive"
+import { useParams } from "react-router-dom"
 
 
 const Container = styled.div`
@@ -178,6 +179,19 @@ const DrawerFilterButtonContainer = styled.div`
 padding: 10px;
 `
 
+const CategoryFilterContainer = styled.div`
+display: ${props => props.display ? 'block' : 'none'};
+`
+
+const CategoryBannerContaienr = styled.div`
+width: 100%;
+height: fit-content;
+`
+const CategoryBanner = styled.img`
+width: 100vw;
+height: 500px;
+${mobile({height: '120px'})}
+`
 
 const StandardShop = () => {
 
@@ -187,11 +201,16 @@ const StandardShop = () => {
         setIsOpen(!isOpen);
     };
 
+    const { id } = useParams()
+
     const businessData = BusinessData()
     const businessId = businessData.id
 
     const popularProducts = getPopularProducts(businessId)
     const popularCategories = getPopularCategories(businessId)
+
+    const categoryFound = popularCategories.find(category => category.slug == id)
+
 
     const filters = [
         {
@@ -237,6 +256,12 @@ const StandardShop = () => {
         <>
             <Header />
             <Container>
+                {categoryFound && categoryFound.banner &&
+                    <CategoryBannerContaienr>
+                        <CategoryBanner src={categoryFound.banner} />
+                    </CategoryBannerContaienr>
+                }
+
                 <Wrapper>
 
                     <MobileFilterContainer>
@@ -259,16 +284,18 @@ const StandardShop = () => {
                                 </SortFiltersContainer>
 
                                 <FiltersContainer>
-                                    <FilterTitle>Categories</FilterTitle>
-                                    <FilterList>
-                                        {popularCategories.map((category) => (
-                                            <FilterItem>
-                                                <FilterLabel>
-                                                    <FilterCheckbox type="checkbox" /> {category.title}
-                                                </FilterLabel>
-                                            </FilterItem>
-                                        ))}
-                                    </FilterList>
+                                    <CategoryFilterContainer display={!categoryFound}>
+                                        <FilterTitle>Categories</FilterTitle>
+                                        <FilterList>
+                                            {popularCategories.map((category) => (
+                                                <FilterItem>
+                                                    <FilterLabel>
+                                                        {category.title}
+                                                    </FilterLabel>
+                                                </FilterItem>
+                                            ))}
+                                        </FilterList>
+                                    </CategoryFilterContainer>
 
                                     <FilterTitle>Filters</FilterTitle>
                                     {filters.map((filter) => (
@@ -314,16 +341,18 @@ const StandardShop = () => {
                                 </SortSelect>
                             </SortFiltersContainer>
                             <FiltersContainer>
-                                <FilterTitle>Categories</FilterTitle>
-                                <FilterList>
-                                    {popularCategories.map((category) => (
-                                        <FilterItem>
-                                            <FilterLabel>
-                                                <FilterCheckbox type="checkbox" /> {category.title}
-                                            </FilterLabel>
-                                        </FilterItem>
-                                    ))}
-                                </FilterList>
+                                <CategoryFilterContainer display={!categoryFound}>
+                                    <FilterTitle>Categories</FilterTitle>
+                                    <FilterList>
+                                        {popularCategories.map((category) => (
+                                            <FilterItem>
+                                                <FilterLabel>
+                                                    {category.title}
+                                                </FilterLabel>
+                                            </FilterItem>
+                                        ))}
+                                    </FilterList>
+                                </CategoryFilterContainer>
 
                                 <FilterTitle>Filters</FilterTitle>
                                 {filters.map((filter) => (
