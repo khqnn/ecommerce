@@ -93,7 +93,7 @@ export const businesses = [
       }
     },
     "product_card": {
-      "id": "fency",
+      "id": "simple",
       "settings": {}
     },
     "category_card": {
@@ -104,7 +104,7 @@ export const businesses = [
       "items": []
     },
     "shop_page": {
-      "id": "simple",
+      "id": "standard",
       "settings": {}
     }
 

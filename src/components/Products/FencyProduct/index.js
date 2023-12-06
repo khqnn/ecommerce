@@ -23,16 +23,16 @@ const Info = styled.div`
   `;
 
 const Container = styled.div`
-    flex: 1;
-    margin: 5px;
-    min-width: 330px;
+    // flex: 1;
+    // min-width: 330px;
+    width: calc(33.33% - 1px);
     height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #a1a1a1;
     position: relative;
-  
+    border: 0.01em solid white;
     &:hover ${Info}{
       opacity: 1;
     }

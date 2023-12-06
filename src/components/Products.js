@@ -6,9 +6,8 @@ import Heading from "./Heading";
 const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    // justify-content: space-between;
     text-align: center;
-    margin-top: 60px;
 `;
 
 const Products = ({heading=null, products}) => {

@@ -24,15 +24,15 @@ const Info = styled.div`
 
 const Container = styled.div`
     flex: 1;
-    margin: 5px;
-    min-width: 330px;
+    min-width: 380px;
+    // width: calc(25% - 1px);
     height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: #f5fbfd;
     position: relative;
-  
+    border: 0.001em solid white;
     &:hover ${Info}{
       opacity: 1;
     }
