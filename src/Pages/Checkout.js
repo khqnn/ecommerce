@@ -19,7 +19,7 @@ display: flex;
 flex-direction: row;
 width: 60%;
 margin-top: 60px;
-${mobile({ flexDirection: 'column', width: '90%' })}
+${mobile({ flexDirection: 'column', width: '100%' })}
 `
 
 const CheckoutDetailWrapper = styled.div`
@@ -27,7 +27,7 @@ flex: 5;
 display: flex;
 justify-content: end;
 margin-right: 20px;
-${mobile({ order: 2, margin: '0px', marginTop: '60px', justifyContent: 'center' })}
+${mobile({ order: 2, margin: '0px', marginTop: '60px', justifyContent: 'center', padding: '10px' })}
 
 
 `
@@ -39,14 +39,13 @@ justify-content: start;
 margin-top: 60px;
 flex-direction: column;
 height: fit-content;
-${mobile({ order: 1, margin: '0px', justifyContent: 'center' })}
+${mobile({ order: 1, margin: '6px', justifyContent: 'center' })}
 
 `
 
 const FormContainer = styled.form`
 flex: 1;
 
-${mobile({ width: '90%' })}
 
 `;
 
@@ -75,11 +74,7 @@ const Label = styled.label`
   // font-weight: bold;
 `;
 
-const Input = styled.input`
-  font-size: 16px;
-  height: 30px;
-  width: 100%;
-  `;
+
 
 
 const FlexContainer = styled.div`
@@ -118,8 +113,6 @@ padding: 20px;
 border-radius: 4px;
 height: fit-content;
 background-color: white;
-${mobile({ width: '80%' })}
-
 `
 
 const ItemsContaienr = styled.div`
@@ -176,37 +169,27 @@ display: flex;
 flex-direction: column;
 margin-top: 20px;
 `
-const TopInput = styled.input`
-border: 0.01em solid;
-padding-left: 10px;
-border-top-right-radius: 4px;
-border-top-left-radius: 4px;
-// border-bottom: none;
-height: 40px;
-`
-const BottomInput = styled.input`
-border: 0.01em solid;
-padding-left: 10px;
-border-bottom-left-radius: 4px;
-border-bottom-right-radius: 4px;
-border-top: none;
-height: 40px;
-`
-const MidInput = styled.input`
-flex: 1;
-padding-left: 10px;
-border: 0.01em solid;
-height: 40px;
-border-top: none;
-border-left: ${props => props.borderLeft ? 'none' : '0.01em solid'}
+
+const InputBox = styled.div`
+border: 0.01em solid black;
+border-radius: 4px;
+display: flex;
+flex-direction: column;
+padding: 1px;
 `
 
-const FullInput = styled.input`
-border-radius: 4px;
-height: 40px;
-border: 0.01em solid;
-padding-left: 10px;
-`
+const Input = styled.input`
+  flex: ${props => props.flex ? 1 : 'none'};
+  font-size: 16px;
+  height: 40px;
+  border: none;
+  border-left: ${props => props.borderLeft ? '0.01em solid' : 'none'};
+  border-right: ${props => props.borderRight ? '0.01em solid' : 'none'};
+  border-top: ${props => props.borderTop ? '0.01em solid' : 'none'};
+  border-bottom: ${props => props.borderBottom ? '0.01em solid' : 'none'};
+  padding-left: 10px;
+  `;
+
 
 const RowInput = styled.div`
 display: flex;
@@ -217,7 +200,7 @@ display: flex;
 flex-direction: row;
 width: 60vw;
 height: 120px;
-${mobile({ width: '100%', flexDirection: 'column', height: 'fit-content'})}
+${mobile({ width: '100%', flexDirection: 'column', height: 'fit-content' })}
 
 `
 
@@ -259,6 +242,10 @@ ${mobile({ display: 'none' })};
 
 `
 
+const ImageLogo = styled.img`
+  height: 100px;
+`
+
 const Checkout = () => {
 
   const navigate = useNavigate()
@@ -278,9 +265,9 @@ const Checkout = () => {
 
         <TopContainer>
           <Top>
-            <TopLeft onClick={e=> navigate("/")}><img src={logo} /></TopLeft>
+            <TopLeft onClick={e => navigate("/")}><ImageLogo src={logo} /></TopLeft>
             <TopCenter><h1>CHECKOUT</h1></TopCenter>
-            <TopRight><img src='https://www.vhv.rs/file/max/11/114011_norton-secured-logo-png.png' /></TopRight>
+            <TopRight><ImageLogo src='https://www.vhv.rs/file/max/11/114011_norton-secured-logo-png.png' /></TopRight>
           </Top>
         </TopContainer>
         <BottomContainer>
@@ -323,23 +310,26 @@ const Checkout = () => {
                 <FormHeading>Shipping Details</FormHeading>
 
                 <FormGroup>
+
                   <InputGroup>
                     <Label>Shipping Address</Label>
-                    <TopInput placeholder='City' />
-                    <RowInput>
-                      <MidInput placeholder='Country/State' />
-                      <MidInput placeholder='Postal Code' borderLeft />
-                    </RowInput>
-                    {/* <RowInput>
-                    <MidInput placeholder='Country'></MidInput>
-                  </RowInput> */}
 
-                    <BottomInput placeholder='Address' />
+                    <InputBox>
+                      <Input borderBottom placeholder='Address' />
+                      <Input borderBottom placeholder='City' />
+
+                      <RowInput>
+                        <Input flex placeholder='Country' />
+                        <Input borderLeft flex placeholder='Postal Code' />
+                      </RowInput>
+                    </InputBox>
                   </InputGroup>
 
                   <InputGroup>
                     <Label>Personal Info</Label>
-                    <FullInput placeholder='Phone Number (Optional)' />
+                    <InputBox>
+                      <Input placeholder='Phone Number (Optional)'/>
+                    </InputBox>
                   </InputGroup>
                 </FormGroup>
 
