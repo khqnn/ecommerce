@@ -82,14 +82,8 @@ export const businesses = [
     "header": {
       "id": "standard",
       "settings": {
-        "background_color_navbar": "white",
-        "text_color_navbar": "black",
-        "background_color_menubar": "gray",
-        "text_color_menubar": "white",
-        "background_color_hover": "teal",
-        "text_color_hover": "white",
-        "announcement_text": "Welcome to new header..",
-        "announcement_background": "gray"
+        "announcement_text": "Get free shipping upto $50 shopping!",
+        "announcement_background": "black"
       }
     },
     "product_card": {

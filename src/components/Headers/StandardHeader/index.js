@@ -4,6 +4,7 @@ import { mobile } from "../../../responsive"
 import NavbarMobile from "./NavbarMobile"
 import SearchPopup from "./SearchPopup"
 import { useState } from "react"
+import Announcement from "./Announcement"
 
 const NavbarContainer = styled.div`
 `
@@ -33,15 +34,18 @@ const StandardHeader = ({ settings, logo, menuItems }) => {
      * 3. theme adjustement
      */
 
+    console.log("header settings.....", settings);
+
     return (
         <NavbarContainer>
             <SearchPopup isOpen={isOpen} setIsOpen={setIsOpen} />
             <FullNavbar>
-                <Navbar settings={settings} logo={logo} menuItems={menuItems} toggleSearchPopup={toggleSearchPopup}/>
+                <Navbar settings={settings} logo={logo} menuItems={menuItems} toggleSearchPopup={toggleSearchPopup} />
             </FullNavbar>
             <MobileNavbar>
-                <NavbarMobile settings={settings} logo={logo} menuItems={menuItems} toggleSearchPopup={toggleSearchPopup}/>
+                <NavbarMobile settings={settings} logo={logo} menuItems={menuItems} toggleSearchPopup={toggleSearchPopup} />
             </MobileNavbar>
+            <Announcement text={settings.announcement_text} color={settings.announcement_background} />
         </NavbarContainer>
     )
 
