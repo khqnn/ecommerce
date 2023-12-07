@@ -6,8 +6,6 @@ import { Search, ShoppingCartOutlined, Person } from "@material-ui/icons";
 import { useNavigate } from 'react-router-dom';
 import { AuthData } from '../../../auth/AuthWrapper';
 
-
-
 const Container = styled.div`
 width: 100vw;
 height: 60px;
@@ -139,7 +137,7 @@ const DropdownItem = styled.a`
 
   background-color: ${({backgroundColor})=> backgroundColor? backgroundColor: 'none'};
   color: ${({textColor})=> textColor? textColor: 'black'};
-  
+
   &:hover {
     background-color: ${({hoverBackgroundColor})=> hoverBackgroundColor? hoverBackgroundColor: 'gray'};
     color: ${({hoverTextColor})=> hoverTextColor? hoverTextColor: 'white'};
