@@ -17,7 +17,7 @@ height: 100vh;
 background-color: white;
 position: fixed;
 overflow: auto;
-top: ${({ isOpen }) => (isOpen ? '0' : '-100vw')};
+top: ${({ isOpen }) => (isOpen ? '0' : '-100vh')};
 left: 0;
 transition: top 0.3s ease-in-out;
 display: flex;
@@ -60,7 +60,7 @@ flex-direction: row;
 
 const Searchbar = styled.input`
 padding: 0px;
-width: 60vw;
+width: 80vw;
 height: 100%;
 border: none;
 flex: 11;
