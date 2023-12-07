@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Badge } from "@material-ui/core";
 
-import { Search, ShoppingCartOutlined, Person } from "@material-ui/icons";
-import SearchPopup from './SearchPopup';
+import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { AuthData } from '../../../auth/AuthWrapper';
+import { useNavigate } from 'react-router-dom';
 
 
 const StyledBadge = styled(Badge)({
@@ -152,6 +153,9 @@ const NavbarMobile = ({ settings, logo, menuItems, toggleSearchPopup }) => {
 
     const [isOpen, setIsOpen] = useState(false);
 
+    const navigate = useNavigate()
+    const { user, logout } = AuthData()
+
     const toggleDrawer = () => {
         setIsOpen(!isOpen);
     };
@@ -181,20 +185,26 @@ const NavbarMobile = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                                             <MenuGroup>
                                                 <MenuName>{menuItem.title}</MenuName>
                                                 <SubMenuContainer>
-                                                    {menuItem['categories'].map((cat) => (<SubMenuItem>{cat.title}</SubMenuItem>))}
+                                                    {menuItem['categories'].map((cat) => (<SubMenuItem onClick={e => navigate(cat.path)}>{cat.title}</SubMenuItem>))}
                                                 </SubMenuContainer>
                                             </MenuGroup>
-                                        ) : (<MenuItem>{menuItem.title}</MenuItem>)}
+                                        ) : (<MenuItem onClick={e => navigate(menuItem.path)}>{menuItem.title}</MenuItem>)}
                                     </>))}
-                                    <MenuItem>Register</MenuItem>
-                                    <MenuItem>Login</MenuItem>
+                                    {user.isAuthenticated ? <>
+                                        <MenuItem>My Account</MenuItem>
+                                        <MenuItem>Orders</MenuItem>
+                                        <MenuItem onClick={logout}>Logout</MenuItem>
+                                    </> : <>
+                                        <MenuItem>Register</MenuItem>
+                                        <MenuItem onClick={e => navigate("/login")}>Login</MenuItem>
+                                    </>}
                                 </DrawerContent>
                             </DrawerContainer>
                         </MenuContainer>
                     </Left>
                     <Center>
                         <LogoContainer>
-                            <Logo src={logo} />
+                            <Logo src={logo} onClick={e => navigate("/")} />
                         </LogoContainer>
                     </Center>
                     <Right>
@@ -202,7 +212,7 @@ const NavbarMobile = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                             <StyledBadge color="primary">
                                 <Search onClick={toggleSearchPopup} />
                             </StyledBadge>
-                            <StyledBadge color="primary" >
+                            <StyledBadge color="primary"  onClick={e=> navigate("/cart")}>
                                 <ShoppingCartOutlined />
                             </StyledBadge>
                         </ProfileMenuContainer>

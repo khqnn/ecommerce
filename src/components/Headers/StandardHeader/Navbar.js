@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { Badge } from "@material-ui/core";
 
 import { Search, ShoppingCartOutlined, Person } from "@material-ui/icons";
-import SearchPopup from './SearchPopup';
+import { useNavigate } from 'react-router-dom';
+import { AuthData } from '../../../auth/AuthWrapper';
 
 
 
@@ -147,13 +148,16 @@ const StyledBadge = styled(Badge)({
 const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
 
 
+    const navigate = useNavigate()
+    const { user, logout } = AuthData()
+
     return (
         <>
             <Container>
                 <Wrapper>
                     <Left>
                         <LogoContainer>
-                            <Logo src={logo} />
+                            <Logo src={logo} onClick={e => navigate("/")} />
                         </LogoContainer>
                     </Left>
                     <Center>
@@ -163,10 +167,12 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                                     {(menuItem['categories'] && menuItem['categories'].length > 0) ? (
                                         <DropdownContainer>
                                             <DropdownText>{menuItem.title}</DropdownText>
-                                            <DropdownContent >{menuItem['categories'].map((cat) => (<DropdownItem >{cat.title}</DropdownItem>))}</DropdownContent>
+                                            <DropdownContent >
+                                                {menuItem['categories'].map((cat) => (<DropdownItem onClick={e => navigate(cat.path)}>{cat.title}</DropdownItem>))}
+                                            </DropdownContent>
                                         </DropdownContainer>
                                     ) : (
-                                        <MenuItem>{menuItem.title}</MenuItem>
+                                        <MenuItem onClick={e => navigate(menuItem.path)}>{menuItem.title}</MenuItem>
                                     )}
                                 </>
                             ))}
@@ -184,11 +190,17 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                                     </StyledBadge>
                                 </DropdownIcon>
                                 <DropdownContent>
-                                    <DropdownItem>Register</DropdownItem>
-                                    <DropdownItem >Login</DropdownItem>
+                                    {user.isAuthenticated ? <>
+                                        <DropdownItem>My Account</DropdownItem>
+                                        <DropdownItem >Orders</DropdownItem>
+                                        <DropdownItem onClick={logout}>Logout</DropdownItem>
+                                    </> : <>
+                                        <DropdownItem>Register</DropdownItem>
+                                        <DropdownItem onClick={e => navigate("/login")}>Login</DropdownItem>
+                                    </>}
                                 </DropdownContent>
                             </DropdownContainer>
-                            <StyledBadge color="primary" >
+                            <StyledBadge color="primary" onClick={e=> navigate("/cart")}>
                                 <ShoppingCartOutlined />
                             </StyledBadge>
                         </ProfileMenuContainer>
