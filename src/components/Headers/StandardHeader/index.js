@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Badge } from "@material-ui/core";
 
 import { Search, ShoppingCartOutlined, Person } from "@material-ui/icons";
+import SearchPopup from './SearchPopup';
 
 
 
@@ -142,10 +143,21 @@ const StyledBadge = styled(Badge)({
     }
 })
 
+
 const StandardHeader = ({ settings, logo, menuItems }) => {
+
+    const [isOpen, setIsOpen] = useState(false)
+
+    /**
+     * 1. search popup [done]
+     * 2. mobile responsive
+     * 3. theme adjustement
+     */
+
     return (
         <>
             <Container>
+                <SearchPopup isOpen={isOpen} setIsOpen={setIsOpen} />
                 <Wrapper>
                     <Left>
                         <LogoContainer>
@@ -170,8 +182,8 @@ const StandardHeader = ({ settings, logo, menuItems }) => {
                     </Center>
                     <Right>
                         <ProfileMenuContainer>
-                            <StyledBadge color="primary" >
-                                <Search />
+                            <StyledBadge color="primary">
+                                <Search onClick={e => setIsOpen(!isOpen)} />
                             </StyledBadge>
                             <DropdownContainer>
                                 <DropdownIcon>
