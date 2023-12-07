@@ -24,6 +24,8 @@ const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
 height: 100%;
+background-color: ${({ backgroundColor }) => backgroundColor ? backgroundColor : 'none'};
+color: ${({ textColor }) => textColor ? textColor : 'black'};
 `
 
 const Left = styled.div`
@@ -85,18 +87,22 @@ const DrawerHeader = styled.div`
   display: flex;
   justify-content: flex-end;
   padding: 10px;
-  background-color: white;
+  
+background-color: ${({ backgroundColor }) => backgroundColor ? backgroundColor : 'none'};
+color: ${({ textColor }) => textColor ? textColor : 'black'};
 `;
 
 const DrawerContent = styled.div`
 `;
 
 const CloseButton = styled.button`
-  background-color: white;
   color: black;
   padding: 10px;
   cursor: pointer;
   border: none;
+
+background-color: ${({ backgroundColor }) => backgroundColor ? backgroundColor : 'none'};
+color: ${({ textColor }) => textColor ? textColor : 'black'};
 `;
 
 const MenuDrawerButton = styled.button`
@@ -118,10 +124,13 @@ width: 100%;
 padding: 20px;
 display: flex;
 
-&:hover{
-    background-color: teal;
-    color: white;
-}
+ background-color: ${({ backgroundColor }) => backgroundColor ? backgroundColor : 'none'};
+  color: ${({ textColor }) => textColor ? textColor : 'black'};
+  
+  &:hover {
+    background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor ? hoverBackgroundColor : 'gray'};
+    color: ${({ hoverTextColor }) => hoverTextColor ? hoverTextColor : 'white'};
+  }
 `
 
 const MenuGroup = styled.div``
@@ -130,6 +139,14 @@ flex: 1;
 width: 100%;
 padding: 20px;
 display: flex;
+
+ background-color: ${({ backgroundColor }) => backgroundColor ? backgroundColor : 'none'};
+  color: ${({ textColor }) => textColor ? textColor : 'black'};
+  
+  &:hover {
+    background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor ? hoverBackgroundColor : 'gray'};
+    color: ${({ hoverTextColor }) => hoverTextColor ? hoverTextColor : 'white'};
+  }
 `
 const SubMenuContainer = styled.div`
 `
@@ -141,10 +158,13 @@ padding: 20px;
 padding-left: 40px;
 display: flex;
 
-&:hover{
-    background-color: teal;
-    color: white;
-}
+ background-color: ${({ backgroundColor }) => backgroundColor ? backgroundColor : 'none'};
+  color: ${({ textColor }) => textColor ? textColor : 'black'};
+  
+  &:hover {
+    background-color: ${({ hoverBackgroundColor }) => hoverBackgroundColor ? hoverBackgroundColor : 'gray'};
+    color: ${({ hoverTextColor }) => hoverTextColor ? hoverTextColor : 'white'};
+  }
 `
 
 
@@ -160,40 +180,44 @@ const NavbarMobile = ({ settings, logo, menuItems, toggleSearchPopup }) => {
         setIsOpen(!isOpen);
     };
 
-    /**
-     * 1. search popup [done]
-     * 2. mobile responsive
-     * 3. theme adjustement
-     */
+    const {
+        background_color_header,
+        text_color_header,
+        background_color_hover,
+        text_color_hover,
+        announcement_text,
+        announcement_background
+    } = settings
+
 
     return (
         <>
             <Container>
-                <Wrapper>
+                <Wrapper backgroundColor={background_color_header} textColor={text_color_header}>
                     <Left>
                         <MenuContainer>
                             <DrawerMenuButtonContainer>
                                 <MenuDrawerButton onClick={toggleDrawer}>Menu</MenuDrawerButton>
                             </DrawerMenuButtonContainer>
                             <DrawerContainer isOpen={isOpen}>
-                                <DrawerHeader>
-                                    <CloseButton onClick={toggleDrawer}>Close</CloseButton>
+                                <DrawerHeader backgroundColor={background_color_header} textColor={text_color_header}>
+                                    <CloseButton backgroundColor={background_color_header} textColor={text_color_header} onClick={toggleDrawer}>Close</CloseButton>
                                 </DrawerHeader>
                                 <DrawerContent>
                                     {menuItems.map((menuItem) => (<>
                                         {menuItem['categories'] && menuItem['categories'].length > 0 ? (
                                             <MenuGroup>
-                                                <MenuName>{menuItem.title}</MenuName>
+                                                <MenuName backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>{menuItem.title}</MenuName>
                                                 <SubMenuContainer>
-                                                    {menuItem['categories'].map((cat) => (<SubMenuItem onClick={e => navigate(cat.path)}>{cat.title}</SubMenuItem>))}
+                                                    {menuItem['categories'].map((cat) => (<SubMenuItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover} onClick={e => navigate(cat.path)}>{cat.title}</SubMenuItem>))}
                                                 </SubMenuContainer>
                                             </MenuGroup>
-                                        ) : (<MenuItem onClick={e => navigate(menuItem.path)}>{menuItem.title}</MenuItem>)}
+                                        ) : (<MenuItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover} onClick={e => navigate(menuItem.path)}>{menuItem.title}</MenuItem>)}
                                     </>))}
                                     {user.isAuthenticated ? <>
-                                        <MenuItem>My Account</MenuItem>
-                                        <MenuItem>Orders</MenuItem>
-                                        <MenuItem onClick={logout}>Logout</MenuItem>
+                                        <MenuItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>My Account</MenuItem>
+                                        <MenuItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>Orders</MenuItem>
+                                        <MenuItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover} onClick={logout}>Logout</MenuItem>
                                     </> : <>
                                         <MenuItem>Register</MenuItem>
                                         <MenuItem onClick={e => navigate("/login")}>Login</MenuItem>
@@ -212,7 +236,7 @@ const NavbarMobile = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                             <StyledBadge color="primary">
                                 <Search onClick={toggleSearchPopup} />
                             </StyledBadge>
-                            <StyledBadge color="primary"  onClick={e=> navigate("/cart")}>
+                            <StyledBadge color="primary" onClick={e => navigate("/cart")}>
                                 <ShoppingCartOutlined />
                             </StyledBadge>
                         </ProfileMenuContainer>

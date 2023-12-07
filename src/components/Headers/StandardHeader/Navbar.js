@@ -11,13 +11,15 @@ import { AuthData } from '../../../auth/AuthWrapper';
 const Container = styled.div`
 width: 100vw;
 height: 60px;
-// margin-bottom: 10px;
 box-shadow: 0 4px 14px rgba(0,0,0,.08);
 `
 const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
 height: 100%;
+background-color: ${({backgroundColor})=> backgroundColor? backgroundColor : 'none'};
+color: ${({textColor})=> textColor? textColor : 'black'};
+
 `
 
 const Left = styled.div`
@@ -60,10 +62,13 @@ padding: 20px 10px;
 display: flex;
 justify-content: center;
 align-items: center;
+background-color: ${({backgroundColor})=> backgroundColor? backgroundColor: 'none'};
+color: ${({textColor})=> textColor? textColor: 'black'};
+
 
 &:hover{
-    background-color: teal;
-    color: white;
+    background-color: ${({hoverBackgroundColor})=> hoverBackgroundColor? hoverBackgroundColor: 'gray'};
+    color: ${({hoverTextColor})=> hoverTextColor? hoverTextColor: 'white'};
 }
 `
 
@@ -82,9 +87,12 @@ padding: 20px 10px;
 display: flex;
 justify-content: center;
 align-items: center;
+background-color: ${({backgroundColor})=> backgroundColor? backgroundColor: 'none'};
+color: ${({textColor})=> textColor? textColor: 'black'};
+
 &:hover{
-    background-color: teal;
-    color: white;
+    background-color: ${({hoverBackgroundColor})=> hoverBackgroundColor? hoverBackgroundColor: 'gray'};
+    color: ${({hoverTextColor})=> hoverTextColor? hoverTextColor: 'white'};
 }
 `;
 
@@ -126,14 +134,15 @@ const DropdownItem = styled.a`
   padding: 10px;
   width: 200px;
   height: 40px;
-  color: black;
-  background-color: #f4f4f4;
   text-decoration: none;
   transition: background-color 0.3s;
 
+  background-color: ${({backgroundColor})=> backgroundColor? backgroundColor: 'none'};
+  color: ${({textColor})=> textColor? textColor: 'black'};
+  
   &:hover {
-    background-color: teal;
-    color: white;
+    background-color: ${({hoverBackgroundColor})=> hoverBackgroundColor? hoverBackgroundColor: 'gray'};
+    color: ${({hoverTextColor})=> hoverTextColor? hoverTextColor: 'white'};
   }
 `;
 
@@ -147,14 +156,23 @@ const StyledBadge = styled(Badge)({
 
 const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
 
-
     const navigate = useNavigate()
     const { user, logout } = AuthData()
+
+
+    const {
+        background_color_header,
+        text_color_header,
+        background_color_hover,
+        text_color_hover,
+        announcement_text,
+        announcement_background
+    } = settings
 
     return (
         <>
             <Container>
-                <Wrapper>
+                <Wrapper backgroundColor={background_color_header} textColor={text_color_header}>
                     <Left>
                         <LogoContainer>
                             <Logo src={logo} onClick={e => navigate("/")} />
@@ -166,13 +184,13 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                                 <>
                                     {(menuItem['categories'] && menuItem['categories'].length > 0) ? (
                                         <DropdownContainer>
-                                            <DropdownText>{menuItem.title}</DropdownText>
+                                            <DropdownText backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>{menuItem.title}</DropdownText>
                                             <DropdownContent >
-                                                {menuItem['categories'].map((cat) => (<DropdownItem onClick={e => navigate(cat.path)}>{cat.title}</DropdownItem>))}
+                                                {menuItem['categories'].map((cat) => (<DropdownItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover} onClick={e => navigate(cat.path)}>{cat.title}</DropdownItem>))}
                                             </DropdownContent>
                                         </DropdownContainer>
                                     ) : (
-                                        <MenuItem onClick={e => navigate(menuItem.path)}>{menuItem.title}</MenuItem>
+                                        <MenuItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover} onClick={e => navigate(menuItem.path)}>{menuItem.title}</MenuItem>
                                     )}
                                 </>
                             ))}
@@ -191,12 +209,12 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                                 </DropdownIcon>
                                 <DropdownContent>
                                     {user.isAuthenticated ? <>
-                                        <DropdownItem>My Account</DropdownItem>
-                                        <DropdownItem >Orders</DropdownItem>
-                                        <DropdownItem onClick={logout}>Logout</DropdownItem>
+                                        <DropdownItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>My Account</DropdownItem>
+                                        <DropdownItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>Orders</DropdownItem>
+                                        <DropdownItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover} onClick={logout}>Logout</DropdownItem>
                                     </> : <>
-                                        <DropdownItem>Register</DropdownItem>
-                                        <DropdownItem onClick={e => navigate("/login")}>Login</DropdownItem>
+                                        <DropdownItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>Register</DropdownItem>
+                                        <DropdownItem backgroundColor={background_color_header} textColor={text_color_header} hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover} onClick={e => navigate("/login")}>Login</DropdownItem>
                                     </>}
                                 </DropdownContent>
                             </DropdownContainer>

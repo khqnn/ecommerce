@@ -21,6 +21,17 @@ ${mobile({ display: "block" })};
 
 const StandardHeader = ({ settings, logo, menuItems }) => {
 
+    /**
+     * settings: {
+            background_color_header,
+            text_color_header,
+            background_color_hover,
+            text_color_hover,
+            announcement_text,
+            announcement_background
+        }
+     */
+
     const [isOpen, setIsOpen] = useState(false)
 
     const toggleSearchPopup = () => {
@@ -34,7 +45,6 @@ const StandardHeader = ({ settings, logo, menuItems }) => {
      * 3. theme adjustement
      */
 
-    console.log("header settings.....", settings);
 
     return (
         <NavbarContainer>

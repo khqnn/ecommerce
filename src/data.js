@@ -83,7 +83,12 @@ export const businesses = [
       "id": "standard",
       "settings": {
         "announcement_text": "Get free shipping upto $50 shopping!",
-        "announcement_background": "black"
+        "announcement_background": "black",
+
+        "background_color_header": "white",
+        "text_color_header": "black",
+        "background_color_hover": "black",
+        "text_color_hover": "white"
       }
     },
     "product_card": {
