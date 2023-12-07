@@ -2,12 +2,21 @@ import styled from "styled-components"
 import Header from "../../../components/Header"
 import Products from "../../../components/Products"
 import { BusinessData } from "../../../theme/BusinessWrapper"
-import { getPopularCategories, getPopularProducts } from "../../../api/utils"
+import { getPopularCategories, getPopularProducts, getProducts } from "../../../api/utils"
 import Footer from "../../../components/Footer"
 import { useState } from "react"
 import { mobile } from "../../../responsive"
 import { useParams } from "react-router-dom"
+import { Tune, Close } from "@material-ui/icons";
+import { Badge } from "@material-ui/core";
 
+
+const StyledBadge = styled(Badge)({
+    "& .MuiBadge-badge": {
+        color: props => props.textColor,
+        backgroundColor: props => props.backgroundColor,
+    }
+})
 
 const Container = styled.div`
 width: 100%;
@@ -209,7 +218,7 @@ const StandardShop = () => {
     const businessData = BusinessData()
     const businessId = businessData.id
 
-    const popularProducts = getPopularProducts(businessId)
+    const products = getProducts(businessId)
     const popularCategories = getPopularCategories(businessId)
 
     const categoryFound = popularCategories.find(category => category.slug == id)
@@ -275,12 +284,21 @@ const StandardShop = () => {
                                     <Search placeholder="Search..." />
                                 </SearchBox>
                             </SearchContaienr>
-                            <FilterDrawerButton border="0.01em solid gray" onClick={toggleDrawer}>Filters</FilterDrawerButton>
+                            <FilterDrawerButton border="0.01em solid gray" onClick={toggleDrawer}>
+
+                                <StyledBadge color="primary">
+                                    <Tune />
+                                </StyledBadge>
+                            </FilterDrawerButton>
                         </DrawerFilterButtonContainer>
 
                         <DrawerContainer isOpen={isOpen}>
                             <DrawerHeader>
-                                <CloseButton onClick={toggleDrawer}>Close</CloseButton>
+                                <CloseButton onClick={toggleDrawer}>
+                                <StyledBadge color="primary">
+                                        <Close />
+                                    </StyledBadge>
+                                </CloseButton>
                             </DrawerHeader>
                             <DrawerContent>
                                 <SortFiltersContainer>
@@ -382,7 +400,7 @@ const StandardShop = () => {
                             </FiltersContainer>
                         </SidebarContainer>
                         <ProductsContainer>
-                            <Products products={popularProducts} />
+                            <Products products={products} />
                         </ProductsContainer>
                     </Bottom>
                 </Wrapper>

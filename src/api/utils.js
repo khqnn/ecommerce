@@ -1,4 +1,4 @@
-import { businesses, categories, discountedProducts, latestProducts, popularProducts } from "../data"
+import { businesses, categories, discountedProducts, latestProducts, popularProducts, products } from "../data"
 
 export const getBusinessName = ()=>{
 
@@ -14,6 +14,10 @@ export const getBusinessId = (business_name)=>{
     }
 
     return businessId
+}
+
+export const getProducts = (businessId)=>{
+    return products
 }
 
 export const getPopularCategories = (businessId)=>{

@@ -6,6 +6,13 @@ import { Search, ShoppingCartOutlined, Person } from "@material-ui/icons";
 import { useNavigate } from 'react-router-dom';
 import { AuthData } from '../../../auth/AuthWrapper';
 
+const StyledBadge = styled(Badge)({
+    "& .MuiBadge-badge": {
+        color: props => props.textColor,
+        backgroundColor: props => props.backgroundColor,
+    }
+})
+
 const Container = styled.div`
 width: 100vw;
 height: 60px;
@@ -144,12 +151,7 @@ const DropdownItem = styled.a`
   }
 `;
 
-const StyledBadge = styled(Badge)({
-    "& .MuiBadge-badge": {
-        color: props => props.textColor,
-        backgroundColor: props => props.backgroundColor,
-    }
-})
+
 
 
 const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {

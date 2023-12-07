@@ -9,7 +9,6 @@ import { getBusinessId, getBusinessName, getDiscountedProducts, getLatestProduct
 import { BusinessData } from '../theme/BusinessWrapper'
 import styled from 'styled-components'
 
-
 const HomePageWrapper = styled.div`
 
 `
@@ -23,6 +22,8 @@ const Home = () => {
     const latestProducts = getLatestProducts(businessId)
     const popularCategories = getPopularCategories(businessId)
 
+    const tempImg = `<img src="https://i.ytimg.com/vi/iVHvPSe2mpE/maxresdefault.jpg"/>`
+
     return (
         <div>
             <Header />
@@ -34,10 +35,15 @@ const Home = () => {
             <Slider />
             <HomePageWrapper>
 
-                <ProductSlider heading={"LATEST PRODUCTS"} products={latestProducts} />
-                <ProductSlider heading={"DISCOUNTED PRODUCTS"} products={discountedProducts} />
+            <Products products={latestProducts} heading={"LATEST PRODUCTS"} />
+            <Products products={discountedProducts} heading={"DISCOUNTED PRODUCTS"} />
+
+
+                {/* <ProductSlider heading={"LATEST PRODUCTS"} products={popularProducts} />
+                <ProductSlider heading={"DISCOUNTED PRODUCTS"} products={discountedProducts} /> */}
             </HomePageWrapper>
             <Newsletter />
+
 
             <Footer />
         </div>

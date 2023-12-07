@@ -92,7 +92,7 @@ export const businesses = [
       }
     },
     "product_card": {
-      "id": "simple",
+      "id": "plain",
       "settings": {}
     },
     "category_card": {
@@ -144,11 +144,11 @@ export const categories = [
   },
 ];
 
-export const popularProducts = [
+export const products = [
   {
     "id": 1,
-    "image": "https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
-    "name": "Cool Jumpsuit",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/349d779a-6d86-4982-9c0f-93f979038cc4/court-vision-low-next-nature-womens-shoes-ZkMMBG.png",
+    "name": "Nike Court Vision Low Next Nature",
     "description": "A stylish and comfortable jumpsuit suitable for any occasion. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 20,
     "slug": "cool-jumpsuit",
@@ -191,8 +191,8 @@ export const popularProducts = [
   },
   {
     "id": 2,
-    "image": "https://parspng.com/wp-content/uploads/2023/02/shoespng.parspng.com-12.png",
-    "name": "Denim Jumpsuit",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/a364b2e6-f179-49f4-a401-6b8e68a42432/pegasus-40-womens-road-running-shoes-L80k6C.png",
+    "name": "Nike Air Max 1",
     "description": "A trendy denim jumpsuit that combines style and comfort. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 25,
     "slug": "denim-jumpsuit",
@@ -209,16 +209,196 @@ export const popularProducts = [
   },
   {
     "id": 3,
-    "image": "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
-    "name": "Elegant Dress",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/7a18d708-1dd3-4af9-98fe-f32288c3654a/free-metcon-5-womens-workout-shoes-h4Zl5h.png",
+    "name": "Nike Metcon 9",
     "description": "A sophisticated and elegant dress for special occasions. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 30,
     "slug": "elegant-dress"
   },
   {
     "id": 4,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Glasses.png/1200px-Glasses.png",
-    "name": "Stylish Glasses",
+    "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7dcc6fd4-b41c-493e-85bd-58b8944b6b1d/blazer-mid-77-womens-shoes-NPWfjm.png",
+    "name": "Nike Blazer Mid '77",
+    "description": "A pair of stylish glasses to enhance your look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 15,
+    "slug": "stylish-glasses"
+  },
+  {
+    "id": 5,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/3bdcf8a1-b301-4444-8dfd-92601bbf42ac/blazer-mid-77-womens-shoes-NPWfjm.png",
+    "name": "Nike Blazer Mid '77",
+    "description": "A pair of stylish glasses to enhance your look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 15,
+    "slug": "stylish-glasses"
+  },
+  {
+    "id": 6,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/14385617-4d3f-4a7c-8478-ddd138ef4d22/dunk-low-retro-mens-shoes-J80m7m.png",
+    "name": "Air Jordan 3 Fear",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 210,
+    "slug": "dunk-low-retro-mens-shoes-J80m7m"
+  },
+  {
+    "id": 7,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d23d7450-c5ea-4733-bc20-3bb599cedb2d/air-force-1-07-mens-shoes-GNxP0v.png",
+    "name": "Air Jordan 4 Craft Olive",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 210,
+    "slug": "air-force-1-07-mens-shoes-GNxP0v"
+  },
+  {
+    "id": 8,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/9f1a997c-d081-44b3-b99f-694eaea6a5de/blazer-mid-77-mens-shoes-x7m822.png",
+    "name": "Air Jordan 13 Wheat",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 200,
+    "slug": "blazer-mid-77-mens-shoes-x7m822"
+  },
+  {
+    "id": 9,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/08f904d1-dedb-4260-952d-8ac3c31ebad0/dunk-low-retro-premium-mens-shoes-20hjNd.png",
+    "name": "Air Jordan 8 Winterized",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 150,
+    "slug": "dunk-low-retro-premium-mens-shoes-20hjNd"
+  },
+  {
+    "id": 10,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/209889d9-4910-4f06-9d07-18afa558b566/air-max-270-mens-shoes-KkLcGR.png",
+    "name": "Air Jordan 1 High OG",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 180,
+    "slug": "air-max-270-mens-shoes-KkLcGR"
+  },
+
+
+  {
+    "id": 11,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/bd2e5a6c-287f-431b-af24-4f64d11e0220/vomero-5-mens-shoes-MgsTqZ.png",
+    "name": "Nike Dunk High Etro SE",
+    "description": "A sophisticated and elegant dress for special occasions. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 140,
+    "slug": "nike-dunk-high-etro-se"
+  },
+  {
+    "id": 12,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/bb9be77e-e808-4d58-88db-5ad331c0b4ac/sabrina-1-west-coast-roots-basketball-shoes-f8jr2H.png",
+    "name": "Nike Air More Uptempo 96",
+    "description": "A pair of stylish glasses to enhance your look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 153.97,
+    "slug": "nike-air-more-uptempo-96"
+  },
+  {
+    "id": 13,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5e1d6979-98ef-4240-8f9c-4daa7dddce16/vaporfly-3-mens-road-racing-shoes-8DD182.png",
+    "name": "KD16",
+    "description": "A vintage chill cap for a laid-back and cool look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 22,
+    "slug": "kd-16"
+  },
+  {
+    "id": 14,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/77a9570a-f734-4050-82e1-b422da3be7ad/dunk-high-retro-se-mens-shoes-9dMJ92.png",
+    "name": "Tiger Woods 13",
+    "description": "A fashionable jacket to elevate your style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 250,
+    "slug": "tiger-woods-13"
+  },
+  {
+    "id": 15,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f6161f39-7584-44da-88a4-e7b2bb86d441/kd16-basketball-shoes-H3gcDG.png",
+    "name": "Air Jordan 13 Wheat",
+    "description": "A fashionable jacket to elevate your style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 200,
+    "slug": "air-jordan-13-wheat"
+  }
+
+]
+
+export const popularProducts = [
+  {
+    "id": 1,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/349d779a-6d86-4982-9c0f-93f979038cc4/court-vision-low-next-nature-womens-shoes-ZkMMBG.png",
+    "name": "Nike Court Vision Low Next Nature",
+    "description": "A stylish and comfortable jumpsuit suitable for any occasion. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 20,
+    "slug": "cool-jumpsuit",
+    "filters": [
+      {
+        category_id: 1,
+        filter_id: 1,
+        filter_name: "color",
+        option: "red"
+      }
+    ],
+    "category": {
+      id: 2,
+      img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      title: "LOUNGEWEAR LOVE",
+      slug: "loungewear",
+    },
+    "variant_option": "size",
+    "variants": [
+      {
+        sku: "small-shirt",
+        variant_option: "small",
+        price: 20,
+        image: null
+      },
+      {
+        sku: "medium-shirt",
+        variant_option: "medium",
+        price: 30,
+        image: null
+      },
+      {
+        sku: "large-shirt",
+        variant_option: "large",
+        price: 40,
+        image: null
+      },
+    ]
+
+  },
+  {
+    "id": 2,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/a364b2e6-f179-49f4-a401-6b8e68a42432/pegasus-40-womens-road-running-shoes-L80k6C.png",
+    "name": "Nike Air Max 1",
+    "description": "A trendy denim jumpsuit that combines style and comfort. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 25,
+    "slug": "denim-jumpsuit",
+    "variant_option": "color",
+    "variants": [
+      {
+        id: 1,
+        variant_option: "blue",
+        sku: "blue-shirt",
+        price: 23,
+        image: null
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/7a18d708-1dd3-4af9-98fe-f32288c3654a/free-metcon-5-womens-workout-shoes-h4Zl5h.png",
+    "name": "Nike Metcon 9",
+    "description": "A sophisticated and elegant dress for special occasions. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 30,
+    "slug": "elegant-dress"
+  },
+  {
+    "id": 4,
+    "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7dcc6fd4-b41c-493e-85bd-58b8944b6b1d/blazer-mid-77-womens-shoes-NPWfjm.png",
+    "name": "Nike Blazer Mid '77",
+    "description": "A pair of stylish glasses to enhance your look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 15,
+    "slug": "stylish-glasses"
+  },
+  {
+    "id": 5,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/3bdcf8a1-b301-4444-8dfd-92601bbf42ac/blazer-mid-77-womens-shoes-NPWfjm.png",
+    "name": "Nike Blazer Mid '77",
     "description": "A pair of stylish glasses to enhance your look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
     "price": 15,
     "slug": "stylish-glasses"
@@ -227,72 +407,88 @@ export const popularProducts = [
 
 export const latestProducts = [
   {
-    "id": 5,
-    "image": "https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
-    "name": "Trendy Tote Bag",
+    "id": 1,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/14385617-4d3f-4a7c-8478-ddd138ef4d22/dunk-low-retro-mens-shoes-J80m7m.png",
+    "name": "Air Jordan 3 Fear",
     "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
-    "price": 18,
-    "slug": "trendy-tote-bag"
+    "price": 210,
+    "slug": "dunk-low-retro-mens-shoes-J80m7m"
   },
   {
-    "id": 6,
-    "image": "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
-    "name": "Vintage Chill Cap",
-    "description": "A vintage chill cap for a laid-back and cool look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
-    "price": 22,
-    "slug": "vintage-chill-cap"
+    "id": 2,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d23d7450-c5ea-4733-bc20-3bb599cedb2d/air-force-1-07-mens-shoes-GNxP0v.png",
+    "name": "Air Jordan 4 Craft Olive",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 210,
+    "slug": "air-force-1-07-mens-shoes-GNxP0v"
   },
   {
-    "id": 7,
-    "image": "https://pngimg.com/d/sweater_PNG50.png",
-    "name": "Cozy Sweater",
-    "description": "A cozy sweater to keep you warm in style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
-    "price": 28,
-    "slug": "cozy-sweater"
+    "id": 3,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/9f1a997c-d081-44b3-b99f-694eaea6a5de/blazer-mid-77-mens-shoes-x7m822.png",
+    "name": "Air Jordan 13 Wheat",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 200,
+    "slug": "blazer-mid-77-mens-shoes-x7m822"
   },
   {
-    "id": 8,
-    "image": "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
-    "name": "Fashionable Jacket",
-    "description": "A fashionable jacket to elevate your style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
-    "price": 35,
-    "slug": "fashionable-jacket"
+    "id": 4,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/08f904d1-dedb-4260-952d-8ac3c31ebad0/dunk-low-retro-premium-mens-shoes-20hjNd.png",
+    "name": "Air Jordan 8 Winterized",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 150,
+    "slug": "dunk-low-retro-premium-mens-shoes-20hjNd"
+  },
+  {
+    "id": 5,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/209889d9-4910-4f06-9d07-18afa558b566/air-max-270-mens-shoes-KkLcGR.png",
+    "name": "Air Jordan 1 High OG",
+    "description": "A trendy tote bag to carry your essentials with style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 180,
+    "slug": "air-max-270-mens-shoes-KkLcGR"
   }
 ]
 
 export const discountedProducts = [
 
   {
-    "id": 3,
-    "image": "https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
-    "name": "Elegant Dress",
+    "id": 1,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/bd2e5a6c-287f-431b-af24-4f64d11e0220/vomero-5-mens-shoes-MgsTqZ.png",
+    "name": "Nike Dunk High Etro SE",
     "description": "A sophisticated and elegant dress for special occasions. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
-    "price": 30,
-    "slug": "elegant-dress"
+    "price": 140,
+    "slug": "nike-dunk-high-etro-se"
+  },
+  {
+    "id": 2,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/bb9be77e-e808-4d58-88db-5ad331c0b4ac/sabrina-1-west-coast-roots-basketball-shoes-f8jr2H.png",
+    "name": "Nike Air More Uptempo 96",
+    "description": "A pair of stylish glasses to enhance your look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 153.97,
+    "slug": "nike-air-more-uptempo-96"
+  },
+  {
+    "id": 3,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/5e1d6979-98ef-4240-8f9c-4daa7dddce16/vaporfly-3-mens-road-racing-shoes-8DD182.png",
+    "name": "KD16",
+    "description": "A vintage chill cap for a laid-back and cool look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 22,
+    "slug": "kd-16"
   },
   {
     "id": 4,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Glasses.png/1200px-Glasses.png",
-    "name": "Stylish Glasses",
-    "description": "A pair of stylish glasses to enhance your look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
-    "price": 15,
-    "slug": "stylish-glasses"
-  },
-  {
-    "id": 6,
-    "image": "https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
-    "name": "Vintage Chill Cap",
-    "description": "A vintage chill cap for a laid-back and cool look. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
-    "price": 22,
-    "slug": "vintage-chill-cap"
-  },
-  {
-    "id": 8,
-    "image": "https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
-    "name": "Fashionable Jacket",
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/77a9570a-f734-4050-82e1-b422da3be7ad/dunk-high-retro-se-mens-shoes-9dMJ92.png",
+    "name": "Tiger Woods 13",
     "description": "A fashionable jacket to elevate your style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
-    "price": 35,
-    "slug": "fashionable-jacket"
+    "price": 250,
+    "slug": "tiger-woods-13"
+  },
+  {
+    "id": 5,
+    "image": "https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f6161f39-7584-44da-88a4-e7b2bb86d441/kd16-basketball-shoes-H3gcDG.png",
+    "name": "Air Jordan 13 Wheat",
+    "description": "A fashionable jacket to elevate your style. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget tristique tortor pretium ut. Curabitur elit justo, consequat id condimentum ac, volutpat ornare.",
+    "price": 200,
+    "slug": "air-jordan-13-wheat"
   }
 ]
 

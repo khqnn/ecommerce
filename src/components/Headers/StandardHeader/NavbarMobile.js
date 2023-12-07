@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Badge } from "@material-ui/core";
 
-import { Search, ShoppingCartOutlined } from "@material-ui/icons";
+import { Search, ShoppingCartOutlined, Menu, Close } from "@material-ui/icons";
 import { AuthData } from '../../../auth/AuthWrapper';
 import { useNavigate } from 'react-router-dom';
 
@@ -197,11 +197,19 @@ const NavbarMobile = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                     <Left>
                         <MenuContainer>
                             <DrawerMenuButtonContainer>
-                                <MenuDrawerButton onClick={toggleDrawer}>Menu</MenuDrawerButton>
+                                <MenuDrawerButton onClick={toggleDrawer}>
+                                    <StyledBadge color="primary">
+                                        <Menu />
+                                    </StyledBadge>
+                                </MenuDrawerButton>
                             </DrawerMenuButtonContainer>
                             <DrawerContainer isOpen={isOpen}>
                                 <DrawerHeader backgroundColor={background_color_header} textColor={text_color_header}>
-                                    <CloseButton backgroundColor={background_color_header} textColor={text_color_header} onClick={toggleDrawer}>Close</CloseButton>
+                                    <CloseButton backgroundColor={background_color_header} textColor={text_color_header} onClick={toggleDrawer}>
+                                    <StyledBadge color="primary">
+                                        <Close />
+                                    </StyledBadge>
+                                    </CloseButton>
                                 </DrawerHeader>
                                 <DrawerContent>
                                     {menuItems.map((menuItem) => (<>

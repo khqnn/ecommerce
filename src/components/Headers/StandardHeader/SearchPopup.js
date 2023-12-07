@@ -1,5 +1,5 @@
 import { Badge } from '@material-ui/core';
-import { Search } from "@material-ui/icons";
+import { Search, Close } from "@material-ui/icons";
 import React, { useState } from 'react'
 import styled from 'styled-components';
 
@@ -110,7 +110,7 @@ justify-content: center;
 align-items: center;
 `
 
-const SearchPopup = ({isOpen, setIsOpen}) => {
+const SearchPopup = ({ isOpen, setIsOpen }) => {
 
 
     // const [isOpen, setIsOpen] = useState(false)
@@ -179,7 +179,9 @@ const SearchPopup = ({isOpen, setIsOpen}) => {
         <SearchPopupContainer isOpen={isOpen}>
             <SearchCloseButtonContainer>
                 <SearchCloseButton onClick={toggleSearchPopup}>
-                    Close
+                    <StyledBadge color="primary">
+                        <Close />
+                    </StyledBadge>
                 </SearchCloseButton>
             </SearchCloseButtonContainer>
 
