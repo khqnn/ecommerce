@@ -144,20 +144,12 @@ const StyledBadge = styled(Badge)({
 })
 
 
-const Navbar = ({ settings, logo, menuItems }) => {
+const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
 
-    const [isOpen, setIsOpen] = useState(false)
-
-    /**
-     * 1. search popup [done]
-     * 2. mobile responsive
-     * 3. theme adjustement
-     */
 
     return (
         <>
             <Container>
-                <SearchPopup isOpen={isOpen} setIsOpen={setIsOpen} />
                 <Wrapper>
                     <Left>
                         <LogoContainer>
@@ -183,7 +175,7 @@ const Navbar = ({ settings, logo, menuItems }) => {
                     <Right>
                         <ProfileMenuContainer>
                             <StyledBadge color="primary">
-                                <Search onClick={e => setIsOpen(!isOpen)} />
+                                <Search onClick={toggleSearchPopup} />
                             </StyledBadge>
                             <DropdownContainer>
                                 <DropdownIcon>

@@ -168,15 +168,18 @@ const CloseButton = styled.button`
 `;
 
 const FilterDrawerButton = styled.button`
-  background-color: white;
   color: black;
   padding: 10px;
   cursor: pointer;
-  width: 100%;
+  margin-left: 10px;
+  border: none;
+  background-color: transparent;
 `;
 
 const DrawerFilterButtonContainer = styled.div`
 padding: 10px;
+display: flex;
+flex-direction: row;
 `
 
 const CategoryFilterContainer = styled.div`
@@ -190,7 +193,7 @@ height: fit-content;
 const CategoryBanner = styled.img`
 width: 100vw;
 height: 500px;
-${mobile({height: '120px'})}
+${mobile({ height: '120px' })}
 `
 
 const StandardShop = () => {
@@ -265,7 +268,13 @@ const StandardShop = () => {
                 <Wrapper>
 
                     <MobileFilterContainer>
+
                         <DrawerFilterButtonContainer>
+                            <SearchContaienr>
+                                <SearchBox>
+                                    <Search placeholder="Search..." />
+                                </SearchBox>
+                            </SearchContaienr>
                             <FilterDrawerButton border="0.01em solid gray" onClick={toggleDrawer}>Filters</FilterDrawerButton>
                         </DrawerFilterButtonContainer>
 

@@ -148,9 +148,8 @@ display: flex;
 
 
 
-const NavbarMobile = ({ settings, logo, menuItems }) => {
+const NavbarMobile = ({ settings, logo, menuItems, toggleSearchPopup }) => {
 
-    const [searchIsOpen, setSearchIsOpen] = useState(false)
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleDrawer = () => {
@@ -166,17 +165,12 @@ const NavbarMobile = ({ settings, logo, menuItems }) => {
     return (
         <>
             <Container>
-                <SearchPopup isOpen={searchIsOpen} setIsOpen={setSearchIsOpen} />
                 <Wrapper>
                     <Left>
-
                         <MenuContainer>
-
-
                             <DrawerMenuButtonContainer>
                                 <MenuDrawerButton onClick={toggleDrawer}>Menu</MenuDrawerButton>
                             </DrawerMenuButtonContainer>
-
                             <DrawerContainer isOpen={isOpen}>
                                 <DrawerHeader>
                                     <CloseButton onClick={toggleDrawer}>Close</CloseButton>
@@ -194,26 +188,11 @@ const NavbarMobile = ({ settings, logo, menuItems }) => {
                                     </>))}
                                     <MenuItem>Register</MenuItem>
                                     <MenuItem>Login</MenuItem>
-
                                 </DrawerContent>
                             </DrawerContainer>
-
-                            {/* {menuItems.map((menuItem) => (
-                                <>
-                                    {(menuItem['categories'] && menuItem['categories'].length > 0) ? (
-                                        <DropdownContainer>
-                                            <DropdownText>{menuItem.title}</DropdownText>
-                                            <DropdownContent >{menuItem['categories'].map((cat) => (<DropdownItem >{cat.title}</DropdownItem>))}</DropdownContent>
-                                        </DropdownContainer>
-                                    ) : (
-                                        <MenuItem>{menuItem.title}</MenuItem>
-                                    )}
-                                </>
-                            ))} */}
                         </MenuContainer>
                     </Left>
                     <Center>
-
                         <LogoContainer>
                             <Logo src={logo} />
                         </LogoContainer>
@@ -221,7 +200,7 @@ const NavbarMobile = ({ settings, logo, menuItems }) => {
                     <Right>
                         <ProfileMenuContainer>
                             <StyledBadge color="primary">
-                                <Search onClick={e => setSearchIsOpen(!searchIsOpen)} />
+                                <Search onClick={toggleSearchPopup} />
                             </StyledBadge>
                             <StyledBadge color="primary" >
                                 <ShoppingCartOutlined />
