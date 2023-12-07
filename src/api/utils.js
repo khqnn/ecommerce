@@ -2,7 +2,7 @@ import { businesses, categories, discountedProducts, latestProducts, popularProd
 
 export const getBusinessName = ()=>{
 
-    return "lama"
+    return "vape"
 }
 
 export const getBusinessId = (business_name)=>{

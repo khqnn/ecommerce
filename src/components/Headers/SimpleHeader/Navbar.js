@@ -81,9 +81,9 @@ const MenuBarContainer = styled.div`
 const MenuBarWrapper = styled.div`
   padding: 0px;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
-  // box-shadow: 0px -1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 8px 0 rgb(183 183 183 / 28%);
   
 `;
 
