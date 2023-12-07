@@ -236,7 +236,7 @@ const Navbar = (props) => {
             </MenuItem>
 
             <MenuItem onClick={() => navigate("/cart")}>
-              <StyledBadge backgroundColor={background_color_menubar} textColor={text_color_menubar} badgeContent={cartCount} color="primary" >
+              <StyledBadge backgroundColor={background_color_hover} textColor={text_color_hover} badgeContent={cartCount} color="primary" >
                 <ShoppingCartOutlined />
               </StyledBadge>
             </MenuItem>

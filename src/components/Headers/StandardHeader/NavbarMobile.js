@@ -79,8 +79,8 @@ const DrawerContainer = styled.div`
   position: fixed;
   overflow: auto;
   top: 0;
-  left: ${({ isOpen }) => (isOpen ? '0' : '-300px')};
-  transition: left 0.3s ease-in-out;
+  right: ${({ isOpen }) => (isOpen ? '0' : '-300px')};
+  transition: right 0.3s ease-in-out;
 `;
 
 const DrawerHeader = styled.div`

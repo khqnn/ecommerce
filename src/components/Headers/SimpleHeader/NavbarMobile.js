@@ -82,8 +82,8 @@ const DrawerContainer = styled.div`
   position: fixed;
   overflow: auto;
   top: 0;
-  left: ${(props) => (props.open ? '0' : '-300px')};
-  transition: left 0.3s ease-in-out;
+  right: ${(props) => (props.open ? '0' : '-260px')};
+  transition: right 0.3s ease-in-out;
   z-index: 100;
 `;
 
@@ -229,7 +229,7 @@ const NavbarMobile = (props) => {
           <Center> {logo} </Center>
           <Right>
             <MenuItem onClick={e => navigate("/cart")}>
-              <StyledBadge backgroundColor={background_color_menubar} textColor={text_color_menubar} badgeContent={cartCount} color="primary">
+              <StyledBadge backgroundColor={background_color_hover} textColor={text_color_hover} badgeContent={cartCount} color="primary">
                 <ShoppingCartOutlined />
               </StyledBadge>
             </MenuItem>
