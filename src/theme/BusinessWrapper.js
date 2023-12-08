@@ -18,7 +18,7 @@ const BusinessWrapper = ({ children }) => {
          * Navigate to 404 if settings not found
          */
         const name = getBusinessName()
-        fetch(`http://localhost:4000/businesses/name/${name}`)
+        fetch(`${process.env.REACT_APP_API_URL}/businesses/${name}`)
             .then(response => response.json())
             .then(json => {
                 const data = json.data
