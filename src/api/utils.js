@@ -1,19 +1,12 @@
-import { businesses, categories, discountedProducts, latestProducts, popularProducts, products } from "../data"
+import { categories, defaultThemeSettings, discountedProducts, latestProducts, popularProducts, products } from "../data"
+
+export const getDefaultThemeSetting = ()=>{
+    return defaultThemeSettings
+}
 
 export const getBusinessName = ()=>{
 
     return "lama"
-}
-
-export const getBusinessId = (business_name)=>{
-    let businessId = null
-    const business = businesses.find((b)=> b.name==business_name)
-
-    if(business){
-        businessId = business.id
-    }
-
-    return businessId
 }
 
 export const getProducts = (businessId)=>{
@@ -37,10 +30,4 @@ export const getDiscountedProducts = (businessId)=>{
 export const getLatestProducts = (businessId)=>{
 
     return latestProducts
-}
-
-export const getBusinessSettings = (businessId)=>{
-    const business = businesses.find(b=> b.id==businessId)
-    
-    return business
 }

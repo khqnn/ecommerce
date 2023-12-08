@@ -1,11 +1,9 @@
-import { businesses } from '../data'
 import { BusinessData } from '../theme/BusinessWrapper'
 import { HeaderFactory } from './Headers/Factory'
 
 const Header = () => {
 
     const businessData = BusinessData()
-    const businessId = businessData.id
     const businessSettings = businessData.settings
 
 

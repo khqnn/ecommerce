@@ -2,10 +2,9 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { businesses, popularProducts } from '../data';
 import { ProductFactory } from './Products/Factory';
 import styled from 'styled-components';
-import Heading from './Heading';
+import { BusinessData } from '../theme/BusinessWrapper';
 
 const SliderContainer = styled.div`
 margin-left: 20px
@@ -14,7 +13,7 @@ margin-left: 20px
 const CarouselContainer = styled.div`
 `
 
-const ProductSlider = ({heading, products}) => {
+const ProductSlider = ({ heading, products }) => {
 
     const responsive = {
         superLargeDesktop: {
@@ -36,7 +35,10 @@ const ProductSlider = ({heading, products}) => {
         }
     };
 
-    const businessInfo = businesses[1]
+
+    const businessData = BusinessData()
+    const businessInfo = businessData.settings
+
     const productFactory = new ProductFactory(businessInfo.product_card.id)
 
 

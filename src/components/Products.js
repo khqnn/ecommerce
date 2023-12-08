@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ProductFactory } from "./Products/Factory";
-import { businesses } from "../data";
 import Heading from "./Heading";
+import { BusinessData } from "../theme/BusinessWrapper";
 
 const Container = styled.div`
 `;
@@ -22,7 +22,9 @@ margin-top: 60px;
 
 const Products = ({ heading = null, products }) => {
 
-  const businessInfo = businesses[1]
+  const businessData = BusinessData()
+  const businessInfo = businessData.settings
+
   const productFactory = new ProductFactory(businessInfo.product_card.id)
 
   return (

@@ -26,8 +26,6 @@ const Notfound = () => {
                 <NotFound>Not found</NotFound>
 
             </Wrapper>
-            <Newsletter />
-            <Footer />
         </Container>
     )
 }

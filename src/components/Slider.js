@@ -1,9 +1,9 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
-import { businesses } from "../data";
 import { mobile } from "../responsive";
 import { useNavigate } from "react-router-dom";
+import { BusinessData } from "../theme/BusinessWrapper";
 
 const Container = styled.div`
   width: 100%;
@@ -89,6 +89,9 @@ const Slider = () => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const navigate = useNavigate()
+
+  const businessData = BusinessData()
+
   const handleClick = (direction) => {
     if (direction === "left") {
       setSlideIndex(slideIndex > 0 ? slideIndex - 1 : 2);
@@ -97,7 +100,7 @@ const Slider = () => {
     }
   };
 
-  const businessInfo = businesses[0]
+  const businessInfo = businessData.settings
   const sliderItems = businessInfo.slider.items
 
   return (

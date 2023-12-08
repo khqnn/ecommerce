@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
 import { CategoryFactory } from "./Categories/Factory";
-import { businesses } from "../data";
 import Heading from "./Heading";
+import { BusinessData } from "../theme/BusinessWrapper";
 
 const Container = styled.div`
 display: flex;
@@ -21,7 +21,9 @@ ${mobile({ padding: "0px", flexDirection: "column" })}
 
 const Categories = ({categories, heading = null }) => {
 
-  const businessInfo = businesses[1]
+  
+  const businessData = BusinessData()
+  const businessInfo = businessData.settings
   const categoryFactory = new CategoryFactory(businessInfo.category_card.id)
 
   return (
