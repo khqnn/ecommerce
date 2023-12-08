@@ -63,7 +63,7 @@ width: fit-content;
 const MenuItem = styled.div`
 flex: 1;
 width: 80px;
-padding: 20px 10px;
+height: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -88,7 +88,9 @@ height: 100%;
 const DropdownText = styled.div`
 flex: 1;
 width: 80px;
-padding: 20px 10px;
+height: 100%;
+
+// padding: 20px 10px;
 display: flex;
 justify-content: center;
 align-items: center;
@@ -110,6 +112,7 @@ align-items: center;
 const DropdownContainer = styled.div`
   position: relative;
   display: inline-block;
+  height: 100%;
 `;
 
 
@@ -136,6 +139,7 @@ const DropdownItem = styled.a`
   padding: 10px;
   width: 200px;
   height: 40px;
+
   text-decoration: none;
   transition: background-color 0.3s;
 

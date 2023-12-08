@@ -8,7 +8,7 @@ const Wrapper = styled.div``
 
 export const customSectionBuilder = (section) => {
     const name = section.name + "-" + Date.now().toString()
-    const html = atob(section.html)
+    const html = decodeURI(section.html)
     return (
         <Container>
             <Wrapper>
