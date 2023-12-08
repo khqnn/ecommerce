@@ -105,7 +105,55 @@ export const businesses = [
     "shop_page": {
       "id": "standard",
       "settings": {}
+    },
+    "home_page": {
+      "sections": [
+        {
+          "heading": "Popular Categories",
+          "type": "category_slider",
+          "params": {
+            "special": "popular_categories"
+          }
+        },
+        {
+          "heading": "Popular Products",
+          "type": "product_slider",
+          "n_mobile": 1,
+          "n_desktop": 5,
+          "params": {
+            "special": "popular_products",
+            "query": null
+          }
+        },
+        {
+          "heading": "What You Like",
+          "name": "banner",
+          "type": "custom_section",
+          "html": "CiAgICA8c3R5bGU+CiAgICAuY29udGFpbmVyIHt9CgogICAgLndyYXBwZXIgewogICAgICAgIGRpc3BsYXk6IGZsZXg7CiAgICAgICAgZmxleC1kaXJlY3Rpb246IHJvdzsKICAgICAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjsKICAgICAgICBjb2x1bW4tZ2FwOiA0MHB4OwogICAgfQoKICAgIC5jb2x1bW4ge30KCiAgICAuaW1nLXdyYXBwZXIge30KCiAgICAudHh0LXdyYXBwZXIgewogICAgICAgIG1hcmdpbi10b3A6IDIwcHg7CiAgICB9CgogICAgLmltYWdlIHsKICAgICAgICB3aWR0aDogNDAwcHg7CiAgICAgICAgaGVpZ2h0OiA0MDBweDsKICAgIH0KCiAgICAudGV4dCB7CiAgICAgICAgZm9udC1zaXplOiBsYXJnZTsKICAgIH0KCiAgICBAbWVkaWEgb25seSBzY3JlZW4gYW5kIChtYXgtd2lkdGg6IDc2OHB4KSB7CiAgICAgICAgLndyYXBwZXJ7CiAgICAgICAgICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47CiAgICAgICAgICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7CiAgICAgICAgfQogICAgICAgIC5pbWFnZXsKICAgICAgICAgICAgd2lkdGg6IDMwMHB4OwogICAgICAgICAgICBoZWlnaHQ6IDMwMHB4OwogICAgICAgIH0KICAgICAgICAudHh0LXdyYXBwZXJ7CiAgICAgICAgICAgIG1hcmdpbi10b3A6IDRweDsKICAgICAgICAgICAgbWFyZ2luLWJvdHRvbTogMjBweDsKICAgICAgICB9CgogICAgfQo8L3N0eWxlPgo8ZGl2IGNsYXNzPSJjb250YWluZXIiPgogICAgPGRpdiBjbGFzcz0id3JhcHBlciI+CiAgICAgICAgPGRpdiBjbGFzcz0iY29sdW1uIj4KICAgICAgICAgICAgPGRpdiBjbGFzcz0iaW1nLXdyYXBwZXIiPgogICAgICAgICAgICAgICAgPGltZyBjbGFzcz0iaW1hZ2UiCiAgICAgICAgICAgICAgICAgICAgc3JjPSJodHRwczovL2hpcHMuaGVhcnN0YXBwcy5jb20vaG1nLXByb2QuczMuYW1hem9uYXdzLmNvbS9pbWFnZXMvbmlrZS1ydW5uaW5nLXNob2UtYnV5aW5nLWd1aWRlLXJlZnJlc2gtbGVhZC02NDUxNzU3NGNjMjAxLmpwZz9jcm9wPTEuMDB4dzoxLjAweGg7MCwwJnJlc2l6ZT02NDA6KiIgLz4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InR4dC13cmFwcGVyIj4KICAgICAgICAgICAgICAgIFRoZSBNb3N0IEljb25pYyBHaWZ0cwogICAgICAgICAgICA8L2Rpdj4KICAgICAgICA8L2Rpdj4KICAgICAgICA8ZGl2IGNsYXNzPSJjb2x1bW4iPgogICAgICAgICAgICA8ZGl2IGNsYXNzPSJpbWctd3JhcHBlciI+CiAgICAgICAgICAgICAgICA8aW1nIGNsYXNzPSJpbWFnZSIKICAgICAgICAgICAgICAgICAgICBzcmM9Imh0dHBzOi8vd3d3LmNhbXB1c3Nob2VzLmNvbS9jZG4vc2hvcC9wcm9kdWN0cy9GSVJTVF8xMUctNzg3X1dIVC1TSUwtQi5PUkcuanBnP3Y9MTY3MDMyNjE4MyIgLz4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InR4dC13cmFwcGVyIj4KICAgICAgICAgICAgICAgIER1bmsgVGhlIEhhbGxzCiAgICAgICAgICAgIDwvZGl2PgogICAgICAgIDwvZGl2PgogICAgICAgIDxkaXYgY2xhc3M9ImNvbHVtbiI+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImltZy13cmFwcGVyIj4KICAgICAgICAgICAgICAgIDxpbWcgY2xhc3M9ImltYWdlIgogICAgICAgICAgICAgICAgICAgIHNyYz0iaHR0cHM6Ly9ydWttaW5pbTIuZmxpeGNhcnQuY29tL2ltYWdlLzQ1MC81MDAveGlmMHEvc2hvZS9yL2UvbS8tb3JpZ2luYWwtaW1hZ3NmZHZ1ZmZ2cXg0eC5qcGVnP3E9OTAmY3JvcD1mYWxzZSIgLz4KICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgICAgIDxkaXYgY2xhc3M9InR4dC13cmFwcGVyIj4KICAgICAgICAgICAgICAgIFdpbnRlciBSdW5uaW5nIEVzc2VudGlhbHMKICAgICAgICAgICAgPC9kaXY+CiAgICAgICAgPC9kaXY+CgogICAgPC9kaXY+CjwvZGl2PgogICAg"
+        },
+        {
+          "heading": "Discounted Products",
+          "type": "product_slider",
+          "n_mobile": 1,
+          "n_desktop": 5,
+          "params": {
+            "special": "discounted_products",
+            "query": null
+          }
+        },
+        {
+          "heading": "Latest Products",
+          "type": "product_slider",
+          "n_mobile": 1,
+          "n_desktop": 5,
+          "params": {
+            "special": "latest_products",
+            "query": null
+          }
+        }
+      ]
     }
+
 
   }
 ]

@@ -8,20 +8,10 @@ import styled from 'styled-components';
 import Heading from './Heading';
 
 const SliderContainer = styled.div`
-margin: 3px;
+margin-left: 20px
 `
-
-const HeadingContainer = styled.div`
-margin-top: 100px;
-margin-bottom: 10px;
-text-align: center;
-`
-
-
 
 const CarouselContainer = styled.div`
-justify-content: center;
-align-items: center;
 `
 
 const ProductSlider = ({heading, products}) => {
@@ -29,20 +19,20 @@ const ProductSlider = ({heading, products}) => {
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
-            breakpoint: { max: 4000, min: 3000 },
+            breakpoint: { max: 4000, min: 1500 },
             items: 5
         },
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
-            items: 5
+            breakpoint: { max: 1500, min: 1024 },
+            items: 4
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2
+            items: 3
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 2
+            items: 1
         }
     };
 
@@ -52,9 +42,6 @@ const ProductSlider = ({heading, products}) => {
 
     return (
         <SliderContainer>
-            <HeadingContainer>
-                <Heading text={heading} />
-            </HeadingContainer>
             <CarouselContainer>
                 <Carousel removeArrowOnDeviceType={["superLargeDesktop", "desktop"]} infinite={true} responsive={responsive}>
                     {products.map((product) => (
