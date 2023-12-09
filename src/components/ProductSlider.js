@@ -18,7 +18,7 @@ const ProductSlider = ({ heading, products }) => {
         superLargeDesktop: {
             // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 1500 },
-            items: 4
+            items: 5
         },
         desktop: {
             breakpoint: { max: 1500, min: 1024 },

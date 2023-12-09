@@ -17,7 +17,7 @@ background-color: #f6f6f6;
 border-radius: 20px;
 position: relative;
 
-width: 320px;
+width: 300px;
 height: 360px;
 ${mobile({width: 'calc(100vw - 40px)', margin: '0px'})}
 `

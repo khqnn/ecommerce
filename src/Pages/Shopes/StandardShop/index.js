@@ -83,11 +83,13 @@ const ProductsContainer = styled.div`
 flex: 4;
 margin: 10px 0px;
 margin-right: 100px;
+display: grid;
+grid-template-columns: auto auto auto auto;
 ${mobile({marginRight: '20px'})}
 `
 
 const SortFiltersContainer = styled.div`
-padding: 4px;
+padding: 10px;
 padding-left: 100px;
 background-color: white;
 border-bottom: 0.01em solid gray;
@@ -103,7 +105,7 @@ const SortOption = styled.option`
 `
 
 const FilterTitle = styled.h2`
-margin: 15px 0;
+margin: 10px 0;
 
 `
 
@@ -314,9 +316,12 @@ const StandardShop = () => {
                                 <SortFiltersContainer>
                                     <FilterTitle>Sort</FilterTitle>
                                     <SortSelect >
-                                        <SortOption>One</SortOption>
-                                        <SortOption>Two</SortOption>
-                                        <SortOption>Three</SortOption>
+                                        <SortOption>Price (High to Low)</SortOption>
+                                        <SortOption>Price (Low to High)</SortOption>
+                                        <SortOption>Latest</SortOption>
+                                        <SortOption>Name (A to Z)</SortOption>
+                                        <SortOption>Name (Z to A)</SortOption>
+
                                     </SortSelect>
                                 </SortFiltersContainer>
 
@@ -372,9 +377,11 @@ const StandardShop = () => {
                             <SortFiltersContainer>
                                 <FilterTitle>Sort</FilterTitle>
                                 <SortSelect >
-                                    <SortOption>One</SortOption>
-                                    <SortOption>Two</SortOption>
-                                    <SortOption>Three</SortOption>
+                                        <SortOption>Price (High to Low)</SortOption>
+                                        <SortOption>Price (Low to High)</SortOption>
+                                        <SortOption>Latest</SortOption>
+                                        <SortOption>Name (A to Z)</SortOption>
+                                        <SortOption>Name (Z to A)</SortOption>
                                 </SortSelect>
                             </SortFiltersContainer>
                             <FiltersContainer>

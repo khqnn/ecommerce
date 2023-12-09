@@ -14,6 +14,7 @@ import { productSliderBuilder } from '../theme/HomepageBuilder/ProductSliderBuil
 import { SectionFactory, SliderFactory } from '../theme/HomepageBuilder/SectionFactory'
 import { customSectionBuilder } from '../theme/HomepageBuilder/CustomSectionBuilder'
 import { mobile } from '../responsive'
+import Malenian from '../components/CustomSections/Malenian'
 
 const HomePageWrapper = styled.div`
 
@@ -23,8 +24,8 @@ const Home = () => {
 
     /**
      * Headings factory
-     * products grid system on shop page
-     * css classes for margins
+     * generate 2 to 3 custom sections
+     * 
      */
 
     const businessData = BusinessData()
@@ -39,6 +40,7 @@ const Home = () => {
     return (
         <div>
             <Header />
+            <Malenian />
             <HomePageWrapper>
                 {sections.map((section)=>(
                     (new SectionFactory(section)).init(businessData)

@@ -11,8 +11,13 @@ display: flex;
 flex-wrap: wrap;
 text-align: center;
 justify-content: space-between;
-margin: 0px 20px;
-row-gap: 30px
+row-gap: 30px;
+margin: 20px;
+margin-right: 0px;
+// display: grid;
+// grid-template-columns: auto auto auto auto;
+// gap: 30px;
+
 `
 
 const HeadingWrapper = styled.div`
