@@ -27,7 +27,7 @@ export const productSliderBuilder = (businessData, section) => {
     return (
         <Wrapper>
             {headingBuilder(section.heading)}
-            <ProductSlider products={products} />
+            <div className="margin-medium"><ProductSlider products={products} /></div>
         </Wrapper>
     )
 

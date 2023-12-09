@@ -19,7 +19,7 @@ export const categorySliderBuilder = (businessData, section) => {
     return (
         <Wrapper>
             {headingBuilder(section.heading)}
-            < Categories categories={categories} />
+            <div className="margin-medium">< Categories categories={categories} /></div>
         </Wrapper>
     )
 

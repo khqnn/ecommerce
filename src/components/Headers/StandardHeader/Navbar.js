@@ -43,7 +43,6 @@ const LogoContainer = styled.div`
 display: flex;
 align-items: center;
 justify-content: start;
-margin-left: 40px;
 height: 100%;
 `
 
@@ -81,7 +80,6 @@ const ProfileMenuContainer = styled.div`
 display: flex;
 align-items: center;
 justify-content: end;
-margin-right: 40px;
 height: 100%;
 `
 
@@ -170,7 +168,7 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
     return (
         <>
             <Container>
-                <Wrapper backgroundColor={background_color_header} textColor={text_color_header}>
+                <Wrapper className='margin-medium' backgroundColor={background_color_header} textColor={text_color_header}>
                     <Left>
                         <LogoContainer>
                             <Logo src={logo} onClick={e => navigate("/")} />

@@ -115,7 +115,6 @@ const MenuDrawerButton = styled.button`
 `;
 
 const DrawerMenuButtonContainer = styled.div`
-padding: 10px;
 `
 
 const MenuItem = styled.div`
@@ -193,7 +192,7 @@ const NavbarMobile = ({ settings, logo, menuItems, toggleSearchPopup }) => {
     return (
         <>
             <Container>
-                <Wrapper backgroundColor={background_color_header} textColor={text_color_header}>
+                <Wrapper className='margin-small' backgroundColor={background_color_header} textColor={text_color_header}>
                     <Left>
                         <MenuContainer>
                             <DrawerMenuButtonContainer>

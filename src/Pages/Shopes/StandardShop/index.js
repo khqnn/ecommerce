@@ -41,7 +41,9 @@ align-items: center;
 `
 
 const Breadcrumb = styled.div`
-margin-left: 40px;
+margin-left: 100px;
+${mobile({marginLeft: '20px'})}
+
 `
 
 const SearchContaienr = styled.div`
@@ -79,12 +81,18 @@ ${mobile({ display: 'none' })}
 `
 const ProductsContainer = styled.div`
 flex: 4;
+margin: 10px 0px;
+margin-right: 100px;
+${mobile({marginRight: '20px'})}
 `
 
 const SortFiltersContainer = styled.div`
-padding: 10px 40px;
+padding: 4px;
+padding-left: 100px;
 background-color: white;
 border-bottom: 0.01em solid gray;
+${mobile({paddingLeft: '20px'})}
+
 `
 const SortSelect = styled.select`
 width: 100%;
@@ -100,10 +108,12 @@ margin: 15px 0;
 `
 
 const FiltersContainer = styled.div`
-padding-left: 40px;
+padding-left: 100px;
 padding-top: 20px;
 height: 100vh;
 background-color: white;
+${mobile({paddingLeft: '20px'})}
+
 `
 
 const FilterGroup = styled.div`
@@ -186,7 +196,7 @@ const FilterDrawerButton = styled.button`
 `;
 
 const DrawerFilterButtonContainer = styled.div`
-padding: 10px;
+padding: 10px 20px;
 display: flex;
 flex-direction: row;
 `

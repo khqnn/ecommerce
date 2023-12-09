@@ -13,7 +13,6 @@ const StyledBadge = styled(Badge)({
 })
 
 const Container = styled.div`
-margin: 4px;
 background-color: #f6f6f6;
 border-radius: 20px;
 position: relative;

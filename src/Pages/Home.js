@@ -17,12 +17,16 @@ import { mobile } from '../responsive'
 
 const HomePageWrapper = styled.div`
 
-width: calc(100vw - 80px);
-margin: 0px 40px;
-${mobile({width: 'calc(100vw - 40px)', margin: '0px 20px'})};
 `
 
 const Home = () => {
+
+    /**
+     * Headings factory
+     * products grid system on shop page
+     * css classes for margins
+     */
+
     const businessData = BusinessData()
 
     const sections = businessData.settings.home_page.sections

@@ -16,6 +16,39 @@
       margin: 0;
       font-family: 'Urbanist', sans-serif;
     }
+
+    .margin-small {
+      width: calc(100vw - 80px);
+      margin: 0px 40px;
+    }
+
+    .margin-medium {
+      width: calc(100vw - 200px);
+      margin: 0px 100px;
+    }
+
+    .margin-large {
+      width: calc(100vw - 400px);
+      margin: 0px 200px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      .margin-large {
+        width: calc(100vw - 40px);
+        margin: 0px 20px;
+      }
+
+      .margin-medium {
+        width: calc(100vw - 40px);
+        margin: 0px 20px;
+      }
+
+      .margin-small {
+        width: calc(100vw - 40px);
+        margin: 0px 20px;
+      }
+
+    }
   </style>
 </head>
 
