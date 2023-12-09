@@ -6,7 +6,7 @@ const HeadingContainer = styled.div`
 width: 100%;
 `
 
-const HeadingText = styled.h1`
+const HeadingText = styled.h2`
 width: 100%;
 
 ${mobile({fontSize: "1.5em"})};

@@ -13,7 +13,6 @@ const StyledBadge = styled(Badge)({
 })
 
 const Container = styled.div`
-// border: 1px solid;
 margin: 4px;
 background-color: #f6f6f6;
 border-radius: 20px;
@@ -21,6 +20,7 @@ position: relative;
 
 width: 320px;
 height: 360px;
+${mobile({width: 'calc(100vw - 40px)', margin: '0px'})}
 `
 const Wrapper = styled.div`
 display: flex;

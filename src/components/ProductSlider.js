@@ -7,7 +7,6 @@ import styled from 'styled-components';
 import { BusinessData } from '../theme/BusinessWrapper';
 
 const SliderContainer = styled.div`
-margin-left: 20px
 `
 
 const CarouselContainer = styled.div`

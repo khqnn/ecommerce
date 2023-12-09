@@ -13,9 +13,13 @@ import { categorySliderBuilder } from '../theme/HomepageBuilder/CategorySliderBu
 import { productSliderBuilder } from '../theme/HomepageBuilder/ProductSliderBuilder'
 import { SectionFactory, SliderFactory } from '../theme/HomepageBuilder/SectionFactory'
 import { customSectionBuilder } from '../theme/HomepageBuilder/CustomSectionBuilder'
+import { mobile } from '../responsive'
 
 const HomePageWrapper = styled.div`
 
+width: calc(100vw - 80px);
+margin: 0px 40px;
+${mobile({width: 'calc(100vw - 40px)', margin: '0px 20px'})};
 `
 
 const Home = () => {
