@@ -15,6 +15,7 @@ import { SectionFactory, SliderFactory } from '../theme/HomepageBuilder/SectionF
 import { customSectionBuilder } from '../theme/HomepageBuilder/CustomSectionBuilder'
 import { mobile } from '../responsive'
 import Malenian from '../components/CustomSections/Malenian'
+import { CustomSectionFactory } from '../components/CustomSections/Factory'
 
 const HomePageWrapper = styled.div`
 
@@ -32,15 +33,9 @@ const Home = () => {
 
     const sections = businessData.settings.home_page.sections
 
-    const html = `
-    `
-
-    console.log(btoa(html));
-
     return (
         <div>
             <Header />
-            <Malenian />
             <HomePageWrapper>
                 {sections.map((section)=>(
                     (new SectionFactory(section)).init(businessData)

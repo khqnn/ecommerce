@@ -12,7 +12,7 @@ export const productSliderBuilder = (businessData, section) => {
     const businessId = businessData.id
 
     let products = []
-    switch (section.params.special) {
+    switch (section.id) {
         case "popular_products":
             products = getPopularProducts(businessId)
             break;
