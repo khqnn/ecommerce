@@ -10,8 +10,7 @@ import Header from "../components/Header";
 const Container = styled.div``;
 
 const Wrapper = styled.div`
-  padding: 20px;
-  ${mobile({ padding: "10px" })}
+margin-top: 20px;
 `;
 
 const Title = styled.h1`
@@ -23,7 +22,7 @@ const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 0px;
 `;
 
 const TopButton = styled.button`
@@ -197,7 +196,7 @@ const Cart = () => {
     <>
       <Header />
       <Container>
-        <Wrapper>
+        <Wrapper className="margin-medium">
           <Title>YOUR BAG</Title>
           <Top>
             <TopButton>CONTINUE SHOPPING</TopButton>

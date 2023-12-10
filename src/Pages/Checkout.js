@@ -18,7 +18,7 @@ align-items: center;
 const Wrapper = styled.div`
 display: flex;
 flex-direction: row;
-width: 60%;
+// width: 60%;
 margin-top: 40px;
 ${mobile({ flexDirection: 'column', width: '100%', margin: 0 })}
 `
@@ -224,7 +224,7 @@ display: flex;
 const Top = styled.div`
 display: flex;
 flex-direction: row;
-width: 60vw;
+// width: 60vw;
 height: 120px;
 ${mobile({ width: '100%', flexDirection: 'column', height: 'fit-content' })}
 
@@ -273,7 +273,7 @@ const ImageLogo = styled.img`
 `
 
 const CenterContainer = styled.div`
-width: 100%;
+// width: 100%;
 display: flex;
 justify-content: center;
 `
@@ -282,7 +282,7 @@ const BreadcrumbContainer = styled.div`
   display: flex;
   align-items: center;
   // padding: 10px;
-  width: 60%;
+  // width: 60%;
   margin-top: 60px;
   // background-color: #f0f0f0;
   ${mobile({ justifyContent: 'center', margin: 10 })}
@@ -347,14 +347,14 @@ const Checkout = () => {
       <Container>
 
         <TopContainer>
-          <Top>
+          <Top className='margin-large'>
             <TopLeft onClick={e => navigate("/")}><ImageLogo src={logo} /></TopLeft>
             <TopCenter><h1>CHECKOUT</h1></TopCenter>
             <TopRight><ImageLogo src='https://www.vhv.rs/file/max/11/114011_norton-secured-logo-png.png' /></TopRight>
           </Top>
         </TopContainer>
         <CenterContainer>
-          <BreadcrumbContainer>
+          <BreadcrumbContainer className='margin-large'>
             <Crumb>Home</Crumb>
             <Separator>/</Separator>
             <Crumb active>Checkout</Crumb>
@@ -362,8 +362,8 @@ const Checkout = () => {
 
 
         </CenterContainer>
-        <BottomContainer>
-          <Wrapper>
+        <BottomContainer >
+          <Wrapper className='margin-large'>
             <CheckoutDetailWrapper>
 
               <FormContainer >

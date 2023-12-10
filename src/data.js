@@ -7,10 +7,10 @@ export const defaultThemeSettings = {
     "id": "standard",
     "settings": {
       "announcement_text": "Top Announcement goes here...",
-      "announcement_background": "teal",
+      "announcement_background": "white",
       "background_color_header": "white",
       "text_color_header": "black",
-      "background_color_hover": "teal",
+      "background_color_hover": "black",
       "text_color_hover": "white"
     }
   },
