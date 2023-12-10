@@ -1,6 +1,7 @@
 import { categorySliderBuilder } from "./CategorySliderBuilder";
 import { customSectionBuilder } from "./CustomSectionBuilder";
 import { productSliderBuilder } from "./ProductSliderBuilder";
+import { sliderBuilder } from "./SliderBuilder";
 import { templateCustomSectionBuilder } from "./TemplateCustomSectionBuilder";
 
 export class SectionFactory {
@@ -18,6 +19,8 @@ export class SectionFactory {
                 return customSectionBuilder(this.section)
             case "custom_section_template":
                 return templateCustomSectionBuilder(businessData, this.section)
+            case "slider":
+                return sliderBuilder(businessData, this.section)
         }
         return <></>
     }
