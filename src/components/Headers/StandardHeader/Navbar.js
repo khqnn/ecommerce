@@ -215,7 +215,7 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                                     </>}
                                 </DropdownContent>
                             </DropdownContainer>
-                            <StyledBadge color="primary" onClick={e=> navigate("/cart")}>
+                            <StyledBadge backgroundColor={background_color_hover} badgeContent='2' color="primary" onClick={e=> navigate("/cart")}>
                                 <ShoppingCartOutlined />
                             </StyledBadge>
                         </ProfileMenuContainer>
