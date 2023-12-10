@@ -1,0 +1,9 @@
+FROM node:alpine
+
+ENV NODE_ENV development
+
+WORKDIR /react-app
+
+COPY package.json .
+
+RUN yarn install
