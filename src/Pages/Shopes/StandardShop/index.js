@@ -85,7 +85,7 @@ margin: 30px;
 // margin-right: 100px;
 display: grid;
 grid-template-columns: auto auto auto auto;
-${mobile({marginRight: '20px'})}
+${mobile({margin: '20px'})}
 `
 
 const SortFiltersContainer = styled.div`
