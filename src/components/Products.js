@@ -2,22 +2,23 @@ import styled from "styled-components";
 import { ProductFactory } from "./Products/Factory";
 import Heading from "./Heading";
 import { BusinessData } from "../theme/BusinessWrapper";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
-display: flex;
-flex-wrap: wrap;
-text-align: center;
-justify-content: space-between;
-row-gap: 30px;
-margin: 20px;
-margin-right: 0px;
-// display: grid;
-// grid-template-columns: auto auto auto auto;
-// gap: 30px;
-
+// display: flex;
+// flex-wrap: wrap;
+// text-align: center;
+// justify-content: space-between;
+// row-gap: 30px;
+margin: 0px;
+// margin-right: 0px;
+display: grid;
+grid-template-columns: auto auto auto auto;
+gap: 30px;
+${mobile({gridTemplateColumns: 'auto'})}
 `
 
 const HeadingWrapper = styled.div`

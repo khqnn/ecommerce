@@ -212,8 +212,6 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
                                     </> : <>
                                         <DropdownItem hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>Register</DropdownItem>
                                         <DropdownItem hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover} onClick={e => navigate("/login")}>Login</DropdownItem>
-                                        <DropdownItem hoverBackgroundColor={background_color_hover} hoverTextColor={text_color_hover}>Test</DropdownItem>
-
                                     </>}
                                 </DropdownContent>
                             </DropdownContainer>

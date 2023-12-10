@@ -81,8 +81,8 @@ ${mobile({ display: 'none' })}
 `
 const ProductsContainer = styled.div`
 flex: 4;
-margin: 10px 0px;
-margin-right: 100px;
+margin: 30px;
+// margin-right: 100px;
 display: grid;
 grid-template-columns: auto auto auto auto;
 ${mobile({marginRight: '20px'})}
