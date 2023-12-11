@@ -3,7 +3,9 @@ import { getPopularCategories, getPopularProducts } from '../api/utils'
 import Categories from '../components/Categories'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Newsletter from '../components/Newsletter'
 import ProductSlider from '../components/ProductSlider'
+import Features from '../components/Sections/Features'
 import Slider from '../components/Slider'
 import { BusinessData } from '../theme/BusinessWrapper'
 import styled from 'styled-components'
@@ -30,9 +32,11 @@ const Home = () => {
         <div>
             <Header />
             <Slider params={slides} />
-            <Categories categories={popular_categories} heading="Popular Categories"/>
-            <ProductSlider products={popular_products} heading="Popular Products"/>
+            <Features />
 
+            <Categories categories={popular_categories} heading="Popular Categories" />
+            <ProductSlider products={popular_products} heading="Popular Products" />
+            <Newsletter />
             <Footer />
         </div>
     )
