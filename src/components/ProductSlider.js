@@ -7,9 +7,13 @@ import Product from './Product';
 import Heading from './Heading';
 
 const SliderContainer = styled.div`
+margin-top: 40px;
 `
 
 const CarouselContainer = styled.div`
+`
+const HeadingContainer = styled.div`
+margin: 20px 0px;
 `
 
 const ProductSlider = ({ products, heading = null }) => {
@@ -36,9 +40,10 @@ const ProductSlider = ({ products, heading = null }) => {
 
 
     return (
-        <SliderContainer>
-            <Heading text={heading} />
-
+        <SliderContainer className='margin-medium'>
+            {heading && <HeadingContainer>
+                <Heading text={heading} />
+            </HeadingContainer>}
             <CarouselContainer>
                 <Carousel removeArrowOnDeviceType={["superLargeDesktop", "desktop"]} infinite={true} responsive={responsive}>
                     {products.map((product) => (

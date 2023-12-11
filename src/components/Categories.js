@@ -5,8 +5,12 @@ import { BusinessData } from "../theme/BusinessWrapper";
 import Category from "./Category";
 
 const Container = styled.div`
-
+margin-top: 40px;
 `;
+
+const HeadingContainer = styled.div`
+margin: 20px 0px;
+`
 
 const Wrapper = styled.div`
 display: flex;
@@ -21,8 +25,10 @@ const Categories = ({ categories, heading = null }) => {
 
 
   return (
-    <Container>
-      <Heading text={heading} />
+    <Container className="margin-medium">
+      {heading && <HeadingContainer>
+        <Heading text={heading} />
+      </HeadingContainer>}
       <Wrapper>
         {categories.map((item) => (
           <Category item={item} />
