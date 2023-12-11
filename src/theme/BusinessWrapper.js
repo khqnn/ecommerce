@@ -17,7 +17,7 @@ const BusinessWrapper = ({ children }) => {
          * Load orignal business settings here
          * Navigate to 404 if settings not found
          */
-        // const name = getBusinessName()
+        // const name = getBusinessName(window)
         // fetch(`${process.env.REACT_APP_API_URL}/businesses/${name}`)
         //     .then(response => response.json())
         //     .then(json => {
