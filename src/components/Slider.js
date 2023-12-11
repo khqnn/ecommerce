@@ -1,9 +1,8 @@
 import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import { useState } from "react";
 import styled from "styled-components";
-import { mobile } from "../../../responsive";
+import { mobile } from "../responsive";
 import { useNavigate } from "react-router-dom";
-import { BusinessData } from "../../../theme/BusinessWrapper";
 
 const Container = styled.div`
   width: 100%;
@@ -85,7 +84,7 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-const StandardSlider = ({params}) => {
+const Slider = ({params}) => {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const navigate = useNavigate()
@@ -99,6 +98,7 @@ const StandardSlider = ({params}) => {
   };
 
   const sliderItems = params.slides
+  console.log(sliderItems);
 
   return (
     <Container>
@@ -127,4 +127,4 @@ const StandardSlider = ({params}) => {
 
 }
 
-export default StandardSlider;
+export default Slider;

@@ -1,13 +1,11 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
-import { CategoryFactory } from "./Categories/Factory";
 import Heading from "./Heading";
 import { BusinessData } from "../theme/BusinessWrapper";
+import Category from "./Category";
 
 const Container = styled.div`
-display: flex;
-flex-direction: column;
-text-align: center;
+
 `;
 
 const Wrapper = styled.div`
@@ -19,19 +17,15 @@ ${mobile({ padding: "0px", flexDirection: "column" })}
 `
 
 
-const Categories = ({categories, heading = null }) => {
+const Categories = ({ categories, heading = null }) => {
 
-  
-  const businessData = BusinessData()
-  const businessInfo = businessData.settings
-  const categoryFactory = new CategoryFactory(businessInfo.category_card.id)
 
   return (
     <Container>
       <Heading text={heading} />
       <Wrapper>
         {categories.map((item) => (
-          categoryFactory.init(item)
+          <Category item={item} />
         ))}
       </Wrapper>
     </Container>

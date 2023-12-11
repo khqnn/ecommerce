@@ -1,38 +1,107 @@
 export const defaultThemeSettings = {
-  "id": 1,
-  "name": "buainsess_name",
-  "logo": null,
-  "menu_items": [{"title":"Home","path":"/"},{"title":"Categories","path":null,"categories":[{"title":"Men","path":"/"},{"title":"Women","path":"/"},{"title":"Kids","path":"/"}]},{"title":"About","path":"/"},{"title":"Contact","path":"/"}],
+  "business_id": 1,
+  "name": "lama",
+  "logo": "https://themewagon.com/wp-content/uploads/2021/03/Frame-172-1.png",
+  "menu_items": [
+    {
+      "title": "Home",
+      "path": "/"
+    },
+    {
+      "title": "Men",
+      "path": null,
+      "categories": [
+        {
+          "title": "Jordan",
+          "path": "/shop/jordan"
+        },
+        {
+          "title": "LAMA",
+          "path": "/shop/lama"
+        },
+        {
+          "title": "Python",
+          "path": "/shop/python"
+        }
+      ]
+    },
+    {
+      "title": "Women",
+      "path": null,
+      "categories": [
+        {
+          "title": "Java",
+          "path": "/shop/java"
+        },
+        {
+          "title": "Cherry",
+          "path": "/shop/cherry"
+        },
+        {
+          "title": "Kitkat",
+          "path": "/shop/kitkat"
+        }
+      ]
+    },
+    {
+      "title": "Kids",
+      "path": "/shop/kids"
+    }
+  ],
+
+  "announcement_text": "Get free shipping upto $50",
+  "announcement_background": "black",
   "header": {
     "id": "standard",
-    "settings": {
-      "announcement_text": "Top Announcement goes here...",
-      "announcement_background": "white",
-      "background_color_header": "white",
-      "text_color_header": "black",
-      "background_color_hover": "black",
-      "text_color_hover": "white"
+    "background_color_header": "white",
+    "text_color_header": "black",
+    "background_color_hover": "black",
+    "text_color_hover": "white"
+  },
+  "slides": [
+    {
+      "id": 3,
+      "img": "https://i.ibb.co/cXFnLLV/3.png",
+      "title": "LOUNGEWEAR LOVE",
+      "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      "bg": "fbf0f4",
+      "btn": {
+        "text": "SHOP NOW",
+        "path": "/shop/shirts",
+        "background": "white",
+        "color": "black"
+      }
+    },
+    {
+      "id": 1,
+      "img": "https://stat4.bollywoodhungama.in/wp-content/uploads/2017/10/Anushka-Sharma-launches-her-own-signature-apparel-line-NUSH-11.jpg",
+      "title": "SUMMER SALE",
+      "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      "bg": "#fff",
+      "btn": {
+        "text": "SHOP NOW",
+        "path": "/shop/shirts",
+        "background": "white",
+        "color": "black"
+      }
+    },
+    {
+      "id": 2,
+      "img": "https://i.ibb.co/DG69bQ4/2.png",
+      "title": "AUTUMN COLLECTION",
+      "desc": "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+      "bg": "gray",
+      "text_color": "white",
+      "btn": {
+        "text": "SHOP NOW",
+        "path": "/shop/shirts",
+        "background": "white",
+        "color": "black"
+      }
     }
-  },
-  "product_card": {
-    "id": "plain",
-    "settings": {}
-  },
-  "category_card": {
-    "id": "simple",
-    "settings": {}
-  },
-  "slider": {
-    "items": []
-  },
-  "shop_page": {
-    "id": "standard",
-    "settings": {}
-  },
-  "home_page": {
-    "sections": []
-  }
+  ]
 }
+
 
 export const categories = [
   {

@@ -4,7 +4,7 @@ import { Badge } from "@material-ui/core";
 
 import { Search, ShoppingCartOutlined, Person } from "@material-ui/icons";
 import { useNavigate } from 'react-router-dom';
-import { AuthData } from '../../../auth/AuthWrapper';
+import { AuthData } from '../../auth/AuthWrapper';
 
 const StyledBadge = styled(Badge)({
     "& .MuiBadge-badge": {

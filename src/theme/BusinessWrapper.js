@@ -17,19 +17,19 @@ const BusinessWrapper = ({ children }) => {
          * Load orignal business settings here
          * Navigate to 404 if settings not found
          */
-        const name = getBusinessName()
-        fetch(`${process.env.REACT_APP_API_URL}/businesses/${name}`)
-            .then(response => response.json())
-            .then(json => {
-                const data = json.data
-                const business = data.business
-                const id = business.business_id
-                const settings = business.settings
-                setBusiness({ id, name, settings })
-            })
-            .catch(error => {
-                navigate("/404")
-            });
+        // const name = getBusinessName()
+        // fetch(`${process.env.REACT_APP_API_URL}/businesses/${name}`)
+        //     .then(response => response.json())
+        //     .then(json => {
+        //         const data = json.data
+        //         const business = data.business
+        //         const id = business.business_id
+        //         const settings = business.settings
+        //         setBusiness({ id, name, settings })
+        //     })
+        //     .catch(error => {
+        //         navigate("/404")
+        //     });
     }, []);
 
     if (business.id == null) {
@@ -37,7 +37,7 @@ const BusinessWrapper = ({ children }) => {
          * Load and set default settings untill orignal settings are fetched
          */
         const settings = getDefaultThemeSetting()
-        setBusiness({ id: settings.id, name: settings.name, settings })
+        setBusiness({ id: settings.business_id, name: settings.name, settings })
     }
 
     return (

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { mobile } from '../responsive'
 import Header from '../components/Header'
-import Announcement from '../components/Headers/SimpleHeader/Announcement'
+import Announcement from '../components/Announcement'
 import { BusinessData } from '../theme/BusinessWrapper'
 import { useNavigate } from 'react-router-dom'
 

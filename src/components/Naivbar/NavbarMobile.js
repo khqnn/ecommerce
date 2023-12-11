@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Badge } from "@material-ui/core";
 
 import { Search, ShoppingCartOutlined, Menu, Close } from "@material-ui/icons";
-import { AuthData } from '../../../auth/AuthWrapper';
+import { AuthData } from '../../auth/AuthWrapper';
 import { useNavigate } from 'react-router-dom';
 
 

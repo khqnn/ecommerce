@@ -2,9 +2,9 @@
 import React from 'react'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { ProductFactory } from './Products/Factory';
 import styled from 'styled-components';
-import { BusinessData } from '../theme/BusinessWrapper';
+import Product from './Product';
+import Heading from './Heading';
 
 const SliderContainer = styled.div`
 `
@@ -12,7 +12,7 @@ const SliderContainer = styled.div`
 const CarouselContainer = styled.div`
 `
 
-const ProductSlider = ({ heading, products }) => {
+const ProductSlider = ({ products, heading = null }) => {
 
     const responsive = {
         superLargeDesktop: {
@@ -35,18 +35,14 @@ const ProductSlider = ({ heading, products }) => {
     };
 
 
-    const businessData = BusinessData()
-    const businessInfo = businessData.settings
-
-    const productFactory = new ProductFactory(businessInfo.product_card.id)
-
-
     return (
         <SliderContainer>
+            <Heading text={heading} />
+
             <CarouselContainer>
                 <Carousel removeArrowOnDeviceType={["superLargeDesktop", "desktop"]} infinite={true} responsive={responsive}>
                     {products.map((product) => (
-                        productFactory.init(product)
+                        <Product item={product} />
                     ))}
                 </Carousel></CarouselContainer>
         </SliderContainer>

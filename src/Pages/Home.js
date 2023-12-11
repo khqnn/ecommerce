@@ -1,9 +1,12 @@
 
+import { getPopularCategories, getPopularProducts } from '../api/utils'
+import Categories from '../components/Categories'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import ProductSlider from '../components/ProductSlider'
+import Slider from '../components/Slider'
 import { BusinessData } from '../theme/BusinessWrapper'
 import styled from 'styled-components'
-import { SectionFactory } from '../theme/HomepageBuilder/SectionFactory'
 
 const HomePageWrapper = styled.div`
 
@@ -18,17 +21,18 @@ const Home = () => {
      */
 
     const businessData = BusinessData()
+    const slides = businessData.settings
 
-    const sections = businessData.settings.home_page.sections
+    const popular_categories = getPopularCategories(businessData.id)
+    const popular_products = getPopularProducts(businessData.id)
 
     return (
         <div>
             <Header />
-            <HomePageWrapper>
-                {sections.map((section)=>(
-                    (new SectionFactory(section)).init(businessData)
-                ))}
-            </HomePageWrapper>
+            <Slider params={slides} />
+            <Categories categories={popular_categories} heading="Popular Categories"/>
+            <ProductSlider products={popular_products} heading="Popular Products"/>
+
             <Footer />
         </div>
     )

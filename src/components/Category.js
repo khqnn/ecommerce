@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { mobile } from "../../../responsive";
+import { mobile } from "../responsive";
 import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
@@ -46,7 +46,7 @@ const Button = styled.button`
 
 
 
-const SimpleCategory = ({ item }) => {
+const Category = ({ item }) => {
 
   /**
    * item: {slug, image, title}
@@ -69,4 +69,4 @@ const SimpleCategory = ({ item }) => {
   );
 };
 
-export default SimpleCategory;
+export default Category;

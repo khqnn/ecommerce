@@ -1,10 +1,9 @@
 import styled from "styled-components"
 import Navbar from "./Navbar"
-import { mobile } from "../../../responsive"
+import { mobile } from "../../responsive"
 import NavbarMobile from "./NavbarMobile"
 import SearchPopup from "./SearchPopup"
 import { useState } from "react"
-import Announcement from "./Announcement"
 
 const NavbarContainer = styled.div`
 `
@@ -19,7 +18,7 @@ display: none;
 ${mobile({ display: "block" })};
 `
 
-const StandardHeader = ({ settings, logo, menuItems }) => {
+const Naivbar = ({ settings, logo, menuItems }) => {
 
     /**
      * settings: {
@@ -55,10 +54,9 @@ const StandardHeader = ({ settings, logo, menuItems }) => {
             <MobileNavbar>
                 <NavbarMobile settings={settings} logo={logo} menuItems={menuItems} toggleSearchPopup={toggleSearchPopup} />
             </MobileNavbar>
-            <Announcement text={settings.announcement_text} color={settings.announcement_background} />
         </NavbarContainer>
     )
 
 }
 
-export default StandardHeader
+export default Naivbar

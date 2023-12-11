@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { ProductFactory } from "./Products/Factory";
 import Heading from "./Heading";
 import { BusinessData } from "../theme/BusinessWrapper";
 import { mobile } from "../responsive";
+import Product from "./Product";
 
 const Container = styled.div`
 `;
@@ -31,7 +31,6 @@ const Products = ({ heading = null, products }) => {
   const businessData = BusinessData()
   const businessInfo = businessData.settings
 
-  const productFactory = new ProductFactory(businessInfo.product_card.id)
 
   return (
     <Container>
@@ -41,7 +40,7 @@ const Products = ({ heading = null, products }) => {
 
       <Wrapper>
         {products.map((item) => (
-          productFactory.init(item)
+          <Product item={item} />
         ))}
       </Wrapper>
     </Container>

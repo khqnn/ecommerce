@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { mobile } from '../../../responsive'
+import { mobile } from '../responsive'
 import { Badge } from "@material-ui/core";
 import { Search, ShoppingCartOutlined, FavoriteBorder } from "@material-ui/icons";
 
@@ -76,7 +76,7 @@ flex: 1;
 `
 
 
-const PlainProduct = ({ item }) => {
+const Product = ({ item }) => {
     return (
         <Container>
             <Wrapper>
@@ -102,4 +102,4 @@ const PlainProduct = ({ item }) => {
     )
 }
 
-export default PlainProduct
+export default Product
