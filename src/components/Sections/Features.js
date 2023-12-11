@@ -1,18 +1,22 @@
 import styled from "styled-components"
+import { mobile } from "../../responsive"
 
 const Container = styled.div`
-margin-top: 100px;
-margin-bottom: 100px;
+margin: 100px auto;
 box-shadow: 0 4px 14px rgba(0,0,0,.08);
+${mobile({boxShadow: 'none'})};
 `
 const Wrapper = styled.div`
 display: flex;
-height: 200px;
+height: fit-content;
+padding: 20px 0px;
+${mobile({flexDirection: 'column', rowGap: '40px'})};
 `
 const ItemContainer = styled.div`
 flex: 1;
 display: flex;
-column-gap: 20px;
+${mobile({columnGap: '20px'})};
+
 `
 
 const ImageContainer = styled.div`
@@ -24,7 +28,9 @@ align-items: center;
 const Image = styled.img`
 width: 100px;
 height: 100px;
-margin: 0px 20px;
+margin-left: 20px;
+${mobile({margin: '0px'})};
+
 `
 
 const TextContainer = styled.div`
@@ -34,6 +40,9 @@ flex-direction: column;
 justify-content: center;
 row-gap: 10px;
 height: 100%;
+margin: 0px 20px;
+${mobile({margin: '0px'})};
+
 `
 
 
