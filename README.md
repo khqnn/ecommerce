@@ -5,6 +5,7 @@
 
 ### latest build 1.0.2, latest
 
+push code live
 1. bitbucket repos
 2. push code
 3. create docker-composes
