@@ -6,13 +6,10 @@ import Header from '../components/Header'
 import Newsletter from '../components/Newsletter'
 import ProductSlider from '../components/ProductSlider'
 import Features from '../components/Sections/Features'
+import Offers from '../components/Sections/Offers'
 import Slider from '../components/Slider'
 import { BusinessData } from '../theme/BusinessWrapper'
-import styled from 'styled-components'
 
-const HomePageWrapper = styled.div`
-
-`
 
 const Home = () => {
 
@@ -33,7 +30,7 @@ const Home = () => {
             <Header />
             <Slider params={slides} />
             <Features />
-
+            <Offers />
             <Categories categories={popular_categories} heading="Popular Categories" />
             <ProductSlider products={popular_products} heading="Popular Products" />
             <Newsletter />

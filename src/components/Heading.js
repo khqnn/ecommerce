@@ -3,7 +3,10 @@ import styled from 'styled-components'
 import { mobile } from '../responsive'
 
 const HeadingContainer = styled.div`
+display: flex;
+text-align: center;
 width: 100%;
+margin: 40px auto;
 `
 
 const HeadingText = styled.h2`
