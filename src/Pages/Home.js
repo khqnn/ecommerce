@@ -133,6 +133,34 @@ const Home = () => {
         }
     ]
 
+    const helpMeChoose = [
+        {
+            id: 1,
+            image: 'https://images.samsung.com/is/image/samsung/assets/pk/smartphones/socialimage/04_Help_me_choose_PC_07.jpg?$330_440_PNG$',
+            title: 'Home Appliances Buying Guide'
+        },
+        {
+            id: 2,
+            image: 'https://images.samsung.com/is/image/samsung/assets/pk/smartphones/socialimage/Main_03_help_me_choose_PC_04_330x440.jpg?$330_440_PNG$',
+            title: 'Take the quiz to find your perfect TV'
+        },
+        {
+            id: 3,
+            image: 'https://images.samsung.com/is/image/samsung/assets/pk/smartphones/socialimage/Main_03_help_me_choose_PC_06_330x440.jpg?$330_440_PNG$',
+            title: 'Pick the fridge thats best for you'
+        },
+        {
+            id: 4,
+            image: 'https://images.samsung.com/is/image/samsung/assets/pk/smartphones/socialimage/Main_03_help_me_choose_PC_05_330x440.jpg?$330_440_PNG$',
+            title: 'Find your ideal Samsung TV'
+        },
+        {
+            id: 5,
+            image: 'https://images.samsung.com/is/image/samsung/assets/pk/smartphones/socialimage/Main_03_help_me_choose_PC_03_330x440.jpg?$330_440_PNG$',
+            title: 'Compare up to 3 Tablets'
+        }
+    ]
+
 
     return (
         <div>
@@ -146,6 +174,10 @@ const Home = () => {
 
             <Categories categories={popular_categories} heading="Popular Categories" />
             <ProductSlider products={popular_products} heading="Popular Products" />
+
+            <CardSlider id="image" items={helpMeChoose} heading="Help me choose" count={5} />
+
+
             <CardList id="support" items={supportItems} heading="Support features" />
 
             <Newsletter />

@@ -16,17 +16,17 @@ const HeadingContainer = styled.div`
 margin: 20px 0px;
 `
 
-const CardSlider = ({ id, items, heading = null }) => {
+const CardSlider = ({ id, items, heading = null, count = 3 }) => {
 
     const responsive = {
         superLargeDesktop: {
             // the naming can be any, depends on you.
             breakpoint: { max: 4000, min: 1500 },
-            items: 3
+            items: count
         },
         desktop: {
             breakpoint: { max: 1500, min: 1024 },
-            items: 3
+            items: count
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
