@@ -166,11 +166,11 @@ const Home = () => {
         <div>
             <Header />
             <Slider params={slides} />
-            {/* <Features /> */}
-            <CardSlider id="support" items={advantages} heading="Advantages" />
-
+            <Features />
 
             <CardList id="offer" items={offerItems} heading="Our best offers" />
+            <CardSlider id="support" items={advantages} heading="Advantages" />
+
 
             <Categories categories={popular_categories} heading="Popular Categories" />
             <ProductSlider products={popular_products} heading="Popular Products" />
