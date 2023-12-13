@@ -336,8 +336,8 @@ const Checkout = () => {
   const businessData = BusinessData()
   const businessSettings = businessData.settings
   const logo = businessSettings.logo
-  const announcementText = businessSettings.header.settings.announcement_text
-  const announcementColor = businessSettings.header.settings.announcement_background
+  const announcementText = businessSettings.announcement_text
+  const announcementColor = businessSettings.announcement_background
 
 
   return (

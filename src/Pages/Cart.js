@@ -6,6 +6,7 @@ import { cart, cartItems } from "../data";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import { BusinessData } from "../theme/BusinessWrapper";
 
 const Container = styled.div``;
 
@@ -159,6 +160,9 @@ const Cart = () => {
 
   const [cartObject, setCartObject] = useState(cart)
 
+  const businessData = BusinessData()
+  const businessSettings = businessData.settings
+
   const navigate = useNavigate()
 
   const calculateCart = (cartItems) => {
@@ -196,7 +200,7 @@ const Cart = () => {
     <>
       <Header />
       <Container>
-        <Wrapper className="margin-medium">
+        <Wrapper className={businessSettings.margin}>
           <Title>YOUR BAG</Title>
           <Top>
             <TopButton>CONTINUE SHOPPING</TopButton>
