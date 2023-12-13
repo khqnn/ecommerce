@@ -17,7 +17,7 @@ background-color: #f6f6f6;
 border-radius: 20px;
 position: relative;
 
-width: 300px;
+width: 260px;
 height: 360px;
 ${mobile({width: 'calc(100vw - 40px)', margin: '0px'})}
 `
@@ -45,9 +45,10 @@ height: 220px;
 const NameContainer = styled.div`
 flex: 1;
 display: flex;
-
+margin: 20px;
 justify-content: center;
 align-items: center;
+text-align: center;
 font-weight: bold;
 font-size: large;
 

@@ -15,9 +15,11 @@ const Wrapper = styled.div`
 // row-gap: 30px;
 margin: 0px;
 // margin-right: 0px;
-display: grid;
-grid-template-columns: auto auto auto auto;
-gap: 30px;
+// display: grid;
+// grid-template-columns: auto auto auto auto;
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
 ${mobile({gridTemplateColumns: 'auto'})}
 `
 

@@ -14,6 +14,7 @@ const Header = () => {
     const logo = businessSettings.logo
     const menuItems = businessSettings.menu_items
     const settings = businessSettings.header
+    settings['margin'] = businessSettings.margin
 
     return (
         <>

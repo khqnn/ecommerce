@@ -160,7 +160,8 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
         background_color_hover,
         text_color_hover,
         announcement_text,
-        announcement_background
+        announcement_background,
+        margin
     } = settings
 
     console.log(settings);
@@ -168,7 +169,7 @@ const Navbar = ({ settings, logo, menuItems, toggleSearchPopup }) => {
     return (
         <>
             <Container>
-                <Wrapper className='margin-medium' backgroundColor={background_color_header} textColor={text_color_header}>
+                <Wrapper className={margin} backgroundColor={background_color_header} textColor={text_color_header}>
                     <Left>
                         <LogoContainer>
                             <Logo src={logo} onClick={e => navigate("/")} />

@@ -35,19 +35,19 @@ ${mobile({ display: 'none' })}
 `
 
 const BreadcrumbContaienr = styled.div`
-flex: 1;
+flex: 2;
 display: flex;
 align-items: center;
 `
 
 const Breadcrumb = styled.div`
-margin-left: 100px;
+margin-left: 200px;
 ${mobile({marginLeft: '20px'})}
 
 `
 
 const SearchContaienr = styled.div`
-flex: 4;
+flex: 6;
 display: flex;
 align-items: center;
 `
@@ -73,24 +73,22 @@ border: 0.01em solid gray;
 `
 
 const SidebarContainer = styled.div`
-flex: 1;
+flex: 2;
 display: flex;
 flex-direction: column;
 border-right: 0.01em solid gray;
 ${mobile({ display: 'none' })}
 `
 const ProductsContainer = styled.div`
-flex: 4;
-margin: 30px;
-// margin-right: 100px;
-display: grid;
-grid-template-columns: auto auto auto auto;
+flex: 5;
+margin: 18px;
+margin-right: 200px;
 ${mobile({margin: '20px'})};
 `
 
 const SortFiltersContainer = styled.div`
 padding: 10px;
-padding-left: 100px;
+padding-left: 200px;
 background-color: white;
 border-bottom: 0.01em solid gray;
 ${mobile({paddingLeft: '20px'})}
@@ -110,7 +108,7 @@ margin: 10px 0;
 `
 
 const FiltersContainer = styled.div`
-padding-left: 100px;
+padding-left: 200px;
 padding-top: 20px;
 height: 100vh;
 background-color: white;

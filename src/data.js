@@ -2,6 +2,7 @@ export const defaultThemeSettings = {
   "business_id": 1,
   "name": "lama",
   "logo": "https://themewagon.com/wp-content/uploads/2021/03/Frame-172-1.png",
+  "margin": "margin-large",
   "menu_items": [
     {
       "title": "Home",

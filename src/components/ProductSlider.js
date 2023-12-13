@@ -5,6 +5,7 @@ import 'react-multi-carousel/lib/styles.css';
 import styled from 'styled-components';
 import Product from './Product';
 import Heading from './Heading';
+import { BusinessData } from '../theme/BusinessWrapper';
 
 const SliderContainer = styled.div`
 margin-top: 40px;
@@ -17,6 +18,9 @@ margin: 20px 0px;
 `
 
 const ProductSlider = ({ products, heading = null }) => {
+
+    const businessData = BusinessData()
+    const businessSettings = businessData.settings
 
     const responsive = {
         superLargeDesktop: {
@@ -40,7 +44,7 @@ const ProductSlider = ({ products, heading = null }) => {
 
 
     return (
-        <SliderContainer className='margin-medium'>
+        <SliderContainer className={businessSettings.margin}>
             {heading && <HeadingContainer>
                 <Heading text={heading} />
             </HeadingContainer>}

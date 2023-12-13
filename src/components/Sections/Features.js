@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { mobile } from "../../responsive"
+import { BusinessData } from "../../theme/BusinessWrapper"
 
 const Container = styled.div`
 margin: 0px auto;
@@ -49,6 +50,9 @@ ${mobile({margin: '0px'})};
 
 const Features = () => {
 
+    const businessData = BusinessData()
+    const businessSettings = businessData.settings
+
 
     const items = [
         {
@@ -78,7 +82,7 @@ const Features = () => {
     ]
 
     return (
-        <Container className="margin-medium">
+        <Container className={businessSettings.margin}>
             <Wrapper>
                 {items.map((item) => (
 

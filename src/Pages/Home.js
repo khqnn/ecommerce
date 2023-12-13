@@ -175,7 +175,7 @@ const Home = () => {
             <Categories categories={popular_categories} heading="Popular Categories" />
             <ProductSlider products={popular_products} heading="Popular Products" />
 
-            <CardSlider id="image" items={helpMeChoose} heading="Help me choose" count={5} />
+            <CardSlider id="image" items={helpMeChoose} heading="Help me choose" count={4} />
 
 
             <CardList id="support" items={supportItems} heading="Support features" />

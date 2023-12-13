@@ -23,9 +23,11 @@ ${mobile({ padding: "0px", flexDirection: "column" })}
 
 const Categories = ({ categories, heading = null }) => {
 
+  const businessData = BusinessData()
+  const businessSettings = businessData.settings
 
   return (
-    <Container className="margin-medium">
+    <Container className={businessSettings.margin}>
       {heading && <HeadingContainer>
         <Heading text={heading} />
       </HeadingContainer>}
