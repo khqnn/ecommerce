@@ -1,4 +1,5 @@
 
+import styled from 'styled-components'
 import { getPopularCategories, getPopularProducts } from '../api/utils'
 import CardList from '../components/CardList'
 import CardSlider from '../components/CardSlider'
@@ -7,10 +8,16 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Newsletter from '../components/Newsletter'
 import ProductSlider from '../components/ProductSlider'
+import Deals from '../components/Sections/Deals'
 import Features from '../components/Sections/Features'
 import Slider from '../components/Slider'
 import { BusinessData } from '../theme/BusinessWrapper'
 
+const HomepageWrapper = styled.div`
+display: flex;
+flex-direction: column;
+row-gap: 80px
+`
 
 const Home = () => {
 
@@ -165,22 +172,25 @@ const Home = () => {
     return (
         <div>
             <Header />
-            <Slider params={slides} />
-            <Features />
+            <HomepageWrapper>
+                <Slider params={slides} />
+                <Features />
 
-            <CardList id="offer" items={offerItems} heading="Our best offers" />
-            <CardSlider id="support" items={advantages} heading="Advantages" />
+                <CardList id="offer" items={offerItems} heading="Our best offers" />
+                <CardSlider id="support" items={advantages} heading="Advantages" />
+
+                <Deals />
+
+                <Categories categories={popular_categories} heading="Popular Categories" />
+                <ProductSlider products={popular_products} heading="Popular Products" />
+
+                <CardSlider id="image" items={helpMeChoose} heading="Help me choose" count={4} />
 
 
-            <Categories categories={popular_categories} heading="Popular Categories" />
-            <ProductSlider products={popular_products} heading="Popular Products" />
+                <CardList id="support" items={supportItems} heading="Support features" />
 
-            <CardSlider id="image" items={helpMeChoose} heading="Help me choose" count={4} />
-
-
-            <CardList id="support" items={supportItems} heading="Support features" />
-
-            <Newsletter />
+                <Newsletter />
+            </HomepageWrapper>
             <Footer />
         </div>
     )

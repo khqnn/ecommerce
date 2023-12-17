@@ -5,7 +5,6 @@ import { BusinessData } from "../theme/BusinessWrapper";
 import Category from "./Category";
 
 const Container = styled.div`
-margin-top: 40px;
 `;
 
 const HeadingContainer = styled.div`
